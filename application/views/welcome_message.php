@@ -47,7 +47,7 @@ $this->load->view('fronted/layouts/ui_Header');
 						<div class="facts d-flex">
 							<div class="left scroll-animation" data-animation="fade_from_left">
 								<h1><?= $intro->experience ?? '0+' ?></h1>
-								<p>My Total Yrs. of <br />Experience</p>
+								<p>Total <br />Experience</p>
 							</div>
 							<div class="right scroll-animation" data-animation="fade_from_right">
 								<h1><?= $intro->project_completed ?? '0+' ?></h1>
