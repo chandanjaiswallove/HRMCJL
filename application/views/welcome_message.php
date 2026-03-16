@@ -26,7 +26,7 @@ $this->load->view('fronted/layouts/ui_Header');
 									<i class="las la-home"></i> Introduce
 								</h4>
 								<h1 class="scroll-animation" data-animation="fade_from_bottom">
-									Say Hello from <span><?= $intro->introduce_highlight ?></span>
+									Say Hi from <span><?= $intro->introduce_highlight ?></span>
 									<?= $intro->introduce_title ?>
 								</h1>
 							</div>

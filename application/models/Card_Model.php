@@ -31,11 +31,11 @@ class Card_Model extends CI_Model
             'web_title' => $this->input->post('web_title', true),
             'person_name' => $this->input->post('full_name', true),
 
-            'social_one' => $this->input->post('facebook_link', true),
-            'social_two' => $this->input->post('twitter_link', true),
-            'social_three' => $this->input->post('github_link', true),
-            'social_four' => $this->input->post('linkedin_link', true),
-            'social_five' => $this->input->post('instagram_link', true),
+            'facebook' => $this->input->post('facebook_link', true),
+            'internet_search' => $this->input->post('twitter_link', true),
+            'github' => $this->input->post('github_link', true),
+            'linkedin' => $this->input->post('linkedin_link', true),
+            'instagram' => $this->input->post('instagram_link', true),
 
             'address' => $this->input->post('address', true),
             'whatsapp_contact' => $this->input->post('whatsapp_Number', true),
