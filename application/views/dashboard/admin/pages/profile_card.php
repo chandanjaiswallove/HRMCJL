@@ -246,15 +246,15 @@
                                         <label class="form-label">Facebook Link</label>
                                         <input class="form-control" type="text" placeholder="Facebook link"
                                             id="facebook_link" name="facebook_link"
-                                            value="<?= $card->social_one ?? '' ?>" required />
+                                            value="<?= $card->facebook ?? '' ?>" required />
                                     </div>
                                 </div>
                                 <!-- X / Twitter -->
                                 <div class="col-sm-6 col-md-6">
                                     <div class="mb-3">
-                                        <label class="form-label">X (Twitter) Link</label>
+                                        <label class="form-label">Internet Search</label>
                                         <input class="form-control" type="text" placeholder="X / Twitter link"
-                                            id="twitter_link" name="twitter_link" value="<?= $card->social_two ?? '' ?>"
+                                            id="twitter_link" name="twitter_link" value="<?= $card->internet_search ?? '' ?>"
                                             required />
                                     </div>
                                 </div>
@@ -265,7 +265,7 @@
                                         <label class="form-label">GitHub Link</label>
                                         <input class="form-control" type="text" placeholder="GitHub profile link"
                                             id="github_link" name="github_link"
-                                            value="<?= $card->social_three ?? '' ?>" />
+                                            value="<?= $card->github ?? '' ?>" />
                                     </div>
                                 </div>
 
@@ -276,7 +276,7 @@
                                         <label class="form-label">LinkedIn Link</label>
                                         <input class="form-control" type="text" placeholder="LinkedIn link"
                                             id="linkedin_link" name="linkedin_link"
-                                            value="<?= $card->social_four ?? '' ?>" required />
+                                            value="<?= $card->linkedin ?? '' ?>" required />
                                     </div>
                                 </div>
 
@@ -285,7 +285,7 @@
                                         <label class="form-label">Instagram Links </label>
                                         <input class="form-control" type="text" placeholder="Instagram links"
                                             id="companyName" name="instagram_link"
-                                            value="<?= $card->social_five ?? '' ?>" />
+                                            value="<?= $card->instagram ?? '' ?>" />
                                     </div>
                                 </div>
 

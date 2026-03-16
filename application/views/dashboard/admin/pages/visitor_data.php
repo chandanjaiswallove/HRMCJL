@@ -64,10 +64,10 @@
 
                                                 <td><?= htmlspecialchars($row->visitor_email) ?></td>
 
-                                                <td><?= htmlspecialchars($row->visitor_subject) ?></td>
+                                                <td><?= limit_text($row->visitor_subject, 20) ?></td>
 
                                                 <td style="max-width:250px;">
-                                                    <?= htmlspecialchars($row->visitor_message) ?>
+                                                    <?= limit_text($row->visitor_message, 20) ?>
                                                 </td>
                                             </tr>
                                         <?php endforeach; ?>

@@ -11,7 +11,7 @@
         content="admin template, Riho admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="pixelstrap">
     <!-- Dynamic Title -->
-    <title><?= !empty($card->web_title) ? $card->web_title : 'Drake'; ?></title>
+    <title><?= !empty($card->web_title) ? $card->web_title : 'Jaiswal'; ?></title>
 
     <!-- Dynamic Favicon -->
     <link rel="icon" type="image/x-icon"
@@ -108,7 +108,9 @@
                 </div>
                 <div class="nav-right col-xxl-7 col-xl-6 col-md-7 col-8 pull-right right-header p-0 ms-auto">
                     <ul class="nav-menus">
-                        <li class="d-md-block d-none">
+
+                        <!-- This code comment for not using search functionality in dashboard. If you want to use it then uncomment this code and add search logic in controller and model. -->
+                        <!-- <li class="d-md-block d-none">
                             <div class="form search-form mb-0">
                                 <div class="input-group"><span class="input-icon">
                                         <svg>
@@ -116,9 +118,10 @@
                                         </svg>
                                         <input class="w-100" type="search" placeholder="Search"></span></div>
                             </div>
-                        </li>
-                        <li class="d-md-none d-block">
-                            <div class="form search-form mb-0">
+                        </li> -->
+
+                        <!-- <li class="d-md-none d-block">
+                            <div class="form search-form mb-0 ">
                                 <div class="input-group"> <span class="input-show">
                                         <svg id="searchIcon">
                                             <use href="modules/assets2/svg/icon-sprite.svg#search-header"></use>
@@ -128,14 +131,14 @@
                                         </div>
                                     </span></div>
                             </div>
-                        </li>
+                        </li> -->
 
 
                         <li>
                             <div class="mode"><i class="moon" data-feather="moon"> </i></div>
                         </li>
 
-                        <li class="onhover-dropdown notification-down">
+                        <li class="onhover-dropdown notification-down rounded-pill">
                             <div class="notification-box">
                                 <svg>
                                     <use href="modules/assets2/svg/icon-sprite.svg#notification-header"></use>
@@ -242,17 +245,17 @@
 
 
 
-                                <?php if ($card->whatsapp_contact): ?>
+                                <?php if (!empty($card->whatsapp_support)): ?>
                                     <!-- Support -->
-                                    <li>
-                                        <a href="https://wa.me/<?= $card->whatsapp_contact; ?>?text=<?= urlencode($card->whatsapp_message); ?>"
+                                    <li class="d-sm-none d-block">
+                                        <a href="https://wa.me/<?= $card->whatsapp_support; ?>?text=<?= urlencode('Hello I need support'); ?>"
                                             target="_blank">
+
                                             <i data-feather="headphones"></i>
                                             <span>Support</span>
                                         </a>
                                     </li>
                                 <?php endif; ?>
-
 
 
 
@@ -272,7 +275,7 @@
                                 </li>
 
 
-                                <li class="customizer-links d-block">
+                                <li class="customizer-links d-sm-none d-block">
                                     <a id="c-pills-home-tab" data-bs-toggle="pill" href="#c-pills-home" role="tab"
                                         aria-controls="c-pills-home" aria-selected="true">
                                         <i class="settings" data-feather="settings"></i>
@@ -305,31 +308,65 @@
                 </script>
             </div>
         </div>
-        <!-- Page Header Ends                              -->
+        <!-- Page Header Ends-->
         <!-- Page Body Start-->
 
         <div class="page-body-wrapper">
             <!-- Page Sidebar Start-->
             <div class="sidebar-wrapper" data-layout="stroke-svg">
+
+
                 <div class="logo-wrapper">
-                    <a href="<?php echo base_url('admin_playground') ?>"><img class="img-fluid"
-                            src="<?= base_url($card->company_logo); ?>" alt="Company Logo"
-                            style="height:36px; width:128px; !important;"></a>
-                    <div class="back-btn"><i class="fa fa-angle-left"> </i></div>
-                    <div class="toggle-sidebar"><i class="status_toggle middle sidebar-toggle" data-feather="grid"> </i>
+                    <a href="<?php echo base_url('admin_playground') ?>">
+
+                        <?php if (!empty($card->company_logo)) { ?>
+                            <img class="img-fluid" src="<?= base_url($card->company_logo); ?>" alt="Company Logo"
+                                style="height:36px; width:128px;">
+
+                        <?php } elseif (!empty($card->company_dark_logo)) { ?>
+                            <img class="img-fluid" src="<?= base_url($card->company_dark_logo); ?>" alt="Company Logo"
+                                style="height:36px; width:128px;">
+
+                        <?php } else { ?>
+                            <img class="img-fluid" alt="Company Logo" style="height:36px; width:128px;">
+                        <?php } ?>
+
+                    </a>
+
+                    <div class="back-btn">
+                        <i class="fa fa-angle-left"></i>
+                    </div>
+
+                    <div class="toggle-sidebar">
+                        <i class="status_toggle middle sidebar-toggle" data-feather="grid"></i>
                     </div>
                 </div>
-
                 <nav class="sidebar-main">
                     <div class="left-arrow" id="left-arrow"><i data-feather="arrow-left"></i></div>
 
                     <div id="sidebar-menu">
                         <ul class="sidebar-links" id="simple-bar">
-                            <li class="back-btn"><a href="#"><img class="img-fluid"
-                                        src="<?= base_url($card->company_dark_logo); ?>" alt="Company Logo 2"
-                                        style="height:36px; width:128px; !important;"></a>
-                                <div class="mobile-back text-end"> <span>Back </span><i class="fa fa-angle-right ps-2"
-                                        aria-hidden="true"></i></div>
+                            <li class="back-btn">
+                                <a href="#">
+
+                                    <?php if (!empty($card->company_logo)) { ?>
+                                        <img class="img-fluid" src="<?= base_url($card->company_logo); ?>"
+                                            alt="Company Logo" style="height:36px; width:128px;">
+
+                                    <?php } elseif (!empty($card->company_dark_logo)) { ?>
+                                        <img class="img-fluid" src="<?= base_url($card->company_dark_logo); ?>"
+                                            alt="Company Logo" style="height:36px; width:128px;">
+
+                                    <?php } else { ?>
+                                        <img class="img-fluid" alt="Company Logo" style="height:36px; width:128px;">
+                                    <?php } ?>
+
+                                </a>
+
+                                <div class="mobile-back text-end">
+                                    <span>Back </span>
+                                    <i class="fa fa-angle-right ps-2" aria-hidden="true"></i>
+                                </div>
                             </li>
                             <li class="pin-title sidebar-main-title">
                                 <div>

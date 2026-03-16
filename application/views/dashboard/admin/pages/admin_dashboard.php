@@ -7,13 +7,13 @@
 
 
 
-<!-- Page Sidebar Ends-->
+<!-- Page Header Ends-->
 <div class="page-body">
     <div class="container-fluid">
         <div class="page-title">
             <div class="row">
                 <div class="col-6">
-                    <h4>Project Management</h4>
+                    <h4>Data Management</h4>
                 </div>
                 <div class="col-6">
                     <ol class="breadcrumb">
@@ -22,7 +22,7 @@
                                     <use href="modules/assets2/svg/icon-sprite.svg#stroke-home"></use>
                                 </svg></a></li>
                         <li class="breadcrumb-item">Dashboard</li>
-                        <li class="breadcrumb-item active"><a href="<?= base_url('admin_playground'); ?>">Portfolio Management</a></li>
+                        <li class="breadcrumb-item active"><a href="<?= base_url('admin_playground'); ?>">Data Management</a></li>
                     </ol>
                 </div>
             </div>
@@ -40,11 +40,11 @@
                     <div class="col-xl-3 col-sm-6">
                         <div class="card o-hidden small-widget">
                             <div class="card-body total-project border-b-primary border-2">
-                                <span class="f-light f-w-500 f-14">Total Project</span>
+                                <span class="f-light f-w-500 f-14">Prjoject Completed</span>
                                 <div class="project-details">
                                     <div class="project-counter">
-                                        <h2 class="f-w-600">1,523</h2>
-                                        <span class="f-12 f-w-400">(This month)</span>
+                                        <h2 class="f-w-600"><?= $intro->project_completed ?></h2>
+                                        <!-- <span class="f-12 f-w-400">(This Year)</span> -->
                                     </div>
                                     <div class="product-sub bg-primary-light">
                                         <svg class="invoice-icon">
@@ -69,11 +69,11 @@
                     <div class="col-xl-3 col-sm-6">
                         <div class="card o-hidden small-widget">
                             <div class="card-body total-Progress border-b-warning border-2">
-                                <span class="f-light f-w-500 f-14">In Progress</span>
+                                <span class="f-light f-w-500 f-14">Services</span>
                                 <div class="project-details">
                                     <div class="project-counter">
-                                        <h2 class="f-w-600">836</h2>
-                                        <span class="f-12 f-w-400">(This month) </span>
+                                        <h2 class="f-w-600"><?= sprintf("%02d", count($service)) ?></h2>
+                                        <!-- <span class="f-12 f-w-400">(This year) </span> -->
                                     </div>
                                     <div class="product-sub bg-warning-light">
                                         <svg class="invoice-icon">
@@ -98,11 +98,11 @@
                     <div class="col-xl-3 col-sm-6">
                         <div class="card o-hidden small-widget">
                             <div class="card-body total-Complete border-b-secondary border-2">
-                                <span class="f-light f-w-500 f-14">Complete</span>
+                                <span class="f-light f-w-500 f-14">Reviews</span>
                                 <div class="project-details">
                                     <div class="project-counter">
-                                        <h2 class="f-w-600">475</h2>
-                                        <span class="f-12 f-w-400">(This month) </span>
+                                        <h2 class="f-w-600"><?= sprintf("%02d", count($testimonials)) ?></h2>
+                                        <!-- <span class="f-12 f-w-400">(This year) </span> -->
                                     </div>
                                     <div class="product-sub bg-secondary-light">
                                         <svg class="invoice-icon">
@@ -127,11 +127,11 @@
                     <div class="col-xl-3 col-sm-6">
                         <div class="card o-hidden small-widget">
                             <div class="card-body total-upcoming">
-                                <span class="f-light f-w-500 f-14">Upcoming</span>
+                                <span class="f-light f-w-500 f-14">Inquiries</span>
                                 <div class="project-details">
                                     <div class="project-counter">
-                                        <h2 class="f-w-600">189</h2>
-                                        <span class="f-12 f-w-400">(This month) </span>
+                                        <h2 class="f-w-600"><?= sprintf("%02d", count($contacts)) ?></h2>
+                                        <!-- <span class="f-12 f-w-400">(This year) </span> -->
                                     </div>
                                     <div class="product-sub bg-light-light">
                                         <svg class="invoice-icon">
@@ -155,7 +155,7 @@
                     </div>
 
                     <!-- Container-fluid starts-->
-                    <div class="container-fluid">
+                    <!-- <div class="container-fluid">
                         <div class="col-sm-12">
                             <div class="card">
                                 <div class="card-header">
@@ -192,7 +192,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- Container-fluid Ends-->
 
                 </div>
@@ -208,7 +208,7 @@
                                         <span class="f-22 f-w-500 text-center">Get more ideas for your important
                                             project</span>
                                         <div class="btn-showcase text-center">
-                                            <a href="pricing.html">
+                                            <a href="#">
                                                 <button class="btn btn-pill btn-outline-primary-2x b-r-8 active">
                                                     Upgrade Now
                                                 </button></a>

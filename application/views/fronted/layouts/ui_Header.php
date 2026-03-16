@@ -39,7 +39,8 @@
 <body class="home1-page">
 
 
-    <video class="body-overlay" id="bgVideo" muted autoplay loop>
+    <video class="body-overlay" id="bgVideo" muted autoplay loop playsinline controlsList="nodownload"
+        disablePictureInPicture>
         <source src="<?= base_url('modules/assets/images/video3.mp4'); ?>" type="video/mp4">
     </video>
 
@@ -143,11 +144,11 @@
             <div class="menu-wrap">
                 <p>Menu</p>
 
-                    <a class="scroll-to" href="<?= base_url('onBoarding'); ?>">
-                        <i class="las la-stream"></i> <span>Sign in</span>
-                    </a>
-               
-                
+                <a class="scroll-to" href="<?= base_url('onBoarding'); ?>">
+                    <i class="las la-stream"></i> <span>Sign in</span>
+                </a>
+
+
                 <ul class="menu scroll-nav-responsive d-flex">
                     <li>
                         <a class="scroll-to" href="#home">
@@ -196,33 +197,33 @@
                 <p>Social</p>
                 <ul class="social-links d-flex align-items-center">
 
-                    <?php if ($card->social_one): ?>
+                    <?php if ($card->facebook): ?>
                         <li>
-                            <a href="<?= $card->social_one; ?>" target="_blank">
-                                <i class="lab la-twitter"></i>
+                            <a href="<?= $card->facebook; ?>" target="_blank">
+                                <i class="lab la-facebook-f"></i>
                             </a>
                         </li>
                     <?php endif; ?>
 
-                    <?php if ($card->social_two): ?>
+                    <?php if ($card->internet_search): ?>
                         <li>
-                            <a href="<?= $card->social_two; ?>" target="_blank">
+                            <a href="<?= $card->internet_search; ?>" target="_blank">
                                 <i class="lab la-dribbble"></i>
                             </a>
                         </li>
                     <?php endif; ?>
 
-                    <?php if ($card->social_three): ?>
+                    <?php if ($card->instagram): ?>
                         <li>
-                            <a href="<?= $card->social_three; ?>" target="_blank">
+                            <a href="<?= $card->instagram; ?>" target="_blank">
                                 <i class="lab la-instagram"></i>
                             </a>
                         </li>
                     <?php endif; ?>
 
-                    <?php if ($card->social_four): ?>
+                    <?php if ($card->github): ?>
                         <li>
-                            <a href="<?= $card->social_four; ?>" target="_blank">
+                            <a href="<?= $card->github; ?>" target="_blank">
                                 <i class="lab la-github"></i>
                             </a>
                         </li>
@@ -240,9 +241,9 @@
 
 
                 </ul>
-          
+
                 <p class="copyright">
-                    Designed by <a href="https://aidcom.in" target="_blank">Aidcom</a>
+                    Powered by <a href="https://aidcom.in" target="_blank">Aidcom</a>
                 </p>
 
             </div>
@@ -301,7 +302,18 @@
 
         <div class="sidebar-header d-flex align-items-center justify-content-between">
             <a href="<?= base_url(); ?>">
-                <img src="<?= base_url($card->company_logo); ?>" alt="Company_Logo" style="height:36px; width: 128px; !important;">
+
+                <?php if (!empty($card->company_logo)) { ?>
+                    <img src="<?= base_url($card->company_logo); ?>" alt="Company Logo" style="height:36px; width:128px;">
+
+                <?php } elseif (!empty($card->company_dark_logo)) { ?>
+                    <img src="<?= base_url($card->company_dark_logo); ?>" alt="Company Logo"
+                        style="height:36px; width:128px;">
+
+                <?php } else { ?>
+                    <img alt="Company Logo" style="height:36px; width:128px;">
+                <?php } ?>
+
             </a>
         </div>
 
@@ -311,38 +323,37 @@
         <h2 class="address"><?= $card->address; ?></h2>
 
         <p class="copyright">
-            &copy; <?= date('Y'); ?> <?= $card->company_name; ?>. All Rights Reserved
+            &copy; <?= date('Y'); ?> <?= $card->web_title ?? 'Your Company'; ?>. All Rights Reserved
         </p>
 
         <ul class="social-profile d-flex align-items-center flex-wrap justify-content-center">
 
-            <?php if ($card->social_one): ?>
+            <?php if ($card->facebook): ?>
                 <li>
-                    <a href="<?= $card->social_one; ?>" target="_blank">
-                        <i class="lab la-twitter"></i>
-                    </a>
+                    <a href="<?= $card->facebook; ?>" target="_blank">
+                        <i class="lab la-facebook-f" style="font-size:20px;"></i> </a>
                 </li>
             <?php endif; ?>
 
-            <?php if ($card->social_two): ?>
+            <?php if ($card->internet_search): ?>
                 <li>
-                    <a href="<?= $card->social_two; ?>" target="_blank">
+                    <a href="<?= $card->internet_search; ?>" target="_blank">
                         <i class="lab la-dribbble"></i>
                     </a>
                 </li>
             <?php endif; ?>
 
-            <?php if ($card->social_three): ?>
+            <?php if ($card->instagram): ?>
                 <li>
-                    <a href="<?= $card->social_three; ?>" target="_blank">
+                    <a href="<?= $card->instagram; ?>" target="_blank">
                         <i class="lab la-instagram"></i>
                     </a>
                 </li>
             <?php endif; ?>
 
-            <?php if ($card->social_four): ?>
+            <?php if ($card->github): ?>
                 <li>
-                    <a href="<?= $card->social_four; ?>" target="_blank">
+                    <a href="<?= $card->github; ?>" target="_blank">
                         <i class="lab la-github"></i>
                     </a>
                 </li>

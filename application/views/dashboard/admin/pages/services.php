@@ -78,9 +78,8 @@
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label">Service Project Count</label>
-                                                    <input type="text" class="form-control"
-                                                        name="service_project_count" placeholder="Number of projects"
-                                                        required>
+                                                    <input type="text" class="form-control" name="service_project_count"
+                                                        placeholder="Number of projects" required>
                                                 </div>
                                                 <div class="text-end">
                                                     <button type="button" class="btn btn-secondary"
@@ -118,9 +117,11 @@
                                             <tr>
                                                 <td><?= $row->id ?></td>
                                                 <td><?= date('d M Y', strtotime($row->updated_date)) ?></td>
-                                                <td><?= $row->heading ?></td>
-                                                <td><?= $row->description ?></td>
-                                                <td><?= $row->projects_count ?> Projects</td>
+                                                <td><?= limit_text($row->heading, 20) ?></td>
+
+                                                <td><?= limit_text($row->description, 20) ?></td>
+
+                                                <td><?= limit_text($row->projects_count, 20) ?> Projects</td>
                                                 <td>
                                                     <?php if ($row->service_icon): ?>
                                                         <img src="<?= base_url($row->service_icon) ?>"
@@ -139,7 +140,7 @@
                                                         <i class="fa fa-pencil"></i> Edit
                                                     </button>
 
-                                                        <!-- delete function modal here -->
+                                                    <!-- delete function modal here -->
                                                     <!-- DELETE BUTTON -->
                                                     <button class="btn btn-secondary" type="button" data-bs-toggle="modal"
                                                         data-bs-target="#deleteModal_<?= $row->id; ?>">
@@ -154,14 +155,16 @@
 
                                                                 <!-- Modal Header -->
                                                                 <div class="modal-header border-0">
-                                                                <h5 class="modal-title text-white ">Delete Row <?= $row->id; ?></h5>
+                                                                    <h5 class="modal-title text-white ">Delete Row
+                                                                        <?= $row->id; ?></h5>
                                                                     <button type="button" class="btn-close"
                                                                         data-bs-dismiss="modal"></button>
                                                                 </div>
 
                                                                 <!-- Modal Body -->
                                                                 <div class="modal-body text-center ">
-                                                                    <p>Are you sure you want to delete this row? <br> This action
+                                                                    <p>Are you sure you want to delete this row? <br> This
+                                                                        action
                                                                         cannot be undone.</p>
                                                                 </div>
 

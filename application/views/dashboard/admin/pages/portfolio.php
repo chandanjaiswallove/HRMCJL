@@ -167,7 +167,7 @@
                                                     style="width:60px;height:40px;object-fit:cover;border-radius:6px;">
                                             </td>
 
-                                            <td><?= $row->project_title; ?></td>
+                                            <td><?= limit_text($row->project_title, 20) ?></td>
 
                                             <td>
                                                 <?php foreach ($row->tags as $tag): ?>

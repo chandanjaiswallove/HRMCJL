@@ -65,7 +65,6 @@ class AdminDashboard extends CI_Controller
         $data['notifications'] = $this->Dash->get_notifications();
         $data['notification_count'] = $this->Dash->count_new_messages();
         $data['testimonials'] = $this->Dash->get_testimonial_directory();   // get_testimonial_directory ata from Dashboard_Model
-        $data['company_logos'] = $this->Dash->get_company_logoData();   // get_company_logoData from Dashboard_Model
         $data['portfolios'] = $this->Dash->get_portfolio_projects();    //  project page data from Dashboard_Model
         $data['pricing_cards'] = $this->Dash->get_price_card();         /// Price Card data from Dashboard Model
         $data['education'] = $this->Dash->get_educationData();          //// Resume Data from Dashboard Model
@@ -103,11 +102,11 @@ class AdminDashboard extends CI_Controller
         $this->Testimonial->removeTestimonial();
     }
 
-
-    public function modeLtestimonialremoveLogo()    //// Remove Testimonail Company logo model function call here 
+    public function modeLapproveTestimonial()        /// approveTestimonial function load from Testimonial model
     {
-        $this->Testimonial->testimonialremoveLogo();
+        $this->Testimonial->approve_Testimonial();
     }
+
 
     public function modeLportfolioProjectRemove()   ////  Remove Portfolio Project PortfolioProject_Model function call here
     {
@@ -162,27 +161,13 @@ class AdminDashboard extends CI_Controller
     }
 
 
-    public function modeLinsertTestimonial()    /// Testimonial Model call here
-    {
-        $this->Testimonial->insertTestimonial();
-    }
-
     public function modeLupdateTestimonial()    /// Testimonial Model call here
     {
         $this->Testimonial->update_Testimonials();
     }
 
 
-    public function modeLinsertCompanyLogo()    /// Testimonial Model call here
-    {
-        $this->Testimonial->uploadCompanyLogoImage();
-    }
 
-
-    public function modeLupdateCompanyLogoImage()       /// Testimonial Model call here
-    {
-        $this->Testimonial->updateCompanyLogoImage();
-    }
 
     public function modeLinsertPortProj()   //// PortfolioProject_Model function load here
     {
@@ -257,11 +242,11 @@ class AdminDashboard extends CI_Controller
     //     $this->load_page('visitor_data');
     // }
 
-public function loadvisitor_data()
-{
-    $this->Dash->mark_all_read();  // Model function call
-    $this->load_page('visitor_data');
-}
+    public function loadvisitor_data()
+    {
+        $this->Dash->mark_all_read();  // Model function call
+        $this->load_page('visitor_data');
+    }
 
     public function loaDresume()
     {

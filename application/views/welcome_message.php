@@ -47,12 +47,13 @@ $this->load->view('fronted/layouts/ui_Header');
 						<div class="facts d-flex">
 							<div class="left scroll-animation" data-animation="fade_from_left">
 								<h1><?= $intro->experience ?? '0+' ?></h1>
-								<p>Total Yr. of <br />Experience</p>
+								<p>My Years of <br />Experience</p>
 							</div>
 							<div class="right scroll-animation" data-animation="fade_from_right">
 								<h1><?= $intro->project_completed ?? '0+' ?></h1>
-								<p>projects completed on <br />15 countries</p>
+								<p>Projects Completed<br /> Worldwide</p>
 							</div>
+
 						</div>
 					</div>
 				</div>
@@ -70,7 +71,7 @@ $this->load->view('fronted/layouts/ui_Header');
 							</h4>
 							<h1 class="scroll-animation" data-animation="fade_from_bottom">
 								<?= $about->about_title ?? '' ?><br />
-								an even <span><?= $about->title_highlights ?? '' ?></span>
+								<span><?= $about->title_highlights ?? '' ?></span>
 							</h1>
 						</div>
 						<p class="scroll-animation" data-animation="fade_from_bottom">
@@ -207,13 +208,16 @@ $this->load->view('fronted/layouts/ui_Header');
 
 											<div class="skill-inner">
 
-												<img src="<?= base_url($sk->skill_logo) ?>" alt="<?= $sk->skill_name ?>" />
+												<img src="<?= base_url($sk->skill_logo) ?>" alt="<?= $sk->skill_name ?>"
+													width="61px" height="70px" />
 
-												<h1 class="percent"><?= $sk->skill_percentage ?>%</h1>
+												<h1 class="percent d-none"><?= $sk->skill_percentage ?>%</h1>
+												<p class="name"><strong><?= $sk->skill_name ?></strong></p>
+
 
 											</div>
 
-											<p class="name"><?= $sk->skill_name ?></p>
+											<p class="name d-none"><?= $sk->skill_name ?></p>
 
 										</div>
 
@@ -276,7 +280,8 @@ $this->load->view('fronted/layouts/ui_Header');
 											</div>
 
 											<h2>
-												<a href="<?= $pf->project_link ?>" target="_blank" rel="noopener noreferrer">
+												<a href="<?= $pf->project_link ?>" class="mb-5" target="_blank"
+													rel="noopener noreferrer">
 													<?= $pf->project_title ?>
 												</a>
 											</h2>
@@ -298,91 +303,126 @@ $this->load->view('fronted/layouts/ui_Header');
 			<!-- ====== TESTIMONIAL ======= -->
 			<section class="testimonial-area page-section scroll-to-page" id="testimonial">
 				<div class="custom-container">
+					
 					<div class="testimonial-content content-width">
+
 						<div class="section-header">
 							<h4 class="subtitle scroll-animation" data-animation="fade_from_bottom">
 								<i class="lar la-comment"></i> testimonial
 							</h4>
+
 							<h1 class="scroll-animation" data-animation="fade_from_bottom">
-								Trusted by <span>Hundered Clients</span>
+								Trusted by <span>Happy Clients Worldwide</span>
 							</h1>
 						</div>
 
+
 						<div class="testimonial-slider-wrap scroll-animation" data-animation="fade_from_bottom">
+
 							<div class="owl-carousel testimonial-slider owl-theme">
 
 								<?php if (!empty($testimonials)) { ?>
 									<?php foreach ($testimonials as $t) { ?>
 
-										<div class="testimonial-item">
-											<div class="testimonial-item-inner">
+										<?php if ($t->status == 'approved') { ?>
 
-												<div class="author d-flex align-items-center">
+											<div class="testimonial-item">
 
-													<img src="<?= base_url($t->profile_photo) ?>"
-														alt="<?= $t->profile_name ?>" />
+												<div class="testimonial-item-inner">
 
-													<div class="right">
-														<h3><?= $t->profile_name ?></h3>
+													<div class="author d-flex align-items-center">
 
-														<p class="designation">
-															CEO of <span><?= $t->company_name ?></span>
-														</p>
+														<img src="<?= !empty($t->profile_photo) ? base_url($t->profile_photo) : base_url('uploads/default-user.png') ?>"
+															alt="<?= $t->profile_name ?>" />
+
+														<div class="right">
+															<h3><?= $t->profile_name ?></h3>
+
+															<p class="designation">
+																CEO of <span><?= $t->company_name ?></span>
+															</p>
+														</div>
+
 													</div>
+
+													<p>
+														“<?= $t->client_review ?>”
+													</p>
+
+													<a href="#" class="project-btn">
+														<?= $t->client_project_name ?>
+													</a>
 
 												</div>
 
-												<p>
-													“<?= $t->client_review ?>”
-												</p>
-
-												<a href="#" class="project-btn">
-													<?= $t->client_project_name ?>
-												</a>
-
 											</div>
-										</div>
+
+										<?php } ?>
 
 									<?php } ?>
 								<?php } ?>
 
-
 							</div>
+
 
 							<div class="testimonial-footer-nav">
 								<div class="testimonial-nav d-flex align-items-center">
+
 									<button class="prev">
 										<i class="las la-angle-left"></i>
 									</button>
+
 									<div id="testimonial-slide-count"></div>
+
 									<button class="next">
 										<i class="las la-angle-right"></i>
 									</button>
+
 								</div>
 							</div>
+
 						</div>
 
 
 
+						<!-- ================= COMPANY LOGOS ================= -->
+
 						<div class="clients-logos">
+
 							<h4 class="scroll-animation" data-animation="fade_from_bottom">
 								work with brands worldwide
 							</h4>
 
 							<div class="row align-items-center">
-								<?php if (!empty($company_logos)) { ?>
-									<?php foreach ($company_logos as $logo) { ?>
 
-										<div class="col-md-3 scroll-animation" data-animation="fade_from_left">
-											<img src="<?= base_url($logo->company_logo) ?>" alt="Client" />
-										</div>
+								<?php
+								$shownLogos = [];
 
-									<?php } ?>
-								<?php } ?>
+								if (!empty($testimonials)) {
+									foreach ($testimonials as $logo) {
+
+										if ($logo->status == 'approved' && !empty($logo->company_logo) && !in_array($logo->company_logo, $shownLogos)) {
+											$shownLogos[] = $logo->company_logo;
+											?>
+
+											<div class="col-md-3 scroll-animation" data-animation="fade_from_left">
+
+												<img src="<?= base_url($logo->company_logo) ?>" alt="Client Company Logo" />
+
+											</div>
+
+										<?php
+										}
+									}
+								}
+								?>
+
 							</div>
 
 						</div>
+
 					</div>
+
 				</div>
 			</section>
 
@@ -403,7 +443,7 @@ $this->load->view('fronted/layouts/ui_Header');
 						</div>
 
 						<div class="pricing-table-items">
-							<div class="row">
+							<div class="row g-3">
 
 								<?php if (!empty($pricing_cards)) { ?>
 									<?php foreach ($pricing_cards as $card) { ?>
@@ -444,8 +484,9 @@ $this->load->view('fronted/layouts/ui_Header');
 												</ul>
 
 												<a href="<?= $card->sample_url ?>" target="_blank" class="theme-btn">
-													pick this package
+													View Sample 🚀
 												</a>
+
 
 											</div>
 
@@ -456,9 +497,9 @@ $this->load->view('fronted/layouts/ui_Header');
 
 							</div>
 							<p class="info scroll-animation" data-animation="fade_from_bottom">
-								Don't find any package match with your plan!<br />
-								Want to setup a new tailor-made package for only you?.
-								<a href="#contact">Contact Us</a>
+								Couldn't find a package that fits your needs?<br>
+								We create packages based on your requirements.
+								<strong><a href="#contact">Contact Us</a></strong>
 							</p>
 						</div>
 					</div>

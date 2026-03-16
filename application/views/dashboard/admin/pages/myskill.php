@@ -90,7 +90,7 @@
                                                     <div class="col-md-6 mb-3">
                                                         <label class="form-label">Skill Progress (%)</label>
                                                         <input type="text" class="form-control" name="skill_progress"
-                                                            placeholder="0-100" min="0" max="100" required>
+                                                            placeholder="0-100" min="0" max="99" maxlength="2" required>
                                                     </div>
                                                 </div>
 
@@ -258,7 +258,7 @@
                                                 <div class="col-md-6 mb-3">
                                                     <label class="form-label">Skill Progress (%)</label>
                                                     <input type="text" class="form-control" name="skill_progress"
-                                                        min="0" max="100" required>
+                                                        min="0" max="99" maxlength="2" required>
                                                 </div>
                                             </div>
 

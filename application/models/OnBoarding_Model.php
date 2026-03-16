@@ -45,6 +45,18 @@ class OnBoarding_Model extends CI_Model
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
     //=============== Login Student with Set Session ============///
 
    public function loginStudent()

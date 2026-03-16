@@ -30,7 +30,6 @@ class Welcome extends CI_Controller
 		$data['skill'] = $this->Dash->get_myskill_directory();  // get_myskill_directory Data from Dashboard_Model
 		$data['portfolios'] = $this->Dash->get_portfolio_projects();    //  project page data from Dashboard_Model
 		$data['pricing_cards'] = $this->Dash->get_price_card();         /// Price Card data from Dashboard Model
-		$data['company_logos'] = $this->Dash->get_company_logoData();   // get_company_logoData from Dashboard_Model
 	    $data['testimonials'] = $this->Dash->get_testimonial_directory();   // get_testimonial_directory ata from Dashboard_Model
 	    $data['contacts'] = $this->Dash->get_contact_directory();   // get_contact_directory Data from Dashboard_Model
 

@@ -174,16 +174,6 @@ class Dashboard_Model extends CI_Model
             ->result();
     }
 
-    // ============================================================
-    // ✅ get all data from company_logo_directory
-    // ============================================================    
-    public function get_company_logoData()
-    {
-        return $this->db
-            ->order_by('id', 'ASC')
-            ->get('company_logo_directory')
-            ->result(); // multiple rows
-    }
 
 
 

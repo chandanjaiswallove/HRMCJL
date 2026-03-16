@@ -6,10 +6,10 @@
                 <p class="mb-0">
                     © <?= date('Y') ?>
                     <a href="<?= base_url() ?>" target="_blank" rel="noopener">
-                        <?= $card->company_name ?? 'Your Company' ?>
+                        <?= $card->web_title ?? 'Your Company' ?>
                     </a>.
                     All rights reserved.
-                    Designed by
+                    Powered by
                     <a href="https://aidcom.in" target="_blank" rel="noopener">
                         Aidcom
                     </a>.

@@ -65,6 +65,13 @@ $route['onBoarding'] = 'onBoarding/OnBoarding/developer_login';
 $route['onBoarding_forgot'] = 'onBoarding/OnBoarding/developer_forgot';
 $route['onBoarding_verify'] = 'onBoarding/OnBoarding/loaDverify';
 $route['onBoarding_credentials'] = 'onBoarding/OnBoarding/new_credentials';
+$route['signup_otp'] = 'onBoarding/OnBoarding/loaDsignup_otp';
+
+/// Client Review page route in Onboarding Controller & page load function loaDclient_review() in OnBoarding Controller
+$route['reviewclient'] = 'onBoarding/OnBoarding/loaDclient_review';
+// actions
+$route['submit-client-review/_a1c2b3d4_e5f6_7890_1234_abcdef123456'] = 'onBoarding/OnBoarding/modeLclient_review';  // Client Review Model function call here from OnBoarding Controller
+
 
 // actions
 $route['send_otp'] = 'onBoarding/ForgotSystem/modeLsend_otp';
@@ -89,7 +96,7 @@ $route['logout'] = 'onBoarding/AuthOnBoarding/logout';
 
 
 ///================= Fronted controller start ==============
-$route['extras'] = 'fronted/Extra/loaDextra';
+$route['extras_coming_soon'] = 'fronted/Extra/loaDextra';
 
 
 ///================= Fronted controller end =================
@@ -133,11 +140,9 @@ $route['insert_service_update'] = 'dashBoard/Admin/AdminDashboard/modeLinsert_se
 $route['insert_skill'] = 'dashBoard/Admin/AdminDashboard/modeLskill_update';            /// Skill_Model 
 $route['update_skill'] = 'dashBoard/Admin/AdminDashboard/modeLupdate_skill';      /// Skill_Model 
 
-$route['insertTestimonial'] = 'dashBoard/Admin/AdminDashboard/modeLinsertTestimonial';      /// Testimonial Model 
 $route['updateTestimonial'] = 'dashBoard/Admin/AdminDashboard/modeLupdateTestimonial';      /// Testimonial Model 
+$route['approveTestimonial'] = 'dashBoard/Admin/AdminDashboard/modeLapproveTestimonial';      /// Testimonial Model testimonialLogo function for update logo in testimonial section
 
-$route['insertCompanyLogo'] = 'dashBoard/Admin/AdminDashboard/modeLinsertCompanyLogo';     /// Testimonial Model insertLogo Company
-$route['updateCompanyLogo'] = 'dashBoard/Admin/AdminDashboard/modeLupdateCompanyLogoImage';     /// Testimonial Model updateCompanyLogo function
 
 $route['insertPortProj'] = 'dashBoard/Admin/AdminDashboard/modeLinsertPortProj';
 $route['updatePortProj'] = 'dashBoard/Admin/AdminDashboard/modeLupdatePortProj';
@@ -155,7 +160,6 @@ $route['update_resume'] = 'dashBoard/Admin/AdminDashboard/modeLupdateResume';
 $route['deleteService'] = 'dashBoard/Admin/AdminDashboard/deleteSection';
 $route['removeSkills'] = 'dashBoard/Admin/AdminDashboard/modeLdeleteSkill';
 $route['removeTestimonial'] = 'dashBoard/Admin/AdminDashboard/modeLremoveTestimonial';
-$route['testimonialremoveLogo'] = 'dashBoard/Admin/AdminDashboard/modeLtestimonialremoveLogo';
 $route['portfolioProjectRemove'] = 'dashBoard/Admin/AdminDashboard/modeLportfolioProjectRemove';
 $route['deletePriceCard'] = 'dashBoard/Admin/AdminDashboard/modeLdeletePriceCard';
 
