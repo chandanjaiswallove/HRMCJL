@@ -103,7 +103,7 @@
         <div class="form-check">
             <input class="form-check-input" type="checkbox" value="1" id="permissionCheck" name="permission" required>
             <label class="form-check-label text-success" for="permissionCheck">
-                I give permission to display my review and company logo on the website.
+                I consent to share my logo and review on the website for marketing materials.
             </label>
         </div>
     </div>
