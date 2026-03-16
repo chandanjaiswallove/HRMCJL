@@ -15,10 +15,10 @@
 
     <!-- Dynamic Favicon -->
     <link rel="icon" type="image/x-icon"
-        href="<?= !empty($card->web_icon) ? base_url($card->web_icon) : base_url('modules/assets/images/favicon.png'); ?>">
+        href="<?= !empty($card->web_icon) ? base_url($card->web_icon) : base_url('modules/assets/images/cicon.png'); ?>">
 
     <link rel="shortcut icon" type="image/x-icon"
-        href="<?= !empty($card->web_icon) ? base_url($card->web_icon) : base_url('modules/assets/images/favicon.png'); ?>">
+        href="<?= !empty($card->web_icon) ? base_url($card->web_icon) : base_url('modules/assets/images/cicon.png'); ?>">
 
     <!-- Google font-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
