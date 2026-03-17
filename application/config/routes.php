@@ -68,7 +68,7 @@ $route['onBoarding_credentials'] = 'onBoarding/OnBoarding/new_credentials';
 $route['signup_otp'] = 'onBoarding/OnBoarding/loaDsignup_otp';
 
 /// Client Review page route in Onboarding Controller & page load function loaDclient_review() in OnBoarding Controller
-$route['reviewclient'] = 'onBoarding/OnBoarding/loaDclient_review';
+$route['ra1skd25leaviewclient9kasd720kaulsid'] = 'onBoarding/OnBoarding/loaDclient_review';
 // actions
 $route['submit-client-review/_a1c2b3d4_e5f6_7890_1234_abcdef123456'] = 'onBoarding/OnBoarding/modeLclient_review';  // Client Review Model function call here from OnBoarding Controller
 
