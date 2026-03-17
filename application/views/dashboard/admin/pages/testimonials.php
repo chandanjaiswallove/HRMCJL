@@ -126,7 +126,8 @@
                                                     </div>
 
                                                     <!-- Approve Button -->
-                                                    <?php if ($row->status == 'pending'): ?>
+                                                    <!-- Approve Button -->
+                                                    <?php if ($row->status != 'approved'): ?>
 
                                                         <button class="btn btn-success btn-sm me-2" data-bs-toggle="modal"
                                                             data-bs-target="#approveTestimonialModal<?= $row->id; ?>">
@@ -143,44 +144,34 @@
                                                     <!-- Approve Modal -->
                                                     <div class="modal fade" id="approveTestimonialModal<?= $row->id; ?>"
                                                         tabindex="-1" aria-hidden="true">
-
                                                         <div class="modal-dialog modal-dialog-centered">
                                                             <div class="modal-content bg-dark">
-
                                                                 <div class="modal-header border-0">
                                                                     <h5 class="modal-title text-white">
                                                                         Approve <?= $row->profile_name; ?>
                                                                     </h5>
-
                                                                     <button class="btn-close" type="button"
                                                                         data-bs-dismiss="modal">
                                                                     </button>
                                                                 </div>
-
                                                                 <div class="modal-body text-center border-0">
                                                                     <p>
                                                                         Are you sure you want to approve this testimonial?
                                                                     </p>
                                                                 </div>
-
                                                                 <div class="modal-footer border-0 justify-content-center">
-
                                                                     <button class="btn btn-secondary" data-bs-dismiss="modal">
                                                                         Cancel
                                                                     </button>
-
                                                                     <a href="<?= base_url('approveTestimonial?id=' . $row->id); ?>"
                                                                         class="btn btn-success">
-
                                                                         Yes, Approve
                                                                     </a>
-
                                                                 </div>
-
                                                             </div>
                                                         </div>
-
                                                     </div>
+
 
                                                 </td>
                                             </tr>

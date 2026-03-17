@@ -8,11 +8,6 @@ class Testimonial_Model extends CI_Model
         parent::__construct();
     }
 
-
-
-
-
-    ////    edit and fetch /////
     // Update testimonial
     public function update_Testimonials()
     {
@@ -139,44 +134,6 @@ class Testimonial_Model extends CI_Model
 
 
 
-    // ================= Delete function for testimonal client review  =================
-
-
-    public function removeTestimonial()
-    {
-        $userId = $this->input->get('id');
-
-        // Old record fetch
-        $old = $this->db->where('id', $userId)
-            ->get('testimonial_directory')
-            ->row();
-
-        if (!$old) {
-            sweetAlert('Error', 'Testimonial not found', 'error', 'testimonials');
-            return;
-        }
-
-        // Delete profile photo
-        if (!empty($old->profile_photo) && file_exists(FCPATH . $old->profile_photo)) {
-            unlink(FCPATH . $old->profile_photo);
-        }
-
-        // Delete company logo
-        if (!empty($old->company_logo) && file_exists(FCPATH . $old->company_logo)) {
-            unlink(FCPATH . $old->company_logo);
-        }
-
-        // Delete record
-        $this->db->where('id', $userId);
-
-        if ($this->db->delete('testimonial_directory')) {
-            sweetAlert('Success', 'Delete Successfully', 'success', 'testimonials');
-        } else {
-            sweetAlert('Failed', 'Delete Failed', 'error', 'testimonials');
-        }
-    }
-
-
     public function approve_Testimonial()
     {
         $id = $this->input->get('id');
@@ -215,6 +172,53 @@ class Testimonial_Model extends CI_Model
 
         }
     }
+
+
+
+
+
+
+
+
+
+
+    // ================= Delete function for testimonal client review  =================
+
+    public function removeTestimonial()
+    {
+        $userId = $this->input->get('id');
+
+        // Old record fetch
+        $old = $this->db->where('id', $userId)
+            ->get('testimonial_directory')
+            ->row();
+
+        if (!$old) {
+            sweetAlert('Error', 'Testimonial not found', 'error', 'testimonials');
+            return;
+        }
+
+        // Delete profile photo
+        if (!empty($old->profile_photo) && file_exists(FCPATH . $old->profile_photo)) {
+            unlink(FCPATH . $old->profile_photo);
+        }
+
+        // Delete company logo
+        if (!empty($old->company_logo) && file_exists(FCPATH . $old->company_logo)) {
+            unlink(FCPATH . $old->company_logo);
+        }
+
+        // Delete record
+        $this->db->where('id', $userId);
+
+        if ($this->db->delete('testimonial_directory')) {
+            sweetAlert('Success', 'Delete Successfully', 'success', 'testimonials');
+        } else {
+            sweetAlert('Failed', 'Delete Failed', 'error', 'testimonials');
+        }
+    }
+
+
 
 
 
