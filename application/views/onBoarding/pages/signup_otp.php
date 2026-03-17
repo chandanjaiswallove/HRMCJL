@@ -1,7 +1,7 @@
 <main class="drake-main">
 
 
-    <form method="POST" action="<?= base_url('signup_otp'); ?>">
+    <form method="POST" action="<?= base_url('a1c2b3d4e5f6g7h8i9j0verify_otp_registerabcdef123456'); ?>">
 
         <div class="input-group mb-3 scroll-animation" data-animation="fade_from_bottom">
             <label>OTP <sup>*</sup></label>

@@ -1,4 +1,4 @@
-<form method="POST" action="<?= base_url('send_otp'); ?>">
+<form method="POST" action="<?= base_url('jsliysyssend_otppywstyqwr'); ?>">
 
     <div class="input-group mb-3">
         <label>Email <sup>*</sup></label>

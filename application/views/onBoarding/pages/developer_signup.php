@@ -1,5 +1,5 @@
     <!-- Register page -->
-    <form method="POST" action="<?= base_url('useronWay'); ?>">
+    <form method="POST" action="<?= base_url('ef123456lssend_otp_register1c2b3d4e5'); ?>">
 
         <!-- EMAIL -->
         <div class="input-group mb-3">

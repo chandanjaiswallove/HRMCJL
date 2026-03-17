@@ -9,47 +9,33 @@ class AuthOnBoarding extends CI_Controller
         $this->load->model('OnBoarding_Model');
     }
 
-    // ================= REGISTER USER =================
-    public function modeLregisterUser()
+    // SEND OTP
+    public function modeLsendOtp()
     {
-        $status = $this->OnBoarding_Model->registerStudent();
+        $status = $this->OnBoarding_Model->sendOtp();
 
-        switch ($status) {
+        if ($status == 'otp_sent') {
+            redirect('signup_otp');
+        } elseif ($status == 'password_mismatch') {
+            sweetAlert('Error', 'Password mismatch', 'error', 'onBoardingUser');
+        } elseif ($status == 'single_user_only') {
+            sweetAlert('Warning', 'Only one user allowed', 'warning', 'onBoarding');
+        } else {
+            sweetAlert('Error', 'Mail failed', 'error', 'onBoardingUser');
+        }
+    }
 
-            case 'password_mismatch':
-                sweetAlert(
-                    'Password Mismatch',
-                    'Password and Confirm Password do not match.',
-                    'error',
-                    base_url('onBoardingUser')
-                );
-                break;
+    // VERIFY OTP
+    public function modeLverifyOtp()
+    {
+        $status = $this->OnBoarding_Model->verifyOtp();
 
-            case 'single_user_only':
-                sweetAlert(
-                    'Registration Closed',
-                    'Only one user can be registered in this system.',
-                    'warning',
-                    base_url('onBoarding')
-                );
-                break;
-
-            case 'success':
-                sweetAlert(
-                    'Success',
-                    'Registration successful!',
-                    'success',
-                    base_url('onBoarding')
-                );
-                break;
-
-            default:
-                sweetAlert(
-                    'Failed',
-                    'Something went wrong. Please try again.',
-                    'error',
-                    base_url('onBoardingUser')
-                );
+        if ($status == 'success') {
+            sweetAlert('Success', 'Registration Complete', 'success', 'onBoarding');
+        } elseif ($status == 'otp_expired') {
+            sweetAlert('Expired', 'OTP expired', 'error', 'onBoardingUser');
+        } else {
+            sweetAlert('Error', 'Invalid OTP', 'error', 'signup_otp');
         }
     }
 
@@ -61,8 +47,60 @@ class AuthOnBoarding extends CI_Controller
 
 
 
+    // ================= REGISTER USER without otp funciton  =================
+    // public function modeLregisterUser()
+    // {
+    //     $status = $this->OnBoarding_Model->registerStudent();
 
-    
+    //     switch ($status) {
+
+    //         case 'password_mismatch':
+    //             sweetAlert(
+    //                 'Password Mismatch',
+    //                 'Password and Confirm Password do not match.',
+    //                 'error',
+    //                 base_url('onBoardingUser')
+    //             );
+    //             break;
+
+    //         case 'single_user_only':
+    //             sweetAlert(
+    //                 'Registration Closed',
+    //                 'Only one user can be registered in this system.',
+    //                 'warning',
+    //                 base_url('onBoarding')
+    //             );
+    //             break;
+
+    //         case 'success':
+    //             sweetAlert(
+    //                 'Success',
+    //                 'Registration successful!',
+    //                 'success',
+    //                 base_url('onBoarding')
+    //             );
+    //             break;
+
+    //         default:
+    //             sweetAlert(
+    //                 'Failed',
+    //                 'Something went wrong. Please try again.',
+    //                 'error',
+    //                 base_url('onBoardingUser')
+    //             );
+    //     }
+    // }
+
+
+
+
+
+
+
+
+
+
+
 
     public function modeLloginStudent()
     {

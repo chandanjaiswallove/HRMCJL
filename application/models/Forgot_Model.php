@@ -81,7 +81,7 @@ class Forgot_Model extends CI_Model
             $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
             $mail->Username = 'cjljaiswal@gmail.com';
-            $mail->Password = 'gfivmwzsayviaalk';
+            $mail->Password = 'gfivmwzsayviaalt';
             $mail->SMTPSecure = 'tls';
             $mail->Port = 587;
 

@@ -74,7 +74,7 @@ $route['submit-client-review/_a1c2b3d4_e5f6_7890_1234_abcdef123456'] = 'onBoardi
 
 
 // actions
-$route['send_otp'] = 'onBoarding/ForgotSystem/modeLsend_otp';
+$route['jsliysyssend_otppywstyqwr'] = 'onBoarding/ForgotSystem/modeLsend_otp';
 $route['verify_otp'] = 'onBoarding/ForgotSystem/modeLverify_otp';
 $route['update_password'] = 'onBoarding/ForgotSystem/modeLupdate_password';
 
@@ -82,8 +82,10 @@ $route['update_password'] = 'onBoarding/ForgotSystem/modeLupdate_password';
 
 
 // Handle signup form submission
-$route['useronWay'] = 'onBoarding/AuthOnBoarding/modeLregisterUser';
-$route['useronHome'] = 'onBoarding/AuthOnBoarding/modeLloginStudent';
+$route['ef123456lssend_otp_register1c2b3d4e5'] = 'onBoarding/AuthOnBoarding/modeLsendOtp';
+$route['a1c2b3d4e5f6g7h8i9j0verify_otp_registerabcdef123456'] = 'onBoarding/AuthOnBoarding/modeLverifyOtp';
+
+$route['onboardingowidhuseronHomelijas'] = 'onBoarding/AuthOnBoarding/modeLloginStudent';
 
 
 //   logout funciton route here 
