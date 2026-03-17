@@ -135,7 +135,7 @@ class OnBoarding_Model extends CI_Model
             </div>
 
             <p style='text-align:center; font-size:12px; color:#aaa; margin-top:15px;'>
-                © " . date('Y') . " Your Website. All rights reserved.
+                © " . date('Y') . " Jaiswal. All rights reserved.
             </p>
 
         </div>
@@ -194,7 +194,7 @@ class OnBoarding_Model extends CI_Model
     </div>
 
     <p style='text-align:center; font-size:12px; color:#aaa; margin-top:15px;'>
-        © " . date('Y') . " Your Website. All rights reserved.
+        © " . date('Y') . " Jaiswal. All rights reserved.
     </p>
 
 </div>

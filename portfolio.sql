@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 10, 2026 at 03:57 PM
+-- Generation Time: Mar 17, 2026 at 11:40 AM
 -- Server version: 8.0.45-0ubuntu0.22.04.1
 -- PHP Version: 8.4.18
 
@@ -40,7 +40,7 @@ CREATE TABLE `about_directory` (
 --
 
 INSERT INTO `about_directory` (`id`, `about_updated_date`, `about_title`, `title_highlights`, `about_paragraph`) VALUES
-(1, '2026-03-08 05:20:43', 'Every great design begin with', 'BEETER story', 'Since beginning my journey as a freelance designer nearly 8 years ago, I\'ve done remote work for agencies, consulted for startups, and collaborated with talented people to create digital products for both business and consumer use. I\'m quietly confident, naturally curious, and perpetually working on improving my chopsone design problem at a time.');
+(1, '2026-03-16 14:48:00', 'Great Design and Smart Development Create', 'Powerful Digital Experience', 'Since the beginning of our journey, we have worked with agencies, startups, and businesses to create modern websites and web applications. Currently, we are working at Aidcom IT Service Solutions, Bettiah as Designers and Developers, focusing on clean design, smart development, and solving digital problems one project at a time.');
 
 -- --------------------------------------------------------
 
@@ -56,15 +56,16 @@ CREATE TABLE `card_directory` (
   `email` varchar(360) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `address` varchar(360) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `company_name` varchar(360) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `social_one` varchar(360) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `social_two` varchar(360) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `social_three` varchar(360) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `social_four` varchar(360) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `social_five` varchar(360) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `facebook` varchar(360) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `instagram` varchar(360) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `internet_search` varchar(360) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `github` varchar(360) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `linkedin` varchar(360) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `whatsapp_contact` varchar(360) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `company_logo` varchar(360) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `company_dark_logo` varchar(360) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `whatsapp_message` varchar(360) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `whatsapp_support` varchar(360) COLLATE utf8mb4_general_ci NOT NULL,
   `web_icon` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `web_title` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -73,29 +74,8 @@ CREATE TABLE `card_directory` (
 -- Dumping data for table `card_directory`
 --
 
-INSERT INTO `card_directory` (`id`, `card_updated_date`, `person_name`, `profile_photo`, `email`, `address`, `company_name`, `social_one`, `social_two`, `social_three`, `social_four`, `social_five`, `whatsapp_contact`, `company_logo`, `company_dark_logo`, `whatsapp_message`, `web_icon`, `web_title`) VALUES
-(1, '2026-03-08 10:16:37', 'Chandanjaiswallove', 'modules/assets/images/dpme.jpeg', 'hellodrake@gmail.com', 'Aidcom it Service Bettiah', 'Drake', 'https://www.facebook.com/', 'https://www.facebook.com/', 'https://www.facebook.com/', 'https://www.facebook.com/', 'https://www.facebook.com/', '917292818092', 'modules/assets/images/logo.png', 'modules/assets/images/logo_dark.png', 'Thank you for your message. We\'re unavailable right now, but will respond as soon as possible. ', 'uploads/profile/company_icon_6964925d97eb31.93487644', 'Jaiswal');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `company_logo_directory`
---
-
-CREATE TABLE `company_logo_directory` (
-  `id` int NOT NULL,
-  `date` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP,
-  `company_logo` varchar(360) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `company_logo_directory`
---
-
-INSERT INTO `company_logo_directory` (`id`, `date`, `company_logo`) VALUES
-(11, '2026-03-08 08:06:41', 'uploads/testimonials/872f289d5b55aa9b454fe9b3042c5e23.png'),
-(12, '2026-03-08 08:06:51', 'uploads/testimonials/2bc784135ba4148566ef0739d57ad82b.png'),
-(13, '2026-03-08 08:07:03', 'uploads/testimonials/a8b5785a4f4f29d415efad29ec9ed970.png');
+INSERT INTO `card_directory` (`id`, `card_updated_date`, `person_name`, `profile_photo`, `email`, `address`, `company_name`, `facebook`, `instagram`, `internet_search`, `github`, `linkedin`, `whatsapp_contact`, `company_logo`, `company_dark_logo`, `whatsapp_message`, `whatsapp_support`, `web_icon`, `web_title`) VALUES
+(1, '2026-03-17 16:55:23', 'Chandan Jaiswal', 'uploads/profile/profile_photo_69b8363ce72d37.68624467', 'hellodrake@gmail.com', 'Aidcom it Service Bettiah', 'Aidcom', 'https://www.facebook.com/chandanjaiswalloves', 'https://www.instagram.com/chandanjaiswallove', 'https://www.google.com/search?q=chandanjaiswallove&oq=chandanjaiswallove&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQRRg8MgYIAhBFGDwyBggDEEUYPNIBCDMzMjdqMGoxqAIAsAIA&sourceid=chrome&ie=UTF-8', 'https://github.com/chandanjaiswallove', 'https://www.linkedin.com/chandanjaiswallove', '919262275600', 'uploads/profile/company_logo_69b825521581c6.64661124', 'uploads/profile/company_dark_logo_69b53b79e6b9d8.99776695', 'Thank you for your message. We\'re unavailable right now, but will respond as soon as possible.                                        ', '+919262275600', 'uploads/profile/company_icon_69b82483877a86.60804246', 'Jaiswal');
 
 -- --------------------------------------------------------
 
@@ -114,6 +94,15 @@ CREATE TABLE `contact_directory` (
   `is_read` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `contact_directory`
+--
+
+INSERT INTO `contact_directory` (`id`, `contact_date`, `visitor_fullname`, `visitor_email`, `visitor_phone`, `visitor_subject`, `visitor_message`, `is_read`) VALUES
+(36, '2026-03-11 19:02:58', 'Chandan Jaiswal', 'drake@gmail.com', '9472428947', 'We need a Professional websites', 'Write your message ....', 1),
+(37, '2026-03-15 14:35:45', 'Chandan Jaiswal', 'saanvi@gmail.com', '9262275600 ', 'ssssssssssssssssssssssssssssssssssssssssssssssssss', 'ffffffffffffffffff sssssssssssssssssss sssssssssssssss f fffffffffffffffffffff ffffffffffffffffffffffffasdfff asdfffffffffffffffffffffffffffffffffffff asdfffffffffffffffff sssssssssssssssssssssssssssssssssssdf', 1),
+(38, '2026-03-16 14:56:20', 'Chandan Jaiswal', 'chandan@gmail.com', '72932818092', 'Testing with email user', 'okkk', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -131,9 +120,8 @@ CREATE TABLE `education_blocks` (
 --
 
 INSERT INTO `education_blocks` (`id`, `date`, `created_at`) VALUES
-(62, '2026 - Present', '2026-02-17 09:26:09'),
-(63, '2022 - 2025', '2026-02-17 09:26:09'),
-(64, '2019 - 2022', '2026-02-17 09:26:09');
+(67, '2026 - Present', '2026-03-16 14:46:25'),
+(68, '2023 – 2025', '2026-03-16 14:46:25');
 
 -- --------------------------------------------------------
 
@@ -153,12 +141,11 @@ CREATE TABLE `education_items` (
 --
 
 INSERT INTO `education_items` (`id`, `block_id`, `title`, `description`) VALUES
-(118, 62, 'Framer Desinger & Developer', 'Brunodee Agency'),
-(119, 62, 'Front-End WordPress Developer', 'Envato Market'),
-(120, 63, 'Webflow Developer & Co-Founder', 'Designflow Studio'),
-(121, 63, 'Web Designer', 'Freelance'),
-(122, 63, 'Leader Team of Marketing', 'AHA Marketing Agency'),
-(123, 64, 'Bachelor Degree of Information Technology', 'US RMIT University');
+(129, 67, 'Web Designer & Full-Stack Developer', 'Aidcom IT Service & Solutions'),
+(130, 67, 'Software Associate & Digital Marketing', 'Aidcom IT Service & Solutions'),
+(131, 68, 'Freelance Web Designer & Developer', 'Worked on multiple freelance projects for our own clients, startups, and the education sector. Designed and developed modern, responsive websites including school websites, small business websites, portfolio websites, and digital visiting card websites. Focused on creating user-friendly and performance-optimized digital solutions.'),
+(132, 68, 'Web Designer', 'Designed website layouts, UI components, and responsive web pages with a focus on clean design and better user experience.'),
+(133, 68, 'Front-End Web Developer', 'Built responsive and interactive user interfaces using HTML, CSS, JavaScript, Tailwind CSS, Bootstrap, and React.js. Focused on clean code, modern UI design, and improving website usability and performance across devices.');
 
 -- --------------------------------------------------------
 
@@ -182,7 +169,7 @@ CREATE TABLE `introduce_directory` (
 --
 
 INSERT INTO `introduce_directory` (`id`, `introduce_date`, `introduce_title`, `introduce_highlight`, `introduce_paragraph`, `experience`, `project_completed`, `project_download`) VALUES
-(4, '2026-03-08 10:50:11', 'Webflow Designer and Developer', 'CJLLL,', 'I design and code beautifully simple things and i love what i do. Just simple like that!', '71+', '182+', 'uploads/projects/1768198188_newProjectCreationCodeigniter.pdf');
+(4, '2026-03-16 21:26:40', 'Web Designer and Developer', 'Jaiswal', 'We design and develop beautifully simple websites that help businesses grow online. Clean design, smart development, and a passion for creating modern digital experiences.', '02+', '07+', 'uploads/projects/1768198188_newProjectCreationCodeigniter.pdf');
 
 -- --------------------------------------------------------
 
@@ -203,8 +190,19 @@ CREATE TABLE `myskill_directory` (
 --
 
 INSERT INTO `myskill_directory` (`id`, `skill_updated_date`, `skill_logo`, `skill_percentage`, `skill_name`) VALUES
-(5, '2026-03-08 06:59:46', 'uploads/skill/f0ba25325a2b02c1781e5e72a69db42b.png', '11', 'Laravel '),
-(6, '2026-03-08 07:01:57', 'uploads/skill/3197eea1d956d7071d21fd3282fc8a74.png', '14', 'React');
+(7, '2026-03-15 09:55:36', 'uploads/skill/ba777b59b476f0adcb4ec5daf43e37e7.png', '01', 'HTML'),
+(8, '2026-03-15 10:00:49', 'uploads/skill/a5b9d1317264e9cdba05a7d5711ebf56.png', '01', 'CSS'),
+(9, '2026-03-15 10:02:40', 'uploads/skill/a6e97cf619f5f8fb69a2895c24ca639e.png', '01', 'JS'),
+(10, '2026-03-15 10:03:29', 'uploads/skill/a6f33f775f0760ca48a085b1d8352d47.png', '01', 'BOOTSTRAP'),
+(11, '2026-03-15 10:04:13', 'uploads/skill/d001563bcdaab578c6478526172618a1.png', '01', 'TAILWIND'),
+(12, '2026-03-15 10:08:27', 'uploads/skill/93a941c89fd0f2ef5f945eae058454f9.png', '01', 'REACT'),
+(14, '2026-03-15 11:06:14', 'uploads/skill/e4fc1c940cb118b9713b4d3c58a7ce06.png', '01', 'VITE'),
+(15, '2026-03-15 10:46:47', 'uploads/skill/2f959d134b24edc217b45196d4a3fb0d.png', '01', 'LARAVEL'),
+(16, '2026-03-15 11:02:16', 'uploads/skill/74e32b6374db8e38d721880079e20258.png', '01', 'PHP'),
+(17, '2026-03-15 11:07:50', 'uploads/skill/2d78e33afe3e61222715a43d02c9ff37.png', '01', 'MYSQL'),
+(18, '2026-03-15 11:06:47', 'uploads/skill/98513fbbfeaff2eb15e5508dba66a9c0.png', '01', 'CODEIGNITER'),
+(19, '2026-03-15 11:21:10', 'uploads/skill/7eca81f9d4df64923735553e424a3f2b.png', '01', 'GIT'),
+(20, '2026-03-16 14:47:39', 'uploads/skill/2af93c2c57795e41777c8737337913d8.png', '01', 'GITHUB');
 
 -- --------------------------------------------------------
 
@@ -225,7 +223,8 @@ CREATE TABLE `portfolio_projects` (
 --
 
 INSERT INTO `portfolio_projects` (`id`, `project_link`, `created_at`, `full_image`, `project_title`) VALUES
-(9, 'http://localhost/Portfolio/', '2026-03-08 12:53:01', 'uploads/portproject/f6106c6d5b465546ad4709164ae9025f.jpg', 'Bureau - Architecture Studio Website');
+(9, 'https://aidcombizcard.in/', '2026-03-15 17:15:08', 'uploads/portproject/a35b202bbee1dce02b84a1ff263885c9.png', 'Get Your Smart Digital Visiting Card Today'),
+(10, 'https://www.stmichaelsbth.in/', '2026-03-16 08:50:31', 'uploads/portproject/ac865e21a90bb69c0584383c29bed4dc.png', 'Integrated School ERP & Official Website');
 
 -- --------------------------------------------------------
 
@@ -244,8 +243,8 @@ CREATE TABLE `portfolio_tags` (
 --
 
 INSERT INTO `portfolio_tags` (`project_id`, `project_tags`, `created_at`) VALUES
-('9', 'Framer', '2026-03-08 07:23:01'),
-('9', 'WordPress', '2026-03-08 07:23:01');
+('10', 'School ERP & Website', '2026-03-16 03:20:31'),
+('9', 'Digital Visiting Card', '2026-03-16 14:47:25');
 
 -- --------------------------------------------------------
 
@@ -269,7 +268,9 @@ CREATE TABLE `pricing_card` (
 --
 
 INSERT INTO `pricing_card` (`id`, `plan_name`, `small_description`, `pricing`, `duration`, `sample_url`, `created_at`, `updated_at`) VALUES
-(25, 'Basic', 'Short Description', '999', '2 Years ', 'https://www.facebook.com/chandanjaiswalloves', '2026-03-10 08:49:07', '2026-03-09 21:49:07');
+(25, 'Basic', 'Best for Small </br> Businesses & Startups', '9999', '1 Year', 'https://www.stthomaschuhari.com/', '2026-03-15 08:52:51', '2026-03-14 21:52:51'),
+(26, 'Premium', 'Best for Businesses that </br> Need Priority Service', '14999', '1 Year', 'https://www.shivshaktisolarsolution.com/', '2026-03-15 08:53:11', '2026-03-14 21:53:11'),
+(27, 'Pro', 'Best for Advanced Businesses </br> & Web Applications', '19999', '1 Year', 'https://aidcombizcard.in/', '2026-03-16 20:16:44', '2026-03-16 09:16:44');
 
 -- --------------------------------------------------------
 
@@ -289,9 +290,41 @@ CREATE TABLE `pricing_items` (
 --
 
 INSERT INTO `pricing_items` (`pricing_id`, `item_text`, `created_at`, `updated_at`) VALUES
-('25', 'Don\'t need wireframe or anything', '2026-03-10 03:19:07', '0000-00-00 00:00:00'),
-('25', 'Instagram Facebook', '2026-03-10 03:19:07', '0000-00-00 00:00:00'),
-('25', 'Don\'t need wireframe or anything', '2026-03-10 03:19:07', '0000-00-00 00:00:00');
+('25', 'Design with: HTML, CSS, JavaScript, Bootstrap', '2026-03-15 03:22:51', '0000-00-00 00:00:00'),
+('25', '100% Responsive Design (Mobile Friendly & All Devices Support)', '2026-03-15 03:22:51', '0000-00-00 00:00:00'),
+('25', 'Development with: CodeIgniter, Laravel, PHP', '2026-03-15 03:22:51', '0000-00-00 00:00:00'),
+('25', 'Clean & Professional UI', '2026-03-15 03:22:51', '0000-00-00 00:00:00'),
+('25', 'Remote / Online / Physical Work Available', '2026-03-15 03:22:51', '0000-00-00 00:00:00'),
+('25', 'Work in Business Days (No Weekend Work)', '2026-03-15 03:22:51', '0000-00-00 00:00:00'),
+('25', '12 Months Technical Support', '2026-03-15 03:22:51', '0000-00-00 00:00:00'),
+('25', 'Project-Based Pricing', '2026-03-15 03:22:51', '0000-00-00 00:00:00'),
+('25', 'Affordable for Small Budgets', '2026-03-15 03:22:51', '0000-00-00 00:00:00'),
+('25', '<strong>Note: </strong>Final project price will be confirmed after discussion and requirements.', '2026-03-15 03:22:51', '0000-00-00 00:00:00'),
+('26', 'High Performance & Secure Development', '2026-03-15 03:23:11', '0000-00-00 00:00:00'),
+('26', 'SEO Friendly Website Structure', '2026-03-15 03:23:11', '0000-00-00 00:00:00'),
+('26', 'Clean, Modern & Professional UI/UX', '2026-03-15 03:23:11', '0000-00-00 00:00:00'),
+('26', '100% Responsive & Mobile Friendly Design', '2026-03-15 03:23:11', '0000-00-00 00:00:00'),
+('26', 'Design with: HTML, CSS, JavaScript, Bootstrap, TailwindCSS', '2026-03-15 03:23:11', '0000-00-00 00:00:00'),
+('26', 'Development with: CodeIgniter, Laravel, PHP', '2026-03-15 03:23:11', '0000-00-00 00:00:00'),
+('26', 'Remote / Online / Physical Work Available', '2026-03-15 03:23:11', '0000-00-00 00:00:00'),
+('26', 'Weekend Work Available', '2026-03-15 03:23:11', '0000-00-00 00:00:00'),
+('26', 'Your Project Will Always Be Priority', '2026-03-15 03:23:11', '0000-00-00 00:00:00'),
+('26', 'Fast Support & Quick Updates', '2026-03-15 03:23:11', '0000-00-00 00:00:00'),
+('26', '12 Months Premium Support', '2026-03-15 03:23:11', '0000-00-00 00:00:00'),
+('26', '<strong>Note: </strong>Final project price will be confirmed after discussion and requirements.', '2026-03-15 03:23:11', '0000-00-00 00:00:00'),
+('27', 'Web Application Development', '2026-03-16 14:46:44', '0000-00-00 00:00:00'),
+('27', 'High Performance & Secure Development', '2026-03-16 14:46:44', '0000-00-00 00:00:00'),
+('27', 'SEO Friendly Website Structure', '2026-03-16 14:46:44', '0000-00-00 00:00:00'),
+('27', '100% Responsive & Mobile Friendly Design', '2026-03-16 14:46:44', '0000-00-00 00:00:00'),
+('27', 'Design with: HTML, CSS, JavaScript, Bootstrap, TailwindCSS, React', '2026-03-16 14:46:44', '0000-00-00 00:00:00'),
+('27', 'Development with: CodeIgniter, Laravel, PHP', '2026-03-16 14:46:44', '0000-00-00 00:00:00'),
+('27', 'Remote / Online / Physical Work Available', '2026-03-16 14:46:44', '0000-00-00 00:00:00'),
+('27', 'Weekend Work Available', '2026-03-16 14:46:44', '0000-00-00 00:00:00'),
+('27', 'Your Project Will Always Be Priority', '2026-03-16 14:46:44', '0000-00-00 00:00:00'),
+('27', 'Fast Support & Quick Updates', '2026-03-16 14:46:44', '0000-00-00 00:00:00'),
+('27', '12 Months Pro Support', '2026-03-16 14:46:44', '0000-00-00 00:00:00'),
+('27', 'Free Minor Updates & Improvements', '2026-03-16 14:46:44', '0000-00-00 00:00:00'),
+('27', '<strong>Note: </strong>Final project price will be confirmed after discussion and requirements.', '2026-03-16 14:46:44', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -306,16 +339,16 @@ CREATE TABLE `register_directory` (
   `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `status` int NOT NULL,
   `created_at` timestamp NOT NULL ON UPDATE CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL ON UPDATE CURRENT_TIMESTAMP
+  `updated_at` timestamp NOT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `reset_otp` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `register_directory`
 --
 
-INSERT INTO `register_directory` (`id`, `user_id`, `email`, `password`, `status`, `created_at`, `updated_at`) VALUES
-(2, '2', '223', '23', 2, '2026-01-21 20:12:14', '2026-01-21 20:12:14'),
-(5, 'Z7IGLN13', 'chandan@gmail.com', '$2y$10$2CRj8GO5A0HHrHPDU7ER8ePigWDOpbxJiRqu0NtRbJOgVSDN9m4kS', 1, '2026-01-07 10:11:25', '2026-01-07 10:11:25');
+INSERT INTO `register_directory` (`id`, `user_id`, `email`, `password`, `status`, `created_at`, `updated_at`, `reset_otp`) VALUES
+(7, 'J1ULXIIB', 'cjlrjl@gmail.com', '$2y$12$Qa/F6lJwmn6xo3uOS6AhoOINk7n4sYvoNPYGXarE6ItpJotSPXZ5u', 1, '2026-03-17 06:47:31', '2026-03-17 06:47:31', NULL);
 
 -- --------------------------------------------------------
 
@@ -337,8 +370,12 @@ CREATE TABLE `services_directory` (
 --
 
 INSERT INTO `services_directory` (`id`, `updated_date`, `heading`, `description`, `projects_count`, `service_icon`) VALUES
-(11, '2026-03-08 06:48:51', 'Website Design', 'I created digital products with unique ideas use Figma & Framer\r\n\r\n', '24 Projects', 'uploads/services/5fd87dfb29ab118a216c6b03a2019dda.png'),
-(12, '2026-03-08 06:51:47', 'Seo Marketing', 'Here\'s what\'s happening with seo project know today.', 'Projects', 'uploads/services/5fa5aa5c02c6b803d5c1078a347e736d.png');
+(11, '2026-03-15 03:51:52', 'Website Design', 'Modern, responsive, and mobile-friendly websites designed for a smooth, engaging, and seamless user experience.', 'Web Design', 'uploads/services/d7d630901ab85d84d8535201fdc619b5.png'),
+(12, '2026-03-15 03:39:29', 'Web Application Development', 'We develop powerful and scalable web applications with modern technologies, ensuring high performance, security, and smooth user experience.', 'Web Apk', 'uploads/services/90d0114d8d0b4a95704b6b696989dfd8.png'),
+(13, '2026-03-16 14:47:50', 'Digital Visiting Card', 'We create smart digital visiting card websites that help professionals and businesses share their contact details, services, and portfolio online.', 'Digital Visiting Card', 'uploads/services/f744ea14e1aa4f6b34bcac7ac893c41c.png'),
+(14, '2026-03-15 03:54:29', 'E-commerce Development', 'We build professional e-commerce websites that help businesses sell products online with secure payments, product management, and easy navigation.', 'E-commerce Development', 'uploads/services/2faa8b0ff3adc576a759c1fef1186cee.png'),
+(15, '2026-03-15 03:56:19', 'SEO & Digital Marketing', 'We help businesses grow online through SEO optimization, digital marketing strategies, and effective online promotion to increase visibility and reach.', 'SEO & Digital Marketing', 'uploads/services/67acd4c6bcc9dd22e07e594311e391f1.png'),
+(16, '2026-03-15 03:57:22', 'School ERP & LMS Development', 'We develop complete School ERP and Learning Management System &#40;LMS&#41; solutions to manage students, teachers, attendance, fees, exams, courses, and online learning on one smart platform for schools and educational institutions.', 'School ERP & LMS', 'uploads/services/a14df5c962134541e87a7f1eae879b51.png');
 
 -- --------------------------------------------------------
 
@@ -348,22 +385,17 @@ INSERT INTO `services_directory` (`id`, `updated_date`, `heading`, `description`
 
 CREATE TABLE `testimonial_directory` (
   `id` int NOT NULL,
-  `testimonial_date` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP,
-  `profile_name` varchar(360) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `profile_photo` varchar(360) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `company_name` varchar(360) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `client_review` varchar(360) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `client_project_name` varchar(360) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `testimonial_directory`
---
-
-INSERT INTO `testimonial_directory` (`id`, `testimonial_date`, `profile_name`, `profile_photo`, `company_name`, `client_review`, `client_project_name`, `updated_at`) VALUES
-(33, '2026-01-22 16:52:44', 'Web Development 1', 'uploads/testimonials/84fdbb28a2bf9ce7baad7a11ed051336.jpg', 'Aidcom It Service & Solutions Bettiah1', 'we are here ...11', 'Robin Kujur 1', '2026-01-22 11:22:44'),
-(35, '2026-03-08 08:24:46', 'Rockey Michels', 'uploads/testimonials/91e718f7437913b25635a39b2d515c23.png', 'Sulzon Global', '“Extremely profressional and fast service!. Drake is amaster of code and he also very creative. We done 3 projectswith him and certain will continue.”', 'Green Engergy', '2026-03-08 13:54:46');
+  `profile_name` varchar(255) NOT NULL,
+  `profile_photo` varchar(255) DEFAULT NULL,
+  `company_name` varchar(255) NOT NULL,
+  `company_logo` varchar(255) DEFAULT NULL,
+  `client_project_name` varchar(255) DEFAULT NULL,
+  `client_review` text NOT NULL,
+  `status` enum('pending','approved') DEFAULT 'pending',
+  `testimonial_date` datetime DEFAULT CURRENT_TIMESTAMP,
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Indexes for dumped tables
@@ -379,12 +411,6 @@ ALTER TABLE `about_directory`
 -- Indexes for table `card_directory`
 --
 ALTER TABLE `card_directory`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `company_logo_directory`
---
-ALTER TABLE `company_logo_directory`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -465,28 +491,22 @@ ALTER TABLE `card_directory`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `company_logo_directory`
---
-ALTER TABLE `company_logo_directory`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
---
 -- AUTO_INCREMENT for table `contact_directory`
 --
 ALTER TABLE `contact_directory`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `education_blocks`
 --
 ALTER TABLE `education_blocks`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- AUTO_INCREMENT for table `education_items`
 --
 ALTER TABLE `education_items`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=124;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=134;
 
 --
 -- AUTO_INCREMENT for table `introduce_directory`
@@ -498,37 +518,37 @@ ALTER TABLE `introduce_directory`
 -- AUTO_INCREMENT for table `myskill_directory`
 --
 ALTER TABLE `myskill_directory`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `portfolio_projects`
 --
 ALTER TABLE `portfolio_projects`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `pricing_card`
 --
 ALTER TABLE `pricing_card`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `register_directory`
 --
 ALTER TABLE `register_directory`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `services_directory`
 --
 ALTER TABLE `services_directory`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `testimonial_directory`
 --
 ALTER TABLE `testimonial_directory`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
