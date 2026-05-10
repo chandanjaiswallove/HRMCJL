@@ -39,10 +39,10 @@
 <body class="home1-page">
 
 
-    <video class="body-overlay" id="bgVideo" muted autoplay loop>
+    <!-- <video class="body-overlay" id="bgVideo" muted autoplay loop>
         <source src="<?= base_url('modules/assets/images/video3.mp4'); ?>" type="video/mp4">
-    </video>
-
+    </video> -->
+<img class="body-overlay" src="<?= base_url('modules/assets/images/photo1.png'); ?>" alt="Background Image">
 
     <div class="page-loader">
         <div class="bounceball"></div>

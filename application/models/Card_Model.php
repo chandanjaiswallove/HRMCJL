@@ -38,7 +38,8 @@ class Card_Model extends CI_Model
             'instagram' => $this->input->post('instagram_link', true),
 
             'address' => $this->input->post('address', true),
-            'whatsapp_contact' => $this->input->post('whatsapp_Number', true),
+            'aadhar_number' => $this->input->post('aadhar_number', true),
+            'whatsapp_contact' => $this->input->post('contact_number', true),
             'email' => $this->input->post('email_address', true),
             'whatsapp_message' => $this->input->post('WhatsappMessage', true),
         ];

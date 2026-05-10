@@ -67,10 +67,7 @@ $route['onBoarding_verify'] = 'onBoarding/OnBoarding/loaDverify';
 $route['onBoarding_credentials'] = 'onBoarding/OnBoarding/new_credentials';
 $route['signup_otp'] = 'onBoarding/OnBoarding/loaDsignup_otp';
 
-/// Client Review page route in Onboarding Controller & page load function loaDclient_review() in OnBoarding Controller
-$route['ra1skd25leaviewclient9kasd720kaulsid'] = 'onBoarding/OnBoarding/loaDclient_review';
-// actions
-$route['submit-client-review/_a1c2b3d4_e5f6_7890_1234_abcdef123456'] = 'onBoarding/OnBoarding/modeLclient_review';  // Client Review Model function call here from OnBoarding Controller
+
 
 
 // actions
@@ -107,63 +104,129 @@ $route['extras_coming_soon'] = 'fronted/Extra/loaDextra';
 
 ///================= Dashboard  controller start ==============
 $route['admin_playground'] = 'dashBoard/Admin/AdminDashboard/loaDadmin_dashboard';
-$route['about'] = 'dashBoard/Admin/AdminDashboard/loaDabout';
+$route['employee_dashboard'] = 'dashBoard/Admin/AdminDashboard/loaDemployee_dashboard';
 
-$route['introduce'] = 'dashBoard/Admin/AdminDashboard/loaDintroduce';
-$route['my_skill'] = 'dashBoard/Admin/AdminDashboard/loaDmyskill';
+
+$route['employee_attendance'] = 'dashBoard/Admin/AdminDashboard/loaDemployee_attendance';
+
+$route['save_employee_attendance'] = 'dashBoard/Admin/AdminDashboard/save_employee_attendance';
+
+$route['update_employee_attendance'] = 'dashBoard/Admin/AdminDashboard/update_employee_attendance';
+
+$route['delete_employee_attendance/(:num)'] = 'dashBoard/Admin/AdminDashboard/delete_employee_attendance/$1';
+
+//----------------------------------------------------------------------------------------------------------------
+
+$route['employee_attendance_records'] = 'dashBoard/Admin/AdminDashboard/loaDemployee_attendance_records';
+
+
+
+// =================EMPLOYEE TASK MASTER ROUTES =================
+
+// Page
+$route['employee_task_master'] = 'dashBoard/Admin/AdminDashboard/loaDemployee_task_master';
+
+// Insert / Update
+$route['insert_employee_task_master'] = 'dashBoard/Admin/AdminDashboard/insert_employee_task_master';
+
+// Delete
+$route['delete_employee_task_master/(:num)'] = 'dashBoard/Admin/AdminDashboard/delete_employee_task_master/$1';
+
+// AJAX Fetch
+$route['get_employee_tasks_ajax/(:num)'] = 'dashBoard/Admin/AdminDashboard/get_employee_tasks_ajax/$1';
+
+
+
+//-------------------------------------------------------------------------------------
+
+
+//--------------------------------------------------------------------------------------
+
+
+
+// =================EMPLOYEE TASK CHEKLIST ROUTES =================
+
+// Page Load
+$route['employee_task_checklist'] = 'dashBoard/Admin/AdminDashboard/loaDemployee_task_checklist';
+
+$route['get_employee_tasks_ajax/(:num)'] =
+'dashBoard/Admin/AdminDashboard/get_employee_tasks_ajax/$1';
+
+
+// Insert
+$route['insert_employee_task_checklist'] = 'dashBoard/Admin/AdminDashboard/insert_employee_task_checklist';
+
+// Update
+$route['update_employee_task_checklist'] = 'dashBoard/Admin/AdminDashboard/update_employee_task_checklist';
+
+// Delete
+$route['delete_employee_task_checklist/(:num)'] = 'dashBoard/Admin/AdminDashboard/delete_employee_task_checklist/$1';
+
+
+
+// ================= EMPLOYEE CHECKLIST =================
+$route['employee_checklist_records'] = 'dashBoard/Admin/AdminDashboard/loaDemployee_checklist_records';
+
+// ================= EMPLOYEE CHECKLIST =================
+$route['employee_payroll'] = 'dashBoard/Admin/AdminDashboard/loaDemployee_payroll';
+
+
+// =====================================================
+// PAYROLL ROUTES
+// =====================================================
+
+$route['ajax_get_employee_payroll_data'] = 'dashBoard/Admin/Payroll_Controller/ajax_get_employee_payroll_data';
+
+
+$route['process_payroll_employee'] = 'dashBoard/Admin/Payroll_Controller/process_payroll_employee';
+
+
+$route['update_payroll_employee'] = 'dashBoard/Admin/Payroll_Controller/update_payroll_employee';
+
+
+
+
+
+
+// ----------------------------------------------------------------------------------- ENROLL STUDENTS PAGE ALL WORK HERE
+$route['enroll_students'] = 'dashBoard/Admin/AdminDashboard/loaDenroll_students';  // LOAD STUDENTS ENROLL PAGE
+$route['enroll_student_insert_basic'] = 'dashBoard/Admin/AdminDashboard/loaDenroll_student_insert';
+
+
+// --------------------------------------------------------------------------------------- MANAGE STUDENTS PAGE ALL WORK HERE
+$route['manage_students'] = 'dashBoard/Admin/AdminDashboard/loaDmanage_students';
+
+$route['enroll_student_update'] = 'dashBoard/Admin/AdminDashboard/loaDenroll_student_update';
+$route['enrllStudentDataDelete'] = 'dashBoard/Admin/AdminDashboard/loaDenroll_student_delete';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 $route['profile_card'] = 'dashBoard/Admin/AdminDashboard/loaDprofile_card';
-$route['services'] = 'dashBoard/Admin/AdminDashboard/loaDservices';
 
-$route['testimonials'] = 'dashBoard/Admin/AdminDashboard/loaDtestimonials';
 $route['visitors'] = 'dashBoard/Admin/AdminDashboard/loadvisitor_data';
 
-$route['resume'] = 'dashBoard/Admin/AdminDashboard/loaDresume';
-$route['projects'] = 'dashBoard/Admin/AdminDashboard/loaDProject';
-
-$route['pricing'] = 'dashBoard/Admin/AdminDashboard/loaDpricing_card';
 
 ///================= Dashboard  controller end =================
 
 
-
-
-
-
 ///================= Dashboard  controller model function call here   =================
 $route['update_profile'] = 'dashBoard/Admin/AdminDashboard/modeLupdate_profile';    /// Card_Model
-$route['update_introduce'] = 'dashBoard/Admin/AdminDashboard/modeLintroduce_update';    /// Introduce_Model
-$route['about_update'] = 'dashBoard/Admin/AdminDashboard/modeLabout_Update';            /// About_Model
-$route['insert_service'] = 'dashBoard/Admin/AdminDashboard/modeLinsertService';         /// Service_Model\
-$route['insert_service_update'] = 'dashBoard/Admin/AdminDashboard/modeLinsert_service_update';         /// Service_Model
 
-
-
-$route['insert_skill'] = 'dashBoard/Admin/AdminDashboard/modeLskill_update';            /// Skill_Model 
-$route['update_skill'] = 'dashBoard/Admin/AdminDashboard/modeLupdate_skill';      /// Skill_Model 
-
-$route['updateTestimonial'] = 'dashBoard/Admin/AdminDashboard/modeLupdateTestimonial';      /// Testimonial Model 
-$route['approveTestimonial'] = 'dashBoard/Admin/AdminDashboard/modeLapproveTestimonial';      /// Testimonial Model testimonialLogo function for update logo in testimonial section
-
-
-$route['insertPortProj'] = 'dashBoard/Admin/AdminDashboard/modeLinsertPortProj';
-$route['updatePortProj'] = 'dashBoard/Admin/AdminDashboard/modeLupdatePortProj';
-
-$route['insertPricecard'] = 'dashBoard/Admin/AdminDashboard/modeLinsertPricecard';
-$route['updatePriceCard'] = 'dashBoard/Admin/AdminDashboard/modeLupdatePriceCard';
-
-$route['update_resume'] = 'dashBoard/Admin/AdminDashboard/modeLupdateResume';
-
-
-
-
-
-////// Delete function btn /////
-$route['deleteService'] = 'dashBoard/Admin/AdminDashboard/deleteSection';
-$route['removeSkills'] = 'dashBoard/Admin/AdminDashboard/modeLdeleteSkill';
-$route['removeTestimonial'] = 'dashBoard/Admin/AdminDashboard/modeLremoveTestimonial';
-$route['portfolioProjectRemove'] = 'dashBoard/Admin/AdminDashboard/modeLportfolioProjectRemove';
-$route['deletePriceCard'] = 'dashBoard/Admin/AdminDashboard/modeLdeletePriceCard';
 
 
 

@@ -39,22 +39,22 @@
 <body class="home1-page">
 
 
-    <video class="body-overlay" id="bgVideo" muted autoplay loop playsinline controlsList="nodownload"
+    <!-- <video class="body-overlay" id="bgVideo" muted autoplay loop playsinline controlsList="nodownload"
         disablePictureInPicture>
-        <source src="<?= base_url('modules/assets/images/video3.mp4'); ?>" type="video/mp4">
-    </video>
-
+        <source src="<?= base_url('modules/assets/images/video1.mp4'); ?>" type="video/mp4">
+    </video> -->
+<img class="body-overlay" src="<?= base_url('modules/assets/images/photo1.png'); ?>" alt="Background Image">
 
     <div class="page-loader">
         <div class="bounceball"></div>
     </div>
 
-    <span class="icon-menu">
+    <!-- <span class="icon-menu">
         <span class="bar"></span>
         <span class="bar"></span>
-    </span>
+    </span> -->
 
-    <div class="global-color">
+    <div class="global-color d-none">
         <span class="setting-toggle">
             <i class="las la-cog"></i>
         </span>
@@ -71,7 +71,7 @@
                         <a href="<?php echo base_url('#'); ?>" class="clr-active" onclick="color1();"></a>
                         <a href="<?php echo base_url('#about'); ?>" onclick="color2();"></a>
                         <a href="<?php echo base_url('#resume'); ?>" onclick="color3();"></a>
-                        <a href="<?php echo base_url('#services'); ?>" onclick="color4();"></a>
+                        <a href="<?php echo base_url('#'); ?>" onclick="color4();"></a>
                         <a href="<?php echo base_url('#skills'); ?>" onclick="color5();"></a>
                         <a href="<?php echo base_url('#portfolio'); ?>" onclick="color6();"></a>
                         <a href="<?php echo base_url('#testimonial'); ?>" onclick="color7();"></a>
@@ -136,234 +136,4 @@
                 </p>
             </div>
         </div>
-    </div>
-
-    <div class="responsive-sidebar-menu">
-        <div class="overlay"></div>
-        <div class="sidebar-menu-inner">
-            <div class="menu-wrap">
-                <p>Menu</p>
-
-                <a class="scroll-to" href="<?= base_url('onBoarding'); ?>">
-                    <i class="las la-stream"></i> <span>Sign in</span>
-                </a>
-
-
-                <ul class="menu scroll-nav-responsive d-flex">
-                    <li>
-                        <a class="scroll-to" href="#home">
-                            <i class="las la-home"></i> <span>Home</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="scroll-to" href="#about">
-                            <i class="lar la-user"></i> <span>About</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="scroll-to" href="#resume">
-                            <i class="las la-briefcase"></i> <span>Resume</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="scroll-to" href="#services">
-                            <i class="las la-stream"></i> <span>Services</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="scroll-to" href="#skills">
-                            <i class="las la-shapes"></i> <span>Skills</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="scroll-to" href="#portfolio">
-                            <i class="las la-grip-vertical"></i> <span>Portfolios</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="scroll-to" href="#testimonial">
-                            <i class="lar la-comment"></i> <span>Testimonial</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="scroll-to" href="#contact">
-                            <i class="las la-envelope"></i> <span>Contact</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="sidebar-social">
-                <p>Social</p>
-                <ul class="social-links d-flex align-items-center">
-
-                    <?php if ($card->facebook): ?>
-                        <li>
-                            <a href="<?= $card->facebook; ?>" target="_blank">
-                                <i class="lab la-facebook-f"></i>
-                            </a>
-                        </li>
-                    <?php endif; ?>
-
-                    <?php if ($card->internet_search): ?>
-                        <li>
-                            <a href="<?= $card->internet_search; ?>" target="_blank">
-                                <i class="lab la-dribbble"></i>
-                            </a>
-                        </li>
-                    <?php endif; ?>
-
-                    <?php if ($card->instagram): ?>
-                        <li>
-                            <a href="<?= $card->instagram; ?>" target="_blank">
-                                <i class="lab la-instagram"></i>
-                            </a>
-                        </li>
-                    <?php endif; ?>
-
-                    <?php if ($card->github): ?>
-                        <li>
-                            <a href="<?= $card->github; ?>" target="_blank">
-                                <i class="lab la-github"></i>
-                            </a>
-                        </li>
-                    <?php endif; ?>
-
-                    <?php if ($card->whatsapp_contact): ?>
-                        <li>
-                            <a href="https://wa.me/<?= $card->whatsapp_contact; ?>?text=<?= urlencode($card->whatsapp_message); ?>"
-                                target="_blank">
-                                <i class="lab la-whatsapp"></i>
-                            </a>
-                        </li>
-                    <?php endif; ?>
-
-
-
-                </ul>
-
-                <p class="copyright">
-                    Powered by <a href="https://aidcom.in" target="_blank">Aidcom</a>
-                </p>
-
-            </div>
-
-
-        </div>
-    </div>
-
-
-
-
-    <ul class="menu scroll-nav d-flex">
-        <li>
-            <a class="scroll-to" href="#home">
-                <span>Home</span> <i class="las la-home"></i>
-            </a>
-        </li>
-        <li>
-            <a class="scroll-to" href="#about">
-                <span>About</span> <i class="lar la-user"></i>
-            </a>
-        </li>
-        <li>
-            <a class="scroll-to" href="#resume">
-                <span>Resume</span> <i class="las la-briefcase"></i>
-            </a>
-        </li>
-        <li>
-            <a href="#services">
-                <span>Services</span> <i class="las la-stream"></i>
-            </a>
-        </li>
-        <li>
-            <a class="scroll-to" href="#skills">
-                <span>Skills</span> <i class="las la-shapes"></i>
-            </a>
-        </li>
-        <li>
-            <a class="scroll-to" href="#portfolio">
-                <span>Portfolios</span> <i class="las la-grip-vertical"></i>
-            </a>
-        </li>
-        <li>
-            <a class="scroll-to" href="#testimonial">
-                <span>Testimonial</span> <i class="lar la-comment"></i>
-            </a>
-        </li>
-        <li>
-            <a class="scroll-to" href="#contact">
-                <span>Contact</span> <i class="las la-envelope"></i>
-            </a>
-        </li>
-    </ul>
-
-    <div class="left-sidebar">
-
-        <div class="sidebar-header d-flex align-items-center justify-content-between">
-            <a href="<?= base_url(); ?>">
-
-                <?php if (!empty($card->company_logo)) { ?>
-                    <img src="<?= base_url($card->company_logo); ?>" alt="Company Logo" style="height:36px; width:128px;">
-
-                <?php } elseif (!empty($card->company_dark_logo)) { ?>
-                    <img src="<?= base_url($card->company_dark_logo); ?>" alt="Company Logo"
-                        style="height:36px; width:128px;">
-
-                <?php } else { ?>
-                    <img alt="Company Logo" style="height:36px; width:128px;">
-                <?php } ?>
-
-            </a>
-        </div>
-
-        <img class="me" src="<?= base_url($card->profile_photo); ?>" alt="Me">
-
-        <h2 class="email"><?= $card->person_name; ?></h2>
-        <h2 class="address"><?= $card->address; ?></h2>
-
-        <p class="copyright">
-            &copy; <?= date('Y'); ?> <?= $card->web_title ?? 'Your Company'; ?>. All Rights Reserved
-        </p>
-
-        <ul class="social-profile d-flex align-items-center flex-wrap justify-content-center">
-
-            <?php if ($card->facebook): ?>
-                <li>
-                    <a href="<?= $card->facebook; ?>" target="_blank">
-                        <i class="lab la-facebook-f" style="font-size:20px;"></i> </a>
-                </li>
-            <?php endif; ?>
-
-            <?php if ($card->internet_search): ?>
-                <li>
-                    <a href="<?= $card->internet_search; ?>" target="_blank">
-                        <i class="lab la-dribbble"></i>
-                    </a>
-                </li>
-            <?php endif; ?>
-
-            <?php if ($card->instagram): ?>
-                <li>
-                    <a href="<?= $card->instagram; ?>" target="_blank">
-                        <i class="lab la-instagram"></i>
-                    </a>
-                </li>
-            <?php endif; ?>
-
-            <?php if ($card->github): ?>
-                <li>
-                    <a href="<?= $card->github; ?>" target="_blank">
-                        <i class="lab la-github"></i>
-                    </a>
-                </li>
-            <?php endif; ?>
-
-        </ul>
-
-        <a href="https://wa.me/<?= $card->whatsapp_contact; ?>?text=<?= urlencode($card->whatsapp_message); ?>"
-            target="_blank" class="theme-btn">
-            <i class="lab la-whatsapp"></i> Contact Me
-        </a>
-
     </div>

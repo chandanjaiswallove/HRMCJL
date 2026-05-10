@@ -3,7 +3,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 /**
  * @property Card_Model $Card
- * @property ClientReviewModel $Review
 
  */
 class OnBoarding extends CI_Controller
@@ -12,7 +11,6 @@ class OnBoarding extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Card_Model', 'Card'); // common data (logo / card)
-        $this->load->model('ClientReviewModel', 'Review'); // Client Review Model load for Client Review page
     }
 
     private function load_auth_page($page)
@@ -59,17 +57,6 @@ class OnBoarding extends CI_Controller
         $this->load_auth_page('signup_otp');
     }
 
-    public function loaDclient_review()
-    {
-        $this->load_auth_page('client_review');
-    }
-
-    public function modeLclient_review()
-    {
-        $this->Review->client_review();  // Client Review Model load and Function call for Client Review page
-    }
-
     
-
 
 }

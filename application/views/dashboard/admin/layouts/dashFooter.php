@@ -1,62 +1,45 @@
-<!-- footer start-->
-<footer class="footer">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12 footer-copyright text-center">
-                <p class="mb-0">
-                    © <?= date('Y') ?>
-                    <a href="<?= base_url() ?>" target="_blank" rel="noopener">
-                        <?= $card->web_title ?? 'Your Company' ?>
-                    </a>.
-                    All rights reserved.
-                    Powered by
-                    <a href="https://aidcom.in" target="_blank" rel="noopener">
-                        Aidcom
-                    </a>.
-                </p>
-            </div>
-        </div>
+ <footer class="d-footer">
+  <div class="row align-items-center justify-content-between">
+    <div class="col-auto">
+      <p class="mb-0">© 2026 WowDash. All Rights Reserved.</p>
     </div>
+    <div class="col-auto">
+      <p class="mb-0">Powered by <span class="text-primary-600"> <a href="https://www.aidcom.com" target="_blank">Aidcom</a></span></p>
+    </div>
+  </div>
 </footer>
+</main>
+  
+  <!-- jQuery library js -->
+  <script src="modules/assets2/js/lib/jquery-3.7.1.min.js"></script>
+  <!-- Bootstrap js -->
+  <script src="modules/assets2/js/lib/bootstrap.bundle.min.js"></script>
+  <!-- Apex Chart js -->
+  <script src="modules/assets2/js/lib/apexcharts.min.js"></script>
+  <!-- Data Table js -->
+  <script src="modules/assets2/js/lib/dataTables.min.js"></script>
+  <!-- Iconify Font js -->
+  <script src="modules/assets2/js/lib/iconify-icon.min.js"></script>
+  <!-- jQuery UI js -->
+  <script src="modules/assets2/js/lib/jquery-ui.min.js"></script>
+  <!-- Vector Map js -->
+  <script src="modules/assets2/js/lib/jquery-jvectormap-2.0.5.min.js"></script>
+  <script src="modules/assets2/js/lib/jquery-jvectormap-world-mill-en.js"></script>
+  <!-- Popup js -->
+  <script src="modules/assets2/js/lib/magnifc-popup.min.js"></script>
+  <!-- Slick Slider js -->
+  <script src="modules/assets2/js/lib/slick.min.js"></script>
+  <!-- prism js -->
+  <script src="modules/assets2/js/lib/prism.js"></script>
+  <!-- file upload js -->
+  <script src="modules/assets2/js/lib/file-upload.js"></script>
+  <!-- audioplayer -->
+  <script src="modules/assets2/js/lib/audioplayer.js"></script>
+  
+  <!-- main js -->
+  <script src="modules/assets2/js/app.js"></script>
 
-</div>
-</div>
-<!-- latest jquery-->
-<script src="modules/assets2/js/jquery.min.js"></script>
-<!-- Bootstrap js-->
-<script src="modules/assets2/js/bootstrap/bootstrap.bundle.min.js"></script>
-<!-- feather icon js-->
-<script src="modules/assets2/js/icons/feather-icon/feather.min.js"></script>
-<script src="modules/assets2/js/icons/feather-icon/feather-icon.js"></script>
-<!-- scrollbar js-->
-<script src="modules/assets2/js/scrollbar/simplebar.js"></script>
-<script src="modules/assets2/js/scrollbar/custom.js"></script>
-<!-- Sidebar jquery-->
-<script src="modules/assets2/js/config.js"></script>
-<!-- Plugins JS start-->
-<script src="modules/assets2/js/sidebar-menu.js"></script>
-<script src="modules/assets2/js/sidebar-pin.js"></script>
-<script src="modules/assets2/js/slick/slick.min.js"></script>
-<script src="modules/assets2/js/slick/slick.js"></script>
-<script src="modules/assets2/js/header-slick.js"></script>
-<script src="modules/assets2/js/chart/apex-chart/apex-chart.js"></script>
-<script src="modules/assets2/js/chart/apex-chart/stock-prices.js"></script>
-<script src="modules/assets2/js/chart/apex-chart/moment.min.js"></script>
-<script src="modules/assets2/js/chart/echart/esl.js"></script>
-<script src="modules/assets2/js/chart/echart/config.js"></script>
-<script src="modules/assets2/js/chart/echart/pie-chart/facePrint.js"></script>
-<script src="modules/assets2/js/chart/echart/pie-chart/testHelper.js"></script>
-<script src="modules/assets2/js/chart/echart/pie-chart/custom-transition-texture.js"></script>
-<script src="modules/assets2/js/chart/echart/data/symbols.js"></script>
-<!-- calendar js-->
-<script src="modules/assets2/js/datepicker/date-picker/datepicker.js"></script>
-<script src="modules/assets2/js/datepicker/date-picker/datepicker.en.js"></script>
-<script src="modules/assets2/js/datepicker/date-picker/datepicker.custom.js"></script>
-<script src="modules/assets2/js/dashboard/dashboard_3.js"></script>
-<!-- Plugins JS Ends-->
-<!-- Theme js-->
-<script src="modules/assets2/js/script.js"></script>
-<script src="modules/assets2/js/theme-customizer/customizer.js"></script>
+<script src="modules/assets2/js/homeOneChart.js"></script>
+
 </body>
-
 </html>

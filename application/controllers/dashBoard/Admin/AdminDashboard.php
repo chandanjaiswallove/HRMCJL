@@ -4,14 +4,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
 /**
  * @property Card_Model $Card
  * @property Dashboard_Model $Dash
- * @property Introduce_Model $Introduce
- * @property Service_Model $Service
- * @property About_Model $About 
- * @property Skill_Model $Skill
- * @property Testimonial_Model $Testimonial
- * @property PortfolioProject_Model $PortProject
- * @property Price_Model $Price
- * @property Resume_Model $Resume
+ * @property Contact_Model $Contact
+ * @property Student_Enroll_Model $EnrollStudent
+ * @property Employee_Attendance_Model $Employee
+ * @property Employee_Task_Master_Model $TaskMaster
+ * @property Employee_Payroll_Model $EmployeePayroll
+ * @property Employee_Task_Checklist_Model $TaskChecklist
+
+
  */
 
 class AdminDashboard extends CI_Controller
@@ -19,7 +19,6 @@ class AdminDashboard extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-
 
         // 🔐 SESSION CHECK
         if (!$this->session->userdata('logged_in')) {
@@ -36,18 +35,17 @@ class AdminDashboard extends CI_Controller
         // Models
         $this->load->model('Card_Model', 'Card');
         $this->load->model('Dashboard_Model', 'Dash');
-        $this->load->model('Introduce_Model', 'Introduce');
-        $this->load->model('Service_Model', 'Service');
-        $this->load->model('About_Model', 'About');
-        $this->load->model('Skill_Model', 'Skill');
-        $this->load->model('Testimonial_Model', 'Testimonial');
-        $this->load->model('PortfolioProject_Model', 'PortProject');
-        $this->load->model('Price_Model', 'Price');
-        $this->load->model('Resume_Model', 'Resume');
+        $this->load->model('Contact_Model', 'Contact');
+        $this->load->model('Student_Enroll_Model', 'EnrollStudent');
+        $this->load->model('Employee_Attendance_Model', 'Employee');
+        $this->load->model('Employee_Task_Master_Model', 'TaskMaster');
+        $this->load->model('Employee_Payroll_Model', 'EmployeePayroll');
+        $this->load->model('Employee_Task_Checklist_Model', 'TaskChecklist');
+
+
+
 
     }
-
-
 
 
 
@@ -57,17 +55,19 @@ class AdminDashboard extends CI_Controller
 
 
         $data['card'] = $this->Card->get_card(); // Header/footer ke liye data Profile_card ka Data
-        $data['intro'] = $this->Dash->get_introduceData(); // Header/footer ke liye data Profile_card ka Data from Dashboard_Model
-        $data['about'] = $this->Dash->get_aboutData();       // ✅ About data  from Dashboard_Model
-        $data['service'] = $this->Dash->get_serviceData();       // services_directory Data from Dashboard_Model
-        $data['skill'] = $this->Dash->get_myskill_directory();  // get_myskill_directory Data from Dashboard_Model
         $data['contacts'] = $this->Dash->get_contact_directory();   // get_contact_directory Data from Dashboard_Model
         $data['notifications'] = $this->Dash->get_notifications();
         $data['notification_count'] = $this->Dash->count_new_messages();
-        $data['testimonials'] = $this->Dash->get_testimonial_directory();   // get_testimonial_directory ata from Dashboard_Model
-        $data['portfolios'] = $this->Dash->get_portfolio_projects();    //  project page data from Dashboard_Model
-        $data['pricing_cards'] = $this->Dash->get_price_card();         /// Price Card data from Dashboard Model
-        $data['education'] = $this->Dash->get_educationData();          //// Resume Data from Dashboard Model
+
+        $data['registered'] = $this->Dash->get_registeredUserData();  // Registered user data for profile card page
+        $data['students'] = $this->EnrollStudent->get_enroll_studentData();  // get Enroll students data from Enroll_Student_Model
+        $data['total_students'] = $this->EnrollStudent->count_students();   // Enroll Student Count from Enroll_Student_Model
+
+        $data['attendance'] = $this->Employee->get_all_attendance();   // coming from Employee_Attendance_Model & this get_all_attendance() 
+
+        $data['assigned_employee'] = $this->TaskMaster->get_assigned_employees();   //
+
+        // $data['checklists'] = $this->TaskChecklist->get_all_employee_task_checklist();   //
 
         $this->load->view('dashboard/admin/layouts/dashHeader', $data);
 
@@ -85,183 +85,335 @@ class AdminDashboard extends CI_Controller
 
 
 
-    ////// Delete function btn /////
-    public function deleteSection()
+    // // // ==========================================
+    // // // AJAX TASK FETCH
+    // // ==========================================
+    public function get_employee_tasks_ajax($employee_id)
     {
-        // $this->load->model('/Service_Model');
-        $this->Service->deleteBtn();
+        $this->TaskMaster->get_employee_tasks_ajax($employee_id);
     }
 
-    public function modeLdeleteSkill()  /// deldeteSkill function load from my skill model
+
+
+
+
+
+
+
+
+    public function loaDemployee_checklist_records()
     {
-        $this->Skill->deleteSkill();
+        $this->load_page('employee_checklist_records');
     }
 
-    public function modeLremoveTestimonial()
-    {      //// removeTestimonial function load from Testimonial
-        $this->Testimonial->removeTestimonial();
-    }
 
-    public function modeLapproveTestimonial()        /// approveTestimonial function load from Testimonial model
+
+
+    // =====================================================
+// PAGE LOAD
+// =====================================================
+    public function loaDemployee_task_checklist()
     {
-        $this->Testimonial->approve_Testimonial();
+        $this->load_page('employee_task_checklist');
     }
 
 
-    public function modeLportfolioProjectRemove()   ////  Remove Portfolio Project PortfolioProject_Model function call here
+    // =====================================================
+// AJAX TASK FETCH
+// =====================================================
+// public function get_employee_tasks_ajax($employee_id)
+// {
+//     $data = $this->TaskChecklist
+//         ->get_employee_tasks_ajax($employee_id);
+
+    //     echo json_encode($data);
+// }
+
+
+
+    // =====================================================
+// INSERT CHECKLIST
+// =====================================================
+    public function insert_employee_task_checklist()
     {
-        $this->PortProject->portfolioProjectRemove();
+        $this->TaskChecklist->insert_employee_task_checklist();
     }
 
-    public function modeLdeletePriceCard()   /// Delete price card
+
+    // =====================================================
+// UPDATE CHECKLIST
+// =====================================================
+    public function update_employee_task_checklist()
     {
-        $this->Price->deletePriceCard();
+        $this->TaskChecklist->update_employee_task_checklist();
     }
 
-    //=================== Dashboard Pages model Here ===================== ///
 
+    // =====================================================
+// DELETE CHECKLIST
+// =====================================================
+    public function delete_employee_task_checklist($id)
+    {
+        $this->TaskChecklist->delete_employee_task_checklist($id);
+    }
+
+
+
+
+
+
+
+
+
+
+    // ==========================================
+    // EMPLOYEE TASK MASTER PAGE LOAD
+    // ==========================================
+    public function loaDemployee_task_master()
+    {
+        $this->load_page('employee_task_master');
+    }
+
+
+    // ==========================================
+    // INSERT / UPDATE TASKS
+    // ==========================================
+    public function insert_employee_task_master()
+    {
+        $this->TaskMaster->insert_employee_task_master();
+    }
+
+
+    // ==========================================
+    // DELETE TASKS
+    // ==========================================
+    public function delete_employee_task_master($employee_id)
+    {
+        $this->TaskMaster->delete_employee_task_master($employee_id);
+    }
+
+
+
+
+
+
+
+
+
+
+    /// ------------------------------------- Employee_Attendance_Record Page all work here
+
+    public function loaDemployee_attendance_records()
+    {
+        $this->load_page('employee_attendance_records');
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /// ------------------------------------- employee_attendance Page all work here
+
+    // ==========================================
+// ADMIN DASHBOARD CONTROLLER FUNCTIONS
+// ==========================================
+
+    // Employee Attendance Page Load
+    public function loaDemployee_attendance()
+    {
+        $this->load_page('employee_attendance');
+    }
+
+    // Save Attendance
+    public function save_employee_attendance()
+    {
+        $this->Employee->save_attendance();
+    }
+
+    // Update Attendance
+    public function update_employee_attendance()
+    {
+
+        $this->Employee->update_employee_attendance();
+
+    }
+
+    // Delete Attendance
+    public function delete_employee_attendance($id)
+    {
+        if (!empty($id)) {
+            $this->Employee->delete_attendance($id);
+        } else {
+            sweetAlert(
+                'Error!',
+                'Invalid attendance record.',
+                'error',
+                base_url('employee_attendance')
+            );
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public function loaDemployee_dashboard()
+    {
+        $this->load_page('employee_dashboard');
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /// ------------------------------------- Start Enroll Students Page all work here
+    public function loaDenroll_students()
+    {
+        $this->load_page('enroll_students');
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public function loaDenroll_student_insert()
+    {
+        $this->EnrollStudent->enroll_student_insert();
+    }
+
+
+    /// ------------------------------------- Start Student Manage page alll work here
+    public function loaDmanage_students()
+    {
+        $this->load_page('manage_students');
+    }
+
+    public function loaDenroll_student_update()
+    {
+        $this->EnrollStudent->enroll_student_update();
+    }
+
+    public function loaDenroll_student_delete()
+    {
+        $this->EnrollStudent->enroll_student_delete();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //-------------------------------------------- Start Employee Payroll Page all work here
+    public function loaDemployee_payroll()
+    {
+        $this->load_page('employee_payroll');
+    }
+
+
+
+
+
+
+    //-------------------------------------------- Start Admin Dashboard Page all work here
+    public function loaDadmin_dashboard()
+    {
+        $this->load_page('admin_playground');
+    }
+
+
+    //-------------------------------------------- Start Profile card page all work here 
+    public function loaDprofile_card()
+    {
+        $this->load_page('profile_card');
+    }
 
     public function modeLupdate_profile()   // Card Model Function
     {
         $this->Card->save_profile_card();
     }
 
-
-    public function modeLintroduce_update()    // Introuduce_MOdel Function
-    {
-        $this->Introduce->save_introude_update();
-    }
-
-
-    public function modeLabout_Update()         /// About Model function call here 
-    {
-        $this->About->save_about_Update();
-    }
-
-
-    public function modeLinsertService()    /// Service Model function call here 
-    {
-        $this->Service->save_insert_service();
-    }
-
-    public function modeLinsert_service_update()    /// Service Model function call here 
-    {
-        $this->Service->service_update();
-    }
-
-
-    public function modeLskill_update() ///  Skill Model call here
-    {
-        $this->Skill->insert_skill_update();
-    }
-
-    public function modeLupdate_skill()  ///  Skill Model call here
-    {
-        $this->Skill->skill_update();
-    }
-
-
-    public function modeLupdateTestimonial()    /// Testimonial Model call here
-    {
-        $this->Testimonial->update_Testimonials();
-    }
-
-
-
-
-    public function modeLinsertPortProj()   //// PortfolioProject_Model function load here
-    {
-        $this->PortProject->insertPortProj();
-    }
-
-    public function modeLupdatePortProj()   /// Portfolio Project_Model function load here
-    {
-        $this->PortProject->updatePortProj();
-    }
-
-    public function modeLinsertPricecard()  /// Pricing Card model function load here
-    {
-        $this->Price->insertPricecard();
-    }
-
-    public function modeLupdatePriceCard()  // Pricing card model update funciton load here
-    {
-        $this->Price->updatePriceCard();
-    }
-
-
-    public function modeLupdateResume()  // Resume  model update funciton load here
-    {
-        $this->Resume->updateResume();
-    }
-
-    //=================== Dashboard Pages model End ===================== ///
-
-
-
-
-
-    ///////////////////// Ab har page method sirf load_page ko call karega //////////////
-    public function loaDadmin_dashboard()
-    {
-        $this->load_page('admin_dashboard');
-    }
-
-    public function loaDabout()
-    {
-        $this->load_page('about');
-    }
-
-    public function loaDintroduce()
-    {
-        $this->load_page('introduce');
-    }
-
-    public function loaDmyskill()
-    {
-        $this->load_page('myskill');
-    }
-
-    public function loaDprofile_card()
-    {
-        $this->load_page('profile_card');
-    }
-
-    public function loaDservices()
-    {
-        $this->load_page('services');
-    }
-
-    public function loaDtestimonials()
-    {
-        $this->load_page('testimonials');
-    }
-
-    // public function loaDvisitor_data()
-    // {
-    //     $this->load_page('visitor_data');
-    // }
-
+    //-------------------------------------------- Start Visitor data page all work here 
     public function loadvisitor_data()
     {
         $this->Dash->mark_all_read();  // Model function call
         $this->load_page('visitor_data');
     }
 
-    public function loaDresume()
-    {
-        $this->load_page('resume');
-    }
 
-    public function loaDProject()
-    {
-        $this->load_page('portfolio');
-    }
 
-    public function loaDpricing_card()
-    {
-        $this->load_page('pricing_card');
-    }
+
+
+
 
 
 

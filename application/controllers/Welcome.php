@@ -23,14 +23,6 @@ class Welcome extends CI_Controller
 	public function index()
 	{
 		$data['card'] = $this->Card->get_card();
-		$data['education'] = $this->Dash->get_educationData();
-		$data['intro'] = $this->Dash->get_introduceData();
-		$data['about'] = $this->Dash->get_aboutData();
-		$data['service'] = $this->Dash->get_serviceData();       // services_directory Data from Dashboard_Model
-		$data['skill'] = $this->Dash->get_myskill_directory();  // get_myskill_directory Data from Dashboard_Model
-		$data['portfolios'] = $this->Dash->get_portfolio_projects();    //  project page data from Dashboard_Model
-		$data['pricing_cards'] = $this->Dash->get_price_card();         /// Price Card data from Dashboard Model
-	    $data['testimonials'] = $this->Dash->get_testimonial_directory();   // get_testimonial_directory ata from Dashboard_Model
 	    $data['contacts'] = $this->Dash->get_contact_directory();   // get_contact_directory Data from Dashboard_Model
 
 

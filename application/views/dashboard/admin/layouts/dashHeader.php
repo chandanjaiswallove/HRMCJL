@@ -1,433 +1,648 @@
+<!-- meta tags and other links -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Riho admin is super flexible, powerful, clean &amp; modern responsive bootstrap 5 admin template with unlimited possibilities.">
-    <meta name="keywords"
-        content="admin template, Riho admin template, dashboard template, flat admin template, responsive admin template, web app">
-    <meta name="author" content="pixelstrap">
-    <!-- Dynamic Title -->
-    <title><?= !empty($card->web_title) ? $card->web_title : 'Jaiswal'; ?></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wowdash</title>
+  <link rel="icon" type="image/png" href="modules/assets2/images/favicon.png" sizes="16x16">
+  <!-- remix icon font css  -->
+  <link rel="stylesheet" href="modules/assets2/css/remixicon.css">
+  <!-- BootStrap css -->
+  <link rel="stylesheet" href="modules/assets2/css/lib/bootstrap.min.css">
+  <!-- Apex Chart css -->
+  <link rel="stylesheet" href="modules/assets2/css/lib/apexcharts.css">
+  <!-- Data Table css -->
+  <link rel="stylesheet" href="modules/assets2/css/lib/dataTables.min.css">
+  <!-- Text Editor css -->
+  <link rel="stylesheet" href="modules/assets2/css/lib/editor-katex.min.css">
+  <link rel="stylesheet" href="modules/assets2/css/lib/editor.atom-one-dark.min.css">
+  <link rel="stylesheet" href="modules/assets2/css/lib/editor.quill.snow.css">
+  <!-- Date picker css -->
+  <link rel="stylesheet" href="modules/assets2/css/lib/flatpickr.min.css">
+  <!-- Calendar css -->
+  <link rel="stylesheet" href="modules/assets2/css/lib/full-calendar.css">
+  <!-- Vector Map css -->
+  <link rel="stylesheet" href="modules/assets2/css/lib/jquery-jvectormap-2.0.5.css">
+  <!-- Popup css -->
+  <link rel="stylesheet" href="modules/assets2/css/lib/magnific-popup.css">
+  <!-- Slick Slider css -->
+  <link rel="stylesheet" href="modules/assets2/css/lib/slick.css">
+  <!-- prism css -->
+  <link rel="stylesheet" href="modules/assets2/css/lib/prism.css">
+  <!-- file upload css -->
+  <link rel="stylesheet" href="modules/assets2/css/lib/file-upload.css">
 
-    <!-- Dynamic Favicon -->
-    <link rel="icon" type="image/x-icon"
-        href="<?= !empty($card->web_icon) ? base_url($card->web_icon) : base_url('modules/assets/images/cicon.png'); ?>">
+  <link rel="stylesheet" href="modules/assets2/css/lib/audioplayer.css">
+  <!-- main css -->
+  <link rel="stylesheet" href="modules/assets2/css/style.css">
 
-    <link rel="shortcut icon" type="image/x-icon"
-        href="<?= !empty($card->web_icon) ? base_url($card->web_icon) : base_url('modules/assets/images/cicon.png'); ?>">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 
-    <!-- Google font-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&amp;display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="modules/assets2/css/font-awesome.css">
-    <!-- ico-font-->
-    <link rel="stylesheet" type="text/css" href="modules/assets2/css/vendors/icofont.css">
-    <!-- Themify icon-->
-    <link rel="stylesheet" type="text/css" href="modules/assets2/css/vendors/themify.css">
-    <!-- Flag icon-->
-    <link rel="stylesheet" type="text/css" href="modules/assets2/css/vendors/flag-icon.css">
-    <!-- Feather icon-->
-    <link rel="stylesheet" type="text/css" href="modules/assets2/css/vendors/feather-icon.css">
-    <!-- Plugins css start-->
-    <link rel="stylesheet" type="text/css" href="modules/assets2/css/vendors/slick.css">
-    <link rel="stylesheet" type="text/css" href="modules/assets2/css/vendors/slick-theme.css">
-    <link rel="stylesheet" type="text/css" href="modules/assets2/css/vendors/scrollbar.css">
-    <link rel="stylesheet" type="text/css" href="modules/assets2/css/vendors/animate.css">
-    <link rel="stylesheet" type="text/css" href="modules/assets2/css/vendors/echart.css">
-    <link rel="stylesheet" type="text/css" href="modules/assets2/css/vendors/date-picker.css">
-    <!-- Plugins css Ends-->
-    <!-- Bootstrap css-->
-    <link rel="stylesheet" type="text/css" href="modules/assets2/css/vendors/bootstrap.css">
-    <!-- App css-->
-    <link rel="stylesheet" type="text/css" href="modules/assets2/css/style.css">
-    <link id="color" rel="stylesheet" href="modules/assets2/css/color-1.css" media="screen">
-    <!-- Responsive css-->
-    <link rel="stylesheet" type="text/css" href="modules/assets2/css/responsive.css">
 </head>
 
 <body>
-    <!-- loader starts-->
-    <div class="loader-wrapper">
-        <div class="loader">
-            <div class="loader4"></div>
-        </div>
+
+  <!-- Theme Customization Structure Start -->
+  <div class="body-overlay"></div>
+
+  <button type="button"
+    class="theme-customization__button w-48-px h-48-px bg-primary-600 text-white rounded-circle d-flex justify-content-center align-items-center position-fixed end-0 bottom-0 mb-40 me-40 text-2xxl bg-hover-primary-700">
+    <i class="ri-settings-3-line animate-spin"></i>
+  </button>
+  <div class="theme-customization-sidebar w-100 bg-base h-100vh overflow-y-auto position-fixed end-0 top-0 shadow-lg">
+    <div class="d-flex align-items-center gap-3 py-16 px-24 justify-content-between border-bottom">
+      <div>
+        <h6 class="text-sm dark:text-white">Theme Settings</h6>
+        <p class="text-xs mb-0 text-neutral-500 dark:text-neutral-200">Customize and preview instantly</p>
+      </div>
+      <button data-slot="button"
+        class="theme-customization-sidebar__close text-neutral-900 bg-transparent text-hover-primary-600 d-flex text-xl">
+        <i class="ri-close-fill"></i>
+      </button>
     </div>
-    <!-- loader ends-->
-    <!-- tap on top starts-->
-    <div class="tap-top"><i data-feather="chevrons-up"></i></div>
-    <!-- tap on tap ends-->
-    <!-- page-wrapper Start-->
-    <div class="page-wrapper compact-wrapper" id="pageWrapper">
-        <!-- Page Header Start-->
-        <div class="page-header">
-            <div class="header-wrapper row m-0">
-                <form class="form-inline search-full col" action="#" method="get">
-                    <div class="form-group w-100">
-                        <div class="Typeahead Typeahead--twitterUsers">
-                            <div class="u-posRelative">
-                                <input class="demo-input Typeahead-input form-control-plaintext w-100" type="text"
-                                    placeholder="Search Riho .." name="q" title="" autofocus>
-                                <div class="spinner-border Typeahead-spinner" role="status"><span
-                                        class="sr-only">Loading... </span></div><i class="close-search"
-                                    data-feather="x"></i>
-                            </div>
-                            <div class="Typeahead-menu"> </div>
-                        </div>
-                    </div>
-                </form>
-                <div class="header-logo-wrapper col-auto p-0">
-                    <div class="logo-wrapper">
-                        <a href="<?= base_url('admin_playground'); ?>">
 
-                            <?php if (!empty($card->company_logo)) { ?>
-                                <img class="img-fluid" src="<?= base_url($card->company_logo); ?>" alt="logo-light">
-                            <?php } elseif (!empty($card->company_dark_logo)) { ?>
-                                <img class="img-fluid" src="<?= base_url($card->company_dark_logo); ?>" alt="logo-dark">
-                            <?php } ?>
+    <div class="d-flex flex-column gap-48 p-24 overflow-y-auto flex-grow-1">
 
-                        </a>
-                    </div>
-                    <div class="toggle-sidebar"> <i class="status_toggle middle sidebar-toggle"
-                            data-feather="align-center"></i></div>
-                </div>
-                <div class="left-header col-xxl-5 col-xl-6 col-lg-5 col-md-4 col-sm-3 p-0">
-                    <div> <a class="toggle-sidebar" href="#"> <i class="iconly-Category icli"> </i></a>
-                        <div class="d-flex align-items-center gap-2 ">
-                            <h4 class="f-w-600">Welcome <?= $card->person_name ?? '' ?></h4><img class="mt-0"
-                                src="modules/assets2/images/hand.gif" alt="hand-gif">
-                        </div>
-                    </div>
-                    <div class="welcome-content d-xl-block d-none"><span class="text-truncate col-12">Here’s what’s
-                            happening with your store today. </span></div>
-                </div>
-                <div class="nav-right col-xxl-7 col-xl-6 col-md-7 col-8 pull-right right-header p-0 ms-auto">
-                    <ul class="nav-menus">
-
-                        <!-- This code comment for not using search functionality in dashboard. If you want to use it then uncomment this code and add search logic in controller and model. -->
-                        <!-- <li class="d-md-block d-none">
-                            <div class="form search-form mb-0">
-                                <div class="input-group"><span class="input-icon">
-                                        <svg>
-                                            <use href="modules/assets2/svg/icon-sprite.svg#search-header"></use>
-                                        </svg>
-                                        <input class="w-100" type="search" placeholder="Search"></span></div>
-                            </div>
-                        </li> -->
-
-                        <!-- <li class="d-md-none d-block">
-                            <div class="form search-form mb-0 ">
-                                <div class="input-group"> <span class="input-show">
-                                        <svg id="searchIcon">
-                                            <use href="modules/assets2/svg/icon-sprite.svg#search-header"></use>
-                                        </svg>
-                                        <div id="searchInput">
-                                            <input type="search" placeholder="Search">
-                                        </div>
-                                    </span></div>
-                            </div>
-                        </li> -->
-
-
-                        <li>
-                            <div class="mode"><i class="moon" data-feather="moon"> </i></div>
-                        </li>
-
-                        <li class="onhover-dropdown notification-down rounded-pill">
-                            <div class="notification-box">
-                                <svg>
-                                    <use href="modules/assets2/svg/icon-sprite.svg#notification-header"></use>
-                                </svg><span class="badge rounded-pill badge-secondary"><?= $notification_count ?></span>
-                            </div>
-                            <div class="onhover-show-div notification-dropdown">
-                                <div class="card mb-0">
-                                    <div class="card-header">
-                                        <div class="common-space">
-                                            <h4 class="text-start f-w-600">Notitications</h4>
-                                            <div>
-                                                <span><?= $notification_count ?></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="notitications-bar">
-
-                                            <div class="tab-content" id="pills-tabContent">
-                                                <div class="tab-pane fade show active" id="pills-aboutus"
-                                                    role="tabpanel" aria-labelledby="pills-aboutus-tab">
-                                                    <?php if (!empty($notifications)): ?>
-                                                        <?php foreach ($notifications as $row): ?>
-                                                            <div class="user-message">
-                                                                <div class="d-flex justify-content-between">
-                                                                    <div>
-                                                                        <a href="<?= base_url('visitors') ?>"
-                                                                            class="f-w-500 f-12">
-                                                                            <?= $row->visitor_fullname ?>
-                                                                        </a>
-                                                                        <div>
-                                                                            <span class="f-light f-12">
-                                                                                <?= substr($row->visitor_message, 0, 40) ?>...
-                                                                            </span>
-                                                                        </div>
-                                                                    </div>
-                                                                    <span class="f-light f-12">
-                                                                        <?= date('H:i', strtotime($row->contact_date)) ?>
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                        <?php endforeach; ?>
-                                                    <?php else: ?>
-                                                        <div class="text-center p-3">No new messages</div>
-                                                    <?php endif; ?>
-                                                </div>
-
-                                                <div class="card-footer pb-0 pr-0 pl-0">
-                                                    <?php if ($notification_count > 5): ?>
-
-                                                        <div class="text-center">
-                                                            <a href="<?= base_url('visitors') ?>">
-                                                                <button class="btn btn-primary">
-                                                                    Check all
-                                                                </button>
-                                                            </a>
-                                                        </div>
-
-                                                    <?php endif; ?>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
-
-                        <li class="profile-nav onhover-dropdown">
-                            <div class="media profile-media">
-                                <img class="b-r-10" src="<?= !empty($card->profile_photo)
-                                    ? base_url($card->profile_photo)
-                                    : base_url('modules/assets2/images/dashboard/profile.png'); ?>" alt="Profile"
-                                    style="width:41px; height:41px; object-fit:cover;">
-
-                                <div class="media-body d-xxl-block d-none box-col-none">
-                                    <div class="d-flex align-items-center gap-2">
-                                        <span><?= $card->person_name ?? '' ?></span>
-                                        <i class="middle fa fa-angle-down"></i>
-                                    </div>
-                                    <p class="mb-0 font-roboto">Admin</p>
-                                </div>
-                            </div>
-
-
-                            <ul class="profile-dropdown onhover-show-div">
-
-                                <!-- My Profile -->
-                                <li>
-                                    <a href="<?php echo base_url('profile_card'); ?>">
-                                        <i data-feather="user"></i>
-                                        <span>My Profile</span>
-                                    </a>
-                                </li>
-
-                                <!-- Inbox -->
-                                <li>
-                                    <a href="<?= base_url('visitors'); ?>">
-                                        <i data-feather="mail"></i>
-                                        <span>Inbox</span>
-                                    </a>
-                                </li>
-
-
-
-                                <?php if (!empty($card->whatsapp_support)): ?>
-                                    <!-- Support -->
-                                    <li class="d-sm-none d-block">
-                                        <a href="https://wa.me/<?= $card->whatsapp_support; ?>?text=<?= urlencode('Hello I need support'); ?>"
-                                            target="_blank">
-
-                                            <i data-feather="headphones"></i>
-                                            <span>Support</span>
-                                        </a>
-                                    </li>
-                                <?php endif; ?>
-
-
-
-
-
-
-
-
-
-
-                                <!-- Log Out -->
-                                <li>
-                                    <a class="btn btn-pill btn-outline-primary btn-sm"
-                                        href="<?= base_url('logout'); ?>">
-                                        Log Out
-                                    </a>
-                                </li>
-
-
-                                <li class="customizer-links d-sm-none d-block">
-                                    <a id="c-pills-home-tab" data-bs-toggle="pill" href="#c-pills-home" role="tab"
-                                        aria-controls="c-pills-home" aria-selected="true">
-                                        <i class="settings" data-feather="settings"></i>
-                                    </a>
-                                </li>
-
-
-                            </ul>
-
-
-
-
-
-
-
-                        </li>
-
-                    </ul>
-                </div>
-                <script class="result-template" type="text/x-handlebars-template">
-                    <div class="ProfileCard u-cf">                        
-            <div class="ProfileCard-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-airplay m-0"><path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"></path><polygon points="12 15 17 21 7 21 12 15"></polygon></svg></div>
-            <div class="ProfileCard-details"> 
-            <div class="ProfileCard-realName">{{name}}</div>
-            </div> 
-            </div>
-          </script>
-                <script class="empty-template" type="text/x-handlebars-template">
-                    <div class="EmptyMessage">Your search turned up 0 results. This most likely means the backend is down, yikes!</div>
-                </script>
-            </div>
+      <div class="theme-setting-item">
+        <h6 class="fw-medium text-primary-light text-md mb-3">Theme Mode</h6>
+        <div class="d-grid grid-cols-3 gap-3 dark-light-mode">
+          <button type="button"
+            class="theme-btn theme-setting-item__btn d-flex align-items-center justify-content-center h-64-px rounded-3 text-xl active"
+            data-theme="light">
+            <i class="ri-sun-line"></i>
+          </button>
+          <button type="button"
+            class="theme-btn theme-setting-item__btn d-flex align-items-center justify-content-center h-64-px rounded-3 text-xl"
+            data-theme="dark">
+            <i class="ri-moon-line"></i>
+          </button>
+          <button type="button"
+            class="theme-btn theme-setting-item__btn d-flex align-items-center justify-content-center h-64-px rounded-3 text-xl"
+            data-theme="system">
+            <i class="ri-computer-line"></i>
+          </button>
         </div>
-        <!-- Page Header Ends-->
-        <!-- Page Body Start-->
+      </div>
 
-        <div class="page-body-wrapper">
-            <!-- Page Sidebar Start-->
-            <div class="sidebar-wrapper" data-layout="stroke-svg">
+      <div class="theme-setting-item">
+        <h6 class="fw-medium text-primary-light text-md mb-3">Page Direction</h6>
+        <div class="d-grid grid-cols-2 gap-3">
+          <button type="button"
+            class="theme-setting-item__btn ltr-mode-btn d-flex align-items-center justify-content-center gap-2 h-56-px rounded-3 text-xl">
+            <span><i class="ri-align-item-left-line"></i></span>
+            <span class="h6 text-sm font-medium mb-0">LTR</span>
+          </button>
+
+          <button type="button"
+            class="theme-setting-item__btn rtl-mode-btn d-flex align-items-center justify-content-center gap-2 h-56-px rounded-3 text-xl">
+            <span class="h6 text-sm font-medium mb-0">RTL</span>
+            <span><i class="ri-align-item-right-line"></i></span>
+          </button>
+        </div>
+      </div>
+
+      <div class="theme-setting-item">
+        <h6 class="fw-medium text-primary-light text-md mb-3">Color Schema</h6>
+        <div class="d-grid grid-cols-3 gap-3">
+          <button type="button" class="color-picker-btn d-flex flex-column justify-content-center align-items-center"
+            data-color="blue">
+            <span class="color-picker-btn__box h-40-px w-100 rounded-3" style="background-color: #2563eb;"></span>
+            <span class="fw-medium mt-1" style="color: #2563eb;">Blue</span>
+          </button>
+          <button type="button" class="color-picker-btn d-flex flex-column justify-content-center align-items-center"
+            data-color="red">
+            <span class="color-picker-btn__box h-40-px w-100 rounded-3" style="background-color: #dc2626;"></span>
+            <span class="fw-medium mt-1" style="color: #dc2626;">Red</span>
+          </button>
+          <button type="button" class="color-picker-btn d-flex flex-column justify-content-center align-items-center"
+            data-color="green">
+            <span class="color-picker-btn__box h-40-px w-100 rounded-3" style="background-color: #16a34a;"></span>
+            <span class="fw-medium mt-1" style="color: #16a34a;">Green</span>
+          </button>
+          <button type="button" class="color-picker-btn d-flex flex-column justify-content-center align-items-center"
+            data-color="yellow">
+            <span class="color-picker-btn__box h-40-px w-100 rounded-3" style="background-color: #ff9f29;"></span>
+            <span class="fw-medium mt-1" style="color: #ff9f29;">Yellow</span>
+          </button>
+          <button type="button" class="color-picker-btn d-flex flex-column justify-content-center align-items-center"
+            data-color="cyan">
+            <span class="color-picker-btn__box h-40-px w-100 rounded-3" style="background-color: #00b8f2;"></span>
+            <span class="fw-medium mt-1" style="color: #00b8f2;">Cyan</span>
+          </button>
+          <button type="button" class="color-picker-btn d-flex flex-column justify-content-center align-items-center"
+            data-color="violet">
+            <span class="color-picker-btn__box h-40-px w-100 rounded-3" style="background-color: #7c3aed;"></span>
+            <span class="fw-medium mt-1" style="color: #7c3aed;">Violet</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- Theme Customization Structure End -->
+  <aside class="sidebar">
+    <button type="button" class="sidebar-close-btn">
+      <iconify-icon icon="radix-icons:cross-2"></iconify-icon>
+    </button>
+    <div>
+      <a href="<?= base_url('admin_playground'); ?>" class="sidebar-logo">
+        <img src="modules/assets2/images/logo.png" alt="site logo" class="light-logo">
+        <img src="modules/assets2/images/logo-light.png" alt="site logo" class="dark-logo">
+        <img src="modules/assets2/images/logo-icon.png" alt="site logo" class="logo-icon">
+      </a>
+    </div>
+    <div class="sidebar-menu-area">
+      <ul class="sidebar-menu" id="sidebar-menu">
+        <li class="dropdown">
+          <a href="javascript:void(0)">
+            <iconify-icon icon="solar:home-smile-angle-outline" class="menu-icon"></iconify-icon>
+            <span>Dashboard</span>
+          </a>
+          <ul class="sidebar-submenu">
+            <li>
+              <a href="<?= base_url('admin_playground'); ?>"><i
+                  class="ri-circle-fill circle-icon text-primary-600 w-auto"></i> Home</a>
+            </li>
+            <li>
+              <a href="<?= base_url('enroll_students'); ?>"><i
+                  class="ri-circle-fill circle-icon text-warning-main w-auto"></i>Add New Employee</a>
+            </li>
+            <li>
+              <a href="<?= base_url('manage_students'); ?>"><i
+                  class="ri-circle-fill circle-icon text-info-main w-auto"></i>Manage Employees</a>
+            </li>
+
+            <li>
+              <a href="<?= base_url('employee_task_master'); ?>"><i
+                  class="ri-circle-fill circle-icon text-info-main w-auto"></i> Employee Task Assign</a>
+            </li>
+
+            <li>
+              <a href="<?= base_url('employee_attendance'); ?>"><i
+                  class="ri-circle-fill circle-icon text-danger-main w-auto"></i> Employee Attendance</a>
+            </li>
+
+            <!-- <li>
+              <a href="<?= base_url('employee_attendance_records'); ?>"><i
+                  class="ri-circle-fill circle-icon text-success-main w-auto"></i> Attendance Records</a>
+            </li> -->
+
+            <li>
+              <a href="<?= base_url('employee_task_checklist'); ?>"><i
+                  class="ri-circle-fill circle-icon text-purple w-auto"></i>Employee Checking</a>
+            </li>
 
 
-                <div class="logo-wrapper">
-                    <a href="<?php echo base_url('admin_playground') ?>">
+            <!-- <li>
+              <a href="<?= base_url('all_employee_cheklisted'); ?>"><i
+                  class="ri-circle-fill circle-icon text-danger-main w-auto"></i>Employee Listed</a>
+            </li> -->
 
-                        <?php if (!empty($card->company_logo)) { ?>
-                            <img class="img-fluid" src="<?= base_url($card->company_logo); ?>" alt="Company Logo"
-                                style="height:36px; width:128px;">
+            <li>
+              <a href="<?= base_url('employee_payroll'); ?>"><i
+                  class="ri-circle-fill circle-icon text-info-main w-auto"></i>Employee Payroll</a>
+            </li>
 
-                        <?php } elseif (!empty($card->company_dark_logo)) { ?>
-                            <img class="img-fluid" src="<?= base_url($card->company_dark_logo); ?>" alt="Company Logo"
-                                style="height:36px; width:128px;">
 
-                        <?php } else { ?>
-                            <img class="img-fluid" alt="Company Logo" style="height:36px; width:128px;">
-                        <?php } ?>
 
-                    </a>
 
-                    <div class="back-btn">
-                        <i class="fa fa-angle-left"></i>
-                    </div>
 
-                    <div class="toggle-sidebar">
-                        <i class="status_toggle middle sidebar-toggle" data-feather="grid"></i>
-                    </div>
+          </ul>
+        </li>
+
+
+
+
+
+
+
+
+
+
+        <li class="dropdown">
+          <a href="javascript:void(0)">
+            <iconify-icon icon="icon-park-outline:setting-two" class="menu-icon"></iconify-icon>
+            <span>Settings</span>
+          </a>
+          <ul class="sidebar-submenu">
+
+            <li>
+              <a href="<?= base_url('profile_card'); ?>"><i
+                  class="ri-circle-fill circle-icon text-warning-main w-auto"></i>
+                My Profile</a>
+            </li>
+
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </aside>
+
+  <main class="dashboard-main">
+    <div class="navbar-header">
+      <div class="row align-items-center justify-content-between">
+
+        <div class="col-auto">
+          <div class="d-flex flex-wrap align-items-center gap-4">
+            <button type="button" class="sidebar-toggle">
+              <iconify-icon icon="heroicons:bars-3-solid" class="icon text-2xl non-active"></iconify-icon>
+              <iconify-icon icon="iconoir:arrow-right" class="icon text-2xl active"></iconify-icon>
+            </button>
+            <button type="button" class="sidebar-mobile-toggle">
+              <iconify-icon icon="heroicons:bars-3-solid" class="icon"></iconify-icon>
+            </button>
+            <!-- <form class="navbar-search">
+          <input type="text" name="search" placeholder="Search">
+          <iconify-icon icon="ion:search-outline" class="icon"></iconify-icon>
+        </form> -->
+          </div>
+        </div>
+
+        <div class="col-auto">
+          <div class="d-flex flex-wrap align-items-center gap-3">
+            <button type="button" data-theme-toggle
+              class="w-40-px h-40-px bg-neutral-200 rounded-circle d-flex justify-content-center align-items-center"></button>
+            <div class="dropdown d-none d-sm-inline-block">
+              <button
+                class="has-indicator w-40-px h-40-px bg-neutral-200 rounded-circle d-flex justify-content-center align-items-center"
+                type="button" data-bs-toggle="dropdown">
+                <img src="modules/assets2/images/flags/flag7.png" alt="image"
+                  class="w-24 h-24 object-fit-cover rounded-circle">
+              </button>
+              <div class="dropdown-menu to-top dropdown-menu-sm">
+                <div
+                  class="py-12 px-16 radius-8 bg-primary-50 mb-16 d-flex align-items-center justify-content-between gap-2">
+                  <div>
+                    <h6 class="text-lg text-primary-light fw-semibold mb-0">Choose Your Language</h6>
+                  </div>
                 </div>
-                <nav class="sidebar-main">
-                    <div class="left-arrow" id="left-arrow"><i data-feather="arrow-left"></i></div>
 
-                    <div id="sidebar-menu">
-                        <ul class="sidebar-links" id="simple-bar">
-                            <li class="back-btn">
-                                <a href="#">
+                <div class="max-h-400-px overflow-y-auto scroll-sm pe-8">
+                  <div class="form-check style-check d-flex align-items-center justify-content-between mb-16">
+                    <label class="form-check-label line-height-1 fw-medium text-secondary-light" for="english">
+                      <span class="text-black hover-bg-transparent hover-text-primary d-flex align-items-center gap-3">
+                        <img src="modules/assets2/images/flags/flag1.png" alt=""
+                          class="w-36-px h-36-px bg-success-subtle text-success-main rounded-circle flex-shrink-0">
+                        <span class="text-md fw-semibold mb-0">English</span>
+                      </span>
+                    </label>
+                    <input class="form-check-input" type="radio" name="crypto" id="english">
+                  </div>
 
-                                    <?php if (!empty($card->company_logo)) { ?>
-                                        <img class="img-fluid" src="<?= base_url($card->company_logo); ?>"
-                                            alt="Company Logo" style="height:36px; width:128px;">
+                  <div class="form-check style-check d-flex align-items-center justify-content-between mb-16">
+                    <label class="form-check-label line-height-1 fw-medium text-secondary-light" for="japan">
+                      <span class="text-black hover-bg-transparent hover-text-primary d-flex align-items-center gap-3">
+                        <img src="modules/assets2/images/flags/flag2.png" alt=""
+                          class="w-36-px h-36-px bg-success-subtle text-success-main rounded-circle flex-shrink-0">
+                        <span class="text-md fw-semibold mb-0">Japan</span>
+                      </span>
+                    </label>
+                    <input class="form-check-input" type="radio" name="crypto" id="japan">
+                  </div>
 
-                                    <?php } elseif (!empty($card->company_dark_logo)) { ?>
-                                        <img class="img-fluid" src="<?= base_url($card->company_dark_logo); ?>"
-                                            alt="Company Logo" style="height:36px; width:128px;">
+                  <div class="form-check style-check d-flex align-items-center justify-content-between mb-16">
+                    <label class="form-check-label line-height-1 fw-medium text-secondary-light" for="france">
+                      <span class="text-black hover-bg-transparent hover-text-primary d-flex align-items-center gap-3">
+                        <img src="modules/assets2/images/flags/flag3.png" alt=""
+                          class="w-36-px h-36-px bg-success-subtle text-success-main rounded-circle flex-shrink-0">
+                        <span class="text-md fw-semibold mb-0">France</span>
+                      </span>
+                    </label>
+                    <input class="form-check-input" type="radio" name="crypto" id="france">
+                  </div>
 
-                                    <?php } else { ?>
-                                        <img class="img-fluid" alt="Company Logo" style="height:36px; width:128px;">
-                                    <?php } ?>
+                  <div class="form-check style-check d-flex align-items-center justify-content-between mb-16">
+                    <label class="form-check-label line-height-1 fw-medium text-secondary-light" for="germany">
+                      <span class="text-black hover-bg-transparent hover-text-primary d-flex align-items-center gap-3">
+                        <img src="modules/assets2/images/flags/flag4.png" alt=""
+                          class="w-36-px h-36-px bg-success-subtle text-success-main rounded-circle flex-shrink-0">
+                        <span class="text-md fw-semibold mb-0">Germany</span>
+                      </span>
+                    </label>
+                    <input class="form-check-input" type="radio" name="crypto" id="germany">
+                  </div>
 
-                                </a>
+                  <div class="form-check style-check d-flex align-items-center justify-content-between mb-16">
+                    <label class="form-check-label line-height-1 fw-medium text-secondary-light" for="korea">
+                      <span class="text-black hover-bg-transparent hover-text-primary d-flex align-items-center gap-3">
+                        <img src="modules/assets2/images/flags/flag5.png" alt=""
+                          class="w-36-px h-36-px bg-success-subtle text-success-main rounded-circle flex-shrink-0">
+                        <span class="text-md fw-semibold mb-0">South Korea</span>
+                      </span>
+                    </label>
+                    <input class="form-check-input" type="radio" name="crypto" id="korea">
+                  </div>
 
-                                <div class="mobile-back text-end">
-                                    <span>Back </span>
-                                    <i class="fa fa-angle-right ps-2" aria-hidden="true"></i>
-                                </div>
-                            </li>
-                            <li class="pin-title sidebar-main-title">
-                                <div>
-                                    <h6>Pinned</h6>
-                                </div>
-                            </li>
-                            <li class="sidebar-main-title">
-                                <div>
-                                    <h6 class="lan-1">General</h6>
-                                </div>
-                            </li>
+                  <div class="form-check style-check d-flex align-items-center justify-content-between mb-16">
+                    <label class="form-check-label line-height-1 fw-medium text-secondary-light" for="bangladesh">
+                      <span class="text-black hover-bg-transparent hover-text-primary d-flex align-items-center gap-3">
+                        <img src="modules/assets2/images/flags/flag6.png" alt=""
+                          class="w-36-px h-36-px bg-success-subtle text-success-main rounded-circle flex-shrink-0">
+                        <span class="text-md fw-semibold mb-0">Bangladesh</span>
+                      </span>
+                    </label>
+                    <input class="form-check-input" type="radio" name="crypto" id="bangladesh">
+                  </div>
 
+                  <div class="form-check style-check d-flex align-items-center justify-content-between mb-16">
+                    <label class="form-check-label line-height-1 fw-medium text-secondary-light" for="india">
+                      <span class="text-black hover-bg-transparent hover-text-primary d-flex align-items-center gap-3">
+                        <img src="modules/assets2/images/flags/flag7.png" alt=""
+                          class="w-36-px h-36-px bg-success-subtle text-success-main rounded-circle flex-shrink-0">
+                        <span class="text-md fw-semibold mb-0">India</span>
+                      </span>
+                    </label>
+                    <input class="form-check-input" type="radio" name="crypto" id="india">
+                  </div>
+                  <div class="form-check style-check d-flex align-items-center justify-content-between">
+                    <label class="form-check-label line-height-1 fw-medium text-secondary-light" for="canada">
+                      <span class="text-black hover-bg-transparent hover-text-primary d-flex align-items-center gap-3">
+                        <img src="modules/assets2/images/flags/flag8.png" alt=""
+                          class="w-36-px h-36-px bg-success-subtle text-success-main rounded-circle flex-shrink-0">
+                        <span class="text-md fw-semibold mb-0">Canada</span>
+                      </span>
+                    </label>
+                    <input class="form-check-input" type="radio" name="crypto" id="canada">
+                  </div>
+                </div>
+              </div>
+            </div><!-- Language dropdown end -->
 
-                            <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a
-                                    class="sidebar-link sidebar-title" href="#">
-                                    <svg class="stroke-icon">
-                                        <use href="modules/assets2/svg/icon-sprite.svg#stroke-home"></use>
-                                    </svg>
-                                    <svg class="fill-icon">
-                                        <use href="modules/assets2/svg/icon-sprite.svg#fill-home"></use>
-                                    </svg><span class="lan-3">Dashboards</span></a>
-                                <ul class="sidebar-submenu">
-                                    <li><a href="<?php echo base_url('profile_card') ?>" class="active">Profile Card</a>
-                                    </li>
-                                    <li><a href="<?php echo base_url('introduce') ?>" class="active">Introduce</a>
-                                    </li>
-                                    <li><a href="<?php echo base_url('about') ?>" class="active">About </a>
-                                    </li>
-                                    <li><a href="<?php echo base_url('services') ?>" class="active">Services </a>
-                                    </li>
-                                    <li><a href="<?php echo base_url('my_skill') ?>" class="active">Skills </a>
-                                    </li>
-                                    <li><a href="<?php echo base_url('projects') ?>" class="active">Project </a>
-                                    </li>
-                                    <li><a href="<?php echo base_url('testimonials') ?>" class="active">Testimonials
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
+            <div class="dropdown">
+              <button
+                class="has-indicator w-40-px h-40-px bg-neutral-200 rounded-circle d-flex justify-content-center align-items-center"
+                type="button" data-bs-toggle="dropdown">
+                <iconify-icon icon="mage:email" class="text-primary-light text-xl"></iconify-icon>
+              </button>
+              <div class="dropdown-menu to-top dropdown-menu-lg p-0">
+                <div
+                  class="m-16 py-12 px-16 radius-8 bg-primary-50 mb-16 d-flex align-items-center justify-content-between gap-2">
+                  <div>
+                    <h6 class="text-lg text-primary-light fw-semibold mb-0">Message</h6>
+                  </div>
+                  <span
+                    class="text-primary-600 fw-semibold text-lg w-40-px h-40-px rounded-circle bg-base d-flex justify-content-center align-items-center">05</span>
+                </div>
 
-                            <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a
-                                    class="sidebar-link sidebar-title" href="#">
-                                    <svg class="stroke-icon">
-                                        <use href="modules/assets2/svg/icon-sprite.svg#stroke-widget"></use>
-                                    </svg>
-                                    <svg class="fill-icon">
-                                        <use href="modules/assets2/svg/icon-sprite.svg#fill-widget"></use>
-                                    </svg>
-                                    <span class="lan-6">Widgets</span></a>
-                                <ul class="sidebar-submenu">
-                                    <li><a href="<?php echo base_url('resume') ?>" class="active">Resume </a>
-                                    </li>
-                                    <li><a href="<?php echo base_url('pricing') ?>" class="active">Price Card </a>
-                                    </li>
-                                    <li><a href="<?php echo base_url('visitors') ?>" class="active">Contact </a>
-                                    </li>
-                                </ul>
-                            </li>
+                <div class="max-h-400-px overflow-y-auto scroll-sm pe-4">
 
-
-                        </ul>
+                  <a href="javascript:void(0)"
+                    class="px-24 py-12 d-flex align-items-start gap-3 mb-2 justify-content-between">
+                    <div class="text-black hover-bg-transparent hover-text-primary d-flex align-items-center gap-3">
+                      <span class="w-40-px h-40-px rounded-circle flex-shrink-0 position-relative">
+                        <img src="modules/assets2/images/notification/profile-3.png" alt="">
+                        <span
+                          class="w-8-px h-8-px bg-success-main rounded-circle position-absolute end-0 bottom-0"></span>
+                      </span>
+                      <div>
+                        <h6 class="text-md fw-semibold mb-4">Kathryn Murphy</h6>
+                        <p class="mb-0 text-sm text-secondary-light text-w-100-px">hey! there i’m...</p>
+                      </div>
                     </div>
-                </nav>
-            </div>
+                    <div class="d-flex flex-column align-items-end">
+                      <span class="text-sm text-secondary-light flex-shrink-0">12:30 PM</span>
+                      <span
+                        class="mt-4 text-xs text-base w-16-px h-16-px d-flex justify-content-center align-items-center bg-warning-main rounded-circle">8</span>
+                    </div>
+                  </a>
+
+                  <a href="javascript:void(0)"
+                    class="px-24 py-12 d-flex align-items-start gap-3 mb-2 justify-content-between">
+                    <div class="text-black hover-bg-transparent hover-text-primary d-flex align-items-center gap-3">
+                      <span class="w-40-px h-40-px rounded-circle flex-shrink-0 position-relative">
+                        <img src="modules/assets2/images/notification/profile-4.png" alt="Admin_Avatar">
+                        <span
+                          class="w-8-px h-8-px  bg-neutral-300 rounded-circle position-absolute end-0 bottom-0"></span>
+                      </span>
+                      <div>
+                        <h6 class="text-md fw-semibold mb-4"><?= $card->person_name; ?></h6>
+                        <p class="mb-0 text-sm text-secondary-light text-w-100-px">hey! there i’m...</p>
+                      </div>
+                    </div>
+                    <div class="d-flex flex-column align-items-end">
+                      <span class="text-sm text-secondary-light flex-shrink-0">12:30 PM</span>
+                      <span
+                        class="mt-4 text-xs text-base w-16-px h-16-px d-flex justify-content-center align-items-center bg-warning-main rounded-circle">2</span>
+                    </div>
+                  </a>
+
+                  <a href="javascript:void(0)"
+                    class="px-24 py-12 d-flex align-items-start gap-3 mb-2 justify-content-between bg-neutral-50">
+                    <div class="text-black hover-bg-transparent hover-text-primary d-flex align-items-center gap-3">
+                      <span class="w-40-px h-40-px rounded-circle flex-shrink-0 position-relative">
+                        <img src="modules/assets2/images/notification/profile-5.png" alt="">
+                        <span
+                          class="w-8-px h-8-px bg-success-main rounded-circle position-absolute end-0 bottom-0"></span>
+                      </span>
+                      <div>
+                        <h6 class="text-md fw-semibold mb-4">Kathryn Murphy</h6>
+                        <p class="mb-0 text-sm text-secondary-light text-w-100-px">hey! there i’m...</p>
+                      </div>
+                    </div>
+                    <div class="d-flex flex-column align-items-end">
+                      <span class="text-sm text-secondary-light flex-shrink-0">12:30 PM</span>
+                      <span
+                        class="mt-4 text-xs text-base w-16-px h-16-px d-flex justify-content-center align-items-center bg-neutral-400 rounded-circle">0</span>
+                    </div>
+                  </a>
+
+                  <a href="javascript:void(0)"
+                    class="px-24 py-12 d-flex align-items-start gap-3 mb-2 justify-content-between bg-neutral-50">
+                    <div class="text-black hover-bg-transparent hover-text-primary d-flex align-items-center gap-3">
+                      <span class="w-40-px h-40-px rounded-circle flex-shrink-0 position-relative">
+                        <img src="modules/assets2/images/notification/profile-6.png" alt="">
+                        <span
+                          class="w-8-px h-8-px bg-neutral-300 rounded-circle position-absolute end-0 bottom-0"></span>
+                      </span>
+                      <div>
+                        <h6 class="text-md fw-semibold mb-4">Kathryn Murphy</h6>
+                        <p class="mb-0 text-sm text-secondary-light text-w-100-px">hey! there i’m...</p>
+                      </div>
+                    </div>
+                    <div class="d-flex flex-column align-items-end">
+                      <span class="text-sm text-secondary-light flex-shrink-0">12:30 PM</span>
+                      <span
+                        class="mt-4 text-xs text-base w-16-px h-16-px d-flex justify-content-center align-items-center bg-neutral-400 rounded-circle">0</span>
+                    </div>
+                  </a>
+
+                  <a href="javascript:void(0)"
+                    class="px-24 py-12 d-flex align-items-start gap-3 mb-2 justify-content-between">
+                    <div class="text-black hover-bg-transparent hover-text-primary d-flex align-items-center gap-3">
+                      <span class="w-40-px h-40-px rounded-circle flex-shrink-0 position-relative">
+                        <img src="modules/assets2/images/notification/profile-7.png" alt="">
+                        <span
+                          class="w-8-px h-8-px bg-success-main rounded-circle position-absolute end-0 bottom-0"></span>
+                      </span>
+                      <div>
+                        <h6 class="text-md fw-semibold mb-4">Kathryn Murphy</h6>
+                        <p class="mb-0 text-sm text-secondary-light text-w-100-px">hey! there i’m...</p>
+                      </div>
+                    </div>
+                    <div class="d-flex flex-column align-items-end">
+                      <span class="text-sm text-secondary-light flex-shrink-0">12:30 PM</span>
+                      <span
+                        class="mt-4 text-xs text-base w-16-px h-16-px d-flex justify-content-center align-items-center bg-warning-main rounded-circle">8</span>
+                    </div>
+                  </a>
+
+                </div>
+                <div class="text-center py-12 px-16">
+                  <a href="javascript:void(0)" class="text-primary-600 fw-semibold text-md">See All Message</a>
+                </div>
+              </div>
+            </div><!-- Message dropdown end -->
+
+            <div class="dropdown">
+              <button
+                class="has-indicator w-40-px h-40-px bg-neutral-200 rounded-circle d-flex justify-content-center align-items-center"
+                type="button" data-bs-toggle="dropdown">
+                <iconify-icon icon="iconoir:bell" class="text-primary-light text-xl"></iconify-icon>
+              </button>
+              <div class="dropdown-menu to-top dropdown-menu-lg p-0">
+                <div
+                  class="m-16 py-12 px-16 radius-8 bg-primary-50 mb-16 d-flex align-items-center justify-content-between gap-2">
+                  <div>
+                    <h6 class="text-lg text-primary-light fw-semibold mb-0">Notifications</h6>
+                  </div>
+                  <span
+                    class="text-primary-600 fw-semibold text-lg w-40-px h-40-px rounded-circle bg-base d-flex justify-content-center align-items-center">05</span>
+                </div>
+
+                <div class="max-h-400-px overflow-y-auto scroll-sm pe-4">
+                  <a href="javascript:void(0)"
+                    class="px-24 py-12 d-flex align-items-start gap-3 mb-2 justify-content-between">
+                    <div class="text-black hover-bg-transparent hover-text-primary d-flex align-items-center gap-3">
+                      <span
+                        class="w-44-px h-44-px bg-success-subtle text-success-main rounded-circle d-flex justify-content-center align-items-center flex-shrink-0">
+                        <iconify-icon icon="bitcoin-icons:verify-outline" class="icon text-xxl"></iconify-icon>
+                      </span>
+                      <div>
+                        <h6 class="text-md fw-semibold mb-4">Congratulations</h6>
+                        <p class="mb-0 text-sm text-secondary-light text-w-200-px">Your profile has been Verified. Your
+                          profile has been Verified</p>
+                      </div>
+                    </div>
+                    <span class="text-sm text-secondary-light flex-shrink-0">23 Mins ago</span>
+                  </a>
+
+                  <a href="javascript:void(0)"
+                    class="px-24 py-12 d-flex align-items-start gap-3 mb-2 justify-content-between bg-neutral-50">
+                    <div class="text-black hover-bg-transparent hover-text-primary d-flex align-items-center gap-3">
+                      <span
+                        class="w-44-px h-44-px bg-success-subtle text-success-main rounded-circle d-flex justify-content-center align-items-center flex-shrink-0">
+                        <img src="modules/assets2/images/notification/profile-1.png" alt="">
+                      </span>
+                      <div>
+                        <h6 class="text-md fw-semibold mb-4">Ronald Richards</h6>
+                        <p class="mb-0 text-sm text-secondary-light text-w-200-px">You can stitch between artboards</p>
+                      </div>
+                    </div>
+                    <span class="text-sm text-secondary-light flex-shrink-0">23 Mins ago</span>
+                  </a>
+
+                  <a href="javascript:void(0)"
+                    class="px-24 py-12 d-flex align-items-start gap-3 mb-2 justify-content-between">
+                    <div class="text-black hover-bg-transparent hover-text-primary d-flex align-items-center gap-3">
+                      <span
+                        class="w-44-px h-44-px bg-info-subtle text-info-main rounded-circle d-flex justify-content-center align-items-center flex-shrink-0">
+                        AM
+                      </span>
+                      <div>
+                        <h6 class="text-md fw-semibold mb-4">Arlene McCoy</h6>
+                        <p class="mb-0 text-sm text-secondary-light text-w-200-px">Invite you to prototyping</p>
+                      </div>
+                    </div>
+                    <span class="text-sm text-secondary-light flex-shrink-0">23 Mins ago</span>
+                  </a>
+
+                  <a href="javascript:void(0)"
+                    class="px-24 py-12 d-flex align-items-start gap-3 mb-2 justify-content-between bg-neutral-50">
+                    <div class="text-black hover-bg-transparent hover-text-primary d-flex align-items-center gap-3">
+                      <span
+                        class="w-44-px h-44-px bg-success-subtle text-success-main rounded-circle d-flex justify-content-center align-items-center flex-shrink-0">
+                        <img src="modules/assets2/images/notification/profile-2.png" alt="">
+                      </span>
+                      <div>
+                        <h6 class="text-md fw-semibold mb-4"><?= $card->person_name; ?></h6>
+                        <p class="mb-0 text-sm text-secondary-light text-w-200-px">Invite you to prototyping</p>
+                      </div>
+                    </div>
+                    <span class="text-sm text-secondary-light flex-shrink-0">23 Mins ago</span>
+                  </a>
+
+                  <a href="javascript:void(0)"
+                    class="px-24 py-12 d-flex align-items-start gap-3 mb-2 justify-content-between">
+                    <div class="text-black hover-bg-transparent hover-text-primary d-flex align-items-center gap-3">
+                      <span
+                        class="w-44-px h-44-px bg-info-subtle text-info-main rounded-circle d-flex justify-content-center align-items-center flex-shrink-0">
+                        DR
+                      </span>
+                      <div>
+                        <h6 class="text-md fw-semibold mb-4">Darlene Robertson</h6>
+                        <p class="mb-0 text-sm text-secondary-light text-w-200-px">Invite you to prototyping</p>
+                      </div>
+                    </div>
+                    <span class="text-sm text-secondary-light flex-shrink-0">23 Mins ago</span>
+                  </a>
+                </div>
+
+                <div class="text-center py-12 px-16">
+                  <a href="javascript:void(0)" class="text-primary-600 fw-semibold text-md">See All Notification</a>
+                </div>
+
+              </div>
+            </div><!-- Notification dropdown end -->
+
+            <div class="dropdown">
+              <button class="d-flex justify-content-center align-items-center rounded-circle" type="button"
+                data-bs-toggle="dropdown">
+                <img src="<?= $card->profile_photo; ?>" alt="image"
+                  class="w-40-px h-40-px object-fit-cover rounded-circle">
+              </button>
+              <div class="dropdown-menu to-top dropdown-menu-sm">
+                <div
+                  class="py-12 px-16 radius-8 bg-primary-50 mb-16 d-flex align-items-center justify-content-between gap-2">
+                  <div>
+                    <h6 class="text-lg text-primary-light fw-semibold mb-2"><?= $card->person_name; ?></h6>
+                    <span class="text-secondary-light fw-medium text-sm">Admin</span>
+                  </div>
+                  <button type="button" class="hover-text-danger">
+                    <iconify-icon icon="radix-icons:cross-1" class="icon text-xl"></iconify-icon>
+                  </button>
+                </div>
+                <ul class="to-top-list">
+                  <li>
+                    <a class="dropdown-item text-black px-0 py-8 hover-bg-transparent hover-text-primary d-flex align-items-center gap-3"
+                      href="<?= base_url('profile_card'); ?>">
+                      <iconify-icon icon="solar:user-linear" class="icon text-xl"></iconify-icon> My Profile</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item text-black px-0 py-8 hover-bg-transparent hover-text-primary d-flex align-items-center gap-3"
+                      href="email.html">
+                      <iconify-icon icon="tabler:message-check" class="icon text-xl"></iconify-icon> Inbox</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item text-black px-0 py-8 hover-bg-transparent hover-text-primary d-flex align-items-center gap-3"
+                      href="#">
+                      <iconify-icon icon="icon-park-outline:setting-two" class="icon text-xl"></iconify-icon>
+                      Setting</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item text-black px-0 py-8 hover-bg-transparent hover-text-danger d-flex align-items-center gap-3"
+                      href="<?= base_url('logout'); ?>">
+                      <iconify-icon icon="lucide:power" class="icon text-xl"></iconify-icon> Log Out</a>
+                  </li>
+                </ul>
+              </div>
+            </div><!-- Profile dropdown end -->
+
+
+          </div>
+        </div>
+      </div>
+    </div>
