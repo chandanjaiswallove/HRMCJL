@@ -101,25 +101,61 @@ class AdminDashboard extends CI_Controller
 
 
     //-------------------------------------------- Start Employee Payroll Page all work here
+// public function loaDemployee_payslip()
+// {
+//     $employee_uid = $this->input->get('employee_uid');
+
+    //     // Payroll Data
+//     $query = $this->db->query("
+//         SELECT * 
+//         FROM employee_payroll
+//         WHERE employee_uid = '$employee_uid'
+//     ");
+
+    //     $data['payroll'] = $query->row();
+
+    //     // Employee / Student Data
+//     $studentQuery = $this->db->query("
+//         SELECT * 
+//         FROM student_directory
+//         WHERE student_uid = '$employee_uid'
+//     ");
+
+    //     $data['employee_contact'] = $studentQuery->row();
+
+    //     $this->load_page('employee_payslip', $data);
+// }
+
+
+
     public function loaDemployee_payslip()
     {
+        // GET parameters
         $employee_uid = $this->input->get('employee_uid');
 
+        $id = $this->input->get('id');
+
+        // Payroll Data
         $query = $this->db->query("
         SELECT * 
         FROM employee_payroll
         WHERE employee_uid = '$employee_uid'
+        AND id = '$id'
     ");
 
         $data['payroll'] = $query->row();
 
+        // Employee / Student Data
+        $studentQuery = $this->db->query("
+        SELECT * 
+        FROM student_directory
+        WHERE student_uid = '$employee_uid'
+    ");
+
+        $data['employee_contact'] = $studentQuery->row();
+
         $this->load_page('employee_payslip', $data);
     }
-
-
-
-
-
 
 
 

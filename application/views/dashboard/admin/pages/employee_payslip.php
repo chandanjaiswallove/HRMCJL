@@ -75,15 +75,11 @@
         <div class="d-flex gap-2">
 
             <!-- SEND -->
-            <a href="<?= base_url('send_payroll_slip/' . $payroll->id); ?>" class="btn btn-sm btn-primary">
-                <iconify-icon icon="pepicons-pencil:paper-plane"></iconify-icon>
-            </a>
+            <a href="https://wa.me/91<?= $employee_contact->student_contact; ?>?text=<?= urlencode(current_url() . '?employee_uid=' . $payroll->employee_uid); ?>"
+                target="_blank" class="btn btn-sm btn-success">
 
-            <!-- DOWNLOAD -->
-            <a href="<?= base_url('download_payroll_pdf/' . $payroll->id); ?>" class="btn btn-sm btn-warning">
-                <iconify-icon icon="solar:download-linear"></iconify-icon>
+                <iconify-icon icon="ic:baseline-whatsapp"></iconify-icon>
             </a>
-
             <!-- PRINT -->
             <button type="button" class="btn btn-sm btn-danger" onclick="printPayslip()">
                 <iconify-icon icon="basil:printer-outline"></iconify-icon>
@@ -103,47 +99,54 @@
 
                 <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
 
-                    <!-- COMPANY -->
-                    <div class="d-flex align-items-center gap-3">
+                    <!-- LEFT SIDE LOGO -->
+                    <div class="d-flex align-items-center">
 
-                        <?php if (!empty($card->company_logo)) { ?>
+                        <?php if (!empty($card->company_dark_logo)) { ?>
 
-                            <img src="<?= base_url($card->company_logo); ?>" class="company-logo">
+                            <img src="<?= base_url($card->company_dark_logo); ?>" class="company-logo img-fluid"
+                                style="max-height: 3rem;">
+
+                        <?php } else { ?>
+
+                            <img src="<?= base_url($card->company_logo); ?>" class="company-logo img-fluid"
+                                style="max-height: 3rem;  ">
 
                         <?php } ?>
 
-                        <div>
+                    </div>
 
-                            <h5 class="mb-1 fw-bold">
-                                <?= $card->company_name ?? 'Company Name'; ?>
-                            </h5>
+                    <!-- CENTER COMPANY NAME -->
+                    <div class="text-center flex-grow-1">
 
-                            <p class="mb-0 small-text">
-                                <?= $card->company_address ?? 'Mithapur, Bihar'; ?>
-                            </p>
+                        <h6 class="fw-bold mb-1 " style="color:black;">
+                            AIDOCM IT SERVICE & SOLUTIONS
+                        </h6>
 
-                            <p class="mb-0 small-text">
-                                <?= $registere->student_email ?? 'support@company.com'; ?>
-                            </p>
+                        <p class="mb-0 small-text" style="color:black;">
+                            <?= $card->address ?? 'Victoria IT Park Bettiah - 845438 '; ?>
+                        </p>
 
-                        </div>
+                        <p class="mb-0 small-text" style="color:black;">
+                            <?= $registered->admin_email_now_not_using ?? 'support@company.com'; ?>
+                        </p>
 
                     </div>
 
-                    <!-- PAYSLIP INFO -->
+                    <!-- RIGHT SIDE PAYSLIP INFO -->
                     <div class="text-end">
 
-                        <h4 class="fw-bold mb-1">
+                        <h6 class="fw-bold mb-1" style="color:black;">
                             PAY SLIP
-                        </h4>
+                        </h6>
 
-                        <p class="mb-0 small-text">
+                        <p class="mb-0 small-text" style="color:black;">
                             Salary Month :
                             <?= $payroll->salary_month; ?>
                             <?= $payroll->salary_year; ?>
                         </p>
 
-                        <p class="mb-0 small-text">
+                        <p class="mb-0 small-text" style="color:black;">
                             Payment Date :
                             <?= date('d-m-Y', strtotime($payroll->payment_date)); ?>
                         </p>
@@ -153,7 +156,6 @@
                 </div>
 
             </div>
-
             <!-- BODY -->
             <div class="p-20">
 
@@ -434,7 +436,7 @@
                                             Partial Paid
                                         </span>
 
-                                    <?php elseif ($payroll->advance_amount > 0): ?>
+                                    <?php elseif ($payroll->advance_amount > 0): ?> :
 
                                         <span class="badge text-sm fw-semibold text-info-600 text-white">
                                             Advance Paid
@@ -458,7 +460,7 @@
 
                     <div class="col-md-6 text-md-end">
 
-                        <p class="small-text mb-1">
+                        <p class="small-text mb-1" style="color:black;">
 
                             <strong>
                                 Remarks :
@@ -468,7 +470,7 @@
 
                         </p>
 
-                        <p class="small-text mb-0">
+                        <p class="small-text mb-0" style="color:black;">
                             This is computer generated payslip
                         </p>
 
@@ -479,11 +481,11 @@
                 <!-- SIGN -->
                 <div class="d-flex justify-content-between mt-5">
 
-                    <div class="signature-box">
+                    <div class="signature-box" style="color:black;">
                         Employee Signature
                     </div>
 
-                    <div class="signature-box">
+                    <div class="signature-box" style="color:black;">
                         Authorized Signature
                     </div>
 

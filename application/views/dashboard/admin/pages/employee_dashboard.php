@@ -685,15 +685,14 @@ $annual_salary = $monthly_salary * 12;
                                 <!-- EDIT BUTTON -->
                                 <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
                                     data-bs-target="#editPayrollModal_<?= $payroll->id; ?>">
-
                                     <iconify-icon icon="lucide:edit"></iconify-icon>
-
                                 </button>
 
 
                                 <!-- SEND BUTTON -->
-                                <a href="<?= base_url('employee_payslip?employee_uid=' . $employee->student_uid); ?>"
+                                <a href="<?= base_url('employee_payslip?employee_uid=' . $employee->student_uid . '&id=' . $payroll->id); ?>"
                                     class="btn btn-success btn-sm">
+
                                     <iconify-icon icon="mdi:send"></iconify-icon>
                                 </a>
 
@@ -714,7 +713,7 @@ $annual_salary = $monthly_salary * 12;
 
                                     <div class="modal-content">
 
-                                        <div class="modal-header bg-primary text-white">
+                                        <div class="modal-header bg-light text-white">
 
                                             <h5 class="modal-title">
                                                 Edit Payroll
@@ -861,7 +860,7 @@ $annual_salary = $monthly_salary * 12;
 
         <div class="modal-content border-0 shadow">
 
-            <div class="modal-header bg-primary text-white">
+            <div class="modal-header bg-light text-white">
 
                 <h5 class="modal-title">
                     Process Payroll

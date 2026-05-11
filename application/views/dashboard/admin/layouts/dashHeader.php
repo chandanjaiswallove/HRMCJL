@@ -5,9 +5,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wowdash</title>
-  <link rel="icon" type="image/png" href="modules/assets2/images/favicon.png" sizes="16x16">
-  <!-- remix icon font css  -->
+  <title><?= $card->web_title; ?></title>
+  <link rel="icon" type="image/png" href="<?= base_url($card->web_icon); ?>" sizes="16x16">
   <link rel="stylesheet" href="modules/assets2/css/remixicon.css">
   <!-- BootStrap css -->
   <link rel="stylesheet" href="modules/assets2/css/lib/bootstrap.min.css">
@@ -149,11 +148,17 @@
       <iconify-icon icon="radix-icons:cross-2"></iconify-icon>
     </button>
     <div>
-      <a href="<?= base_url('admin_playground'); ?>" class="sidebar-logo">
-        <img src="modules/assets2/images/logo.png" alt="site logo" class="light-logo">
-        <img src="modules/assets2/images/logo-light.png" alt="site logo" class="dark-logo">
-        <img src="modules/assets2/images/logo-icon.png" alt="site logo" class="logo-icon">
+      <a href="<?= base_url('admin_playground'); ?>"
+        class="sidebar-logo d-flex align-items-center justify-content-center gap-2">
+
+        <!-- Light Mode Logo -->
+        <img src="<?= base_url($card->company_dark_logo); ?>" alt="site logo" class="light-logo  ">
+
+        <!-- Dark Mode Logo -->
+        <img src="<?= base_url($card->company_logo); ?>" alt="site logo" class="dark-logo">
+
       </a>
+      
     </div>
     <div class="sidebar-menu-area">
       <ul class="sidebar-menu" id="sidebar-menu">
