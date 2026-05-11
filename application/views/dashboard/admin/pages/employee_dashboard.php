@@ -26,7 +26,7 @@ if (!$employee) {
 // MONTH + YEAR
 // ==========================================
 $current_month = date('F');
-$current_year  = date('Y');
+$current_year = date('Y');
 
 $month_number = date('m', strtotime($current_month));
 
@@ -42,8 +42,8 @@ $attendanceRecords = $this->db
     ->result();
 
 $total_present = 0;
-$total_absent  = 0;
-$total_leave   = 0;
+$total_absent = 0;
+$total_leave = 0;
 
 foreach ($attendanceRecords as $attendance) {
 
@@ -125,8 +125,8 @@ $payrollRecords = $this->db
 // MONTH + YEAR
 // ==========================================
 $current_month = date('F');
-$current_year  = date('Y');
-$month_number  = date('m');
+$current_year = date('Y');
+$month_number = date('m');
 
 // ==========================================
 // MONTHLY SALARY
@@ -249,20 +249,28 @@ $annual_salary = $monthly_salary * 12;
     <!-- ===================== PAGE HEADER ===================== -->
     <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-24">
 
-    
-<a href="javascript:history.back()"
-   class="d-flex align-items-center gap-2 text-decoration-none">
 
-    <iconify-icon icon="mdi:arrow-left"
-        class="text-dark fs-4"></iconify-icon>
+        <div class="d-flex align-items-center gap-2">
 
-    <h6 class="fw-semibold mb-0 text-capitalize text-dark">
-        <?= $employee->student_name ?? 'Employee'; ?>
-    </h6>
+            <!-- Back Icon Clickable -->
+            <a href="javascript:history.back()" class="text-decoration-none">
+                <iconify-icon icon="mdi:arrow-left" class="text-dark fs-4">
+                </iconify-icon>
+            </a>
 
-</a>
+            <!-- Forward Icon Clickable -->
+            <a href="javascript:history.forward()" class="text-decoration-none">
+                <iconify-icon icon="mdi:arrow-right" class="text-dark fs-4">
+                </iconify-icon>
+            </a>
+            <!-- Text Not Clickable -->
+            <h6 class="fw-semibold mb-0 text-capitalize text-dark">
+                <?= $employee->student_name ?? 'Employee'; ?>
+            </h6>
 
-<ul class="d-flex align-items-center gap-2">
+        </div>
+
+        <ul class="d-flex align-items-center gap-2">
             <li class="fw-medium">
                 <a href="<?= base_url('admin_playground'); ?>"
                     class="d-flex align-items-center gap-1 hover-text-primary">
@@ -275,264 +283,279 @@ $annual_salary = $monthly_salary * 12;
         </ul>
     </div>
     <!-- ===================== EMPLOYEE PERSONAL DASHBOARD ===================== -->
-<div class="row row-cols-xxxl-5 row-cols-lg-3 row-cols-sm-2 row-cols-1 gy-4">
+    <div class="row row-cols-xxxl-5 row-cols-lg-3 row-cols-sm-2 row-cols-1 gy-4">
 
-    <!-- Monthly Salary -->
-    <div class="col">
-        <div class="card shadow-none border bg-gradient-start-1 h-100">
-            <div class="card-body p-20">
-                <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
-                    <div>
-                        <p class="fw-medium text-primary-light mb-1">Monthly Salary</p>
-                        <h6 class="mb-0">₹<?= number_format($monthly_salary); ?></h6>
+        <!-- Monthly Salary -->
+        <div class="col">
+            <div class="card shadow-none border bg-gradient-start-1 h-100">
+                <div class="card-body p-20">
+                    <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
+                        <div>
+                            <p class="fw-medium text-primary-light mb-1">Monthly Salary</p>
+                            <h6 class="mb-0">₹<?= number_format($monthly_salary); ?></h6>
+                        </div>
+                        <div
+                            class="w-50-px h-50-px bg-cyan rounded-circle d-flex justify-content-center align-items-center">
+                            <iconify-icon icon="mdi:wallet-outline" class="text-white text-2xl"></iconify-icon>
+                        </div>
                     </div>
-                    <div class="w-50-px h-50-px bg-cyan rounded-circle d-flex justify-content-center align-items-center">
-                        <iconify-icon icon="mdi:wallet-outline" class="text-white text-2xl"></iconify-icon>
-                    </div>
+                    <p class="fw-medium text-sm text-primary-light mt-12 mb-0">Current monthly salary</p>
                 </div>
-                <p class="fw-medium text-sm text-primary-light mt-12 mb-0">Current monthly salary</p>
             </div>
         </div>
-    </div>
 
-    <!-- Current Paid -->
-    <div class="col">
-        <div class="card shadow-none border bg-gradient-start-2 h-100">
-            <div class="card-body p-20">
-                <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
-                    <div>
-                        <p class="fw-medium text-primary-light mb-1">Current Paid</p>
-                        <h6 class="mb-0">₹<?= number_format($current_paid); ?></h6>
+        <!-- Current Paid -->
+        <div class="col">
+            <div class="card shadow-none border bg-gradient-start-2 h-100">
+                <div class="card-body p-20">
+                    <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
+                        <div>
+                            <p class="fw-medium text-primary-light mb-1">Current Paid</p>
+                            <h6 class="mb-0">₹<?= number_format($current_paid); ?></h6>
+                        </div>
+                        <div
+                            class="w-50-px h-50-px bg-success-main rounded-circle d-flex justify-content-center align-items-center">
+                            <iconify-icon icon="mdi:cash-check" class="text-white text-2xl"></iconify-icon>
+                        </div>
                     </div>
-                    <div class="w-50-px h-50-px bg-success-main rounded-circle d-flex justify-content-center align-items-center">
-                        <iconify-icon icon="mdi:cash-check" class="text-white text-2xl"></iconify-icon>
-                    </div>
+                    <p class="fw-medium text-sm text-primary-light mt-12 mb-0">Paid this month</p>
                 </div>
-                <p class="fw-medium text-sm text-primary-light mt-12 mb-0">Paid this month</p>
             </div>
         </div>
-    </div>
 
-    <!-- Current Due -->
-    <div class="col">
-        <div class="card shadow-none border bg-gradient-start-3 h-100">
-            <div class="card-body p-20">
-                <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
-                    <div>
-                        <p class="fw-medium text-primary-light mb-1">Current Due</p>
-                        <h6 class="mb-0">₹<?= number_format($current_due); ?></h6>
+        <!-- Current Due -->
+        <div class="col">
+            <div class="card shadow-none border bg-gradient-start-3 h-100">
+                <div class="card-body p-20">
+                    <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
+                        <div>
+                            <p class="fw-medium text-primary-light mb-1">Current Due</p>
+                            <h6 class="mb-0">₹<?= number_format($current_due); ?></h6>
+                        </div>
+                        <div
+                            class="w-50-px h-50-px bg-warning rounded-circle d-flex justify-content-center align-items-center">
+                            <iconify-icon icon="mdi:cash-clock" class="text-white text-2xl"></iconify-icon>
+                        </div>
                     </div>
-                    <div class="w-50-px h-50-px bg-warning rounded-circle d-flex justify-content-center align-items-center">
-                        <iconify-icon icon="mdi:cash-clock" class="text-white text-2xl"></iconify-icon>
-                    </div>
+                    <p class="fw-medium text-sm text-primary-light mt-12 mb-0">Pending this month</p>
                 </div>
-                <p class="fw-medium text-sm text-primary-light mt-12 mb-0">Pending this month</p>
             </div>
         </div>
-    </div>
 
-    <!-- Deduction -->
-    <div class="col">
-        <div class="card shadow-none border bg-gradient-start-5 h-100">
-            <div class="card-body p-20">
-                <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
-                    <div>
-                        <p class="fw-medium text-primary-light mb-1">Deduction / Month</p>
-                        <h6 class="mb-0">₹<?= number_format($total_deduction + $current_absent_deduction); ?></h6>
+        <!-- Deduction -->
+        <div class="col">
+            <div class="card shadow-none border bg-gradient-start-5 h-100">
+                <div class="card-body p-20">
+                    <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
+                        <div>
+                            <p class="fw-medium text-primary-light mb-1">Deduction / Month</p>
+                            <h6 class="mb-0">₹<?= number_format($total_deduction + $current_absent_deduction); ?></h6>
+                        </div>
+                        <div
+                            class="w-50-px h-50-px bg-red rounded-circle d-flex justify-content-center align-items-center">
+                            <iconify-icon icon="mdi:cash-minus" class="text-white text-2xl"></iconify-icon>
+                        </div>
                     </div>
-                    <div class="w-50-px h-50-px bg-red rounded-circle d-flex justify-content-center align-items-center">
-                        <iconify-icon icon="mdi:cash-minus" class="text-white text-2xl"></iconify-icon>
-                    </div>
+                    <p class="fw-medium text-sm text-primary-light mt-12 mb-0">Absent / penalties this month</p>
                 </div>
-                <p class="fw-medium text-sm text-primary-light mt-12 mb-0">Absent / penalties this month</p>
             </div>
         </div>
-    </div>
 
-    <!-- Advance Taken -->
-    <div class="col">
-        <div class="card shadow-none border bg-gradient-start-4 h-100">
-            <div class="card-body p-20">
-                <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
-                    <div>
-                        <p class="fw-medium text-primary-light mb-1">Advance Taken</p>
-                        <h6 class="mb-0">₹<?= number_format($total_advance); ?></h6>
+        <!-- Advance Taken -->
+        <div class="col">
+            <div class="card shadow-none border bg-gradient-start-4 h-100">
+                <div class="card-body p-20">
+                    <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
+                        <div>
+                            <p class="fw-medium text-primary-light mb-1">Advance Taken</p>
+                            <h6 class="mb-0">₹<?= number_format($total_advance); ?></h6>
+                        </div>
+                        <div
+                            class="w-50-px h-50-px bg-warning rounded-circle d-flex justify-content-center align-items-center">
+                            <iconify-icon icon="mdi:credit-card-fast-outline"
+                                class="text-white text-2xl"></iconify-icon>
+                        </div>
                     </div>
-                    <div class="w-50-px h-50-px bg-warning rounded-circle d-flex justify-content-center align-items-center">
-                        <iconify-icon icon="mdi:credit-card-fast-outline" class="text-white text-2xl"></iconify-icon>
-                    </div>
+                    <p class="fw-medium text-sm text-primary-light mt-12 mb-0">Salary advance received</p>
                 </div>
-                <p class="fw-medium text-sm text-primary-light mt-12 mb-0">Salary advance received</p>
             </div>
         </div>
-    </div>
 
-    <!-- Annual Salary -->
-    <div class="col">
-        <div class="card shadow-none border bg-gradient-start-1 h-100">
-            <div class="card-body p-20">
-                <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
-                    <div>
-                        <p class="fw-medium text-primary-light mb-1">Annual Salary</p>
-                        <h6 class="mb-0">₹<?= number_format($annual_salary); ?></h6>
+        <!-- Annual Salary -->
+        <div class="col">
+            <div class="card shadow-none border bg-gradient-start-1 h-100">
+                <div class="card-body p-20">
+                    <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
+                        <div>
+                            <p class="fw-medium text-primary-light mb-1">Annual Salary</p>
+                            <h6 class="mb-0">₹<?= number_format($annual_salary); ?></h6>
+                        </div>
+                        <div
+                            class="w-50-px h-50-px bg-purple rounded-circle d-flex justify-content-center align-items-center">
+                            <iconify-icon icon="mdi:currency-inr" class="text-white text-2xl"></iconify-icon>
+                        </div>
                     </div>
-                    <div class="w-50-px h-50-px bg-purple rounded-circle d-flex justify-content-center align-items-center">
-                        <iconify-icon icon="mdi:currency-inr" class="text-white text-2xl"></iconify-icon>
-                    </div>
+                    <p class="fw-medium text-sm text-primary-light mt-12 mb-0">Yearly salary package</p>
                 </div>
-                <p class="fw-medium text-sm text-primary-light mt-12 mb-0">Yearly salary package</p>
             </div>
         </div>
-    </div>
 
-<!-- Annual Paid -->
-<div class="col">
-    <div class="card shadow-none border bg-gradient-start-2 h-100">
-        <div class="card-body p-20">
-            <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
-                <div>
-                    <p class="fw-medium text-primary-light mb-1">Annual Paid</p>
-                    <h6 class="mb-0">₹<?= number_format($total_paid); ?></h6>
-                </div>
+        <!-- Annual Paid -->
+        <div class="col">
+            <div class="card shadow-none border bg-gradient-start-2 h-100">
+                <div class="card-body p-20">
+                    <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
+                        <div>
+                            <p class="fw-medium text-primary-light mb-1">Annual Paid</p>
+                            <h6 class="mb-0">₹<?= number_format($total_paid); ?></h6>
+                        </div>
 
-                <!-- Updated Icon -->
-                <div class="w-50-px h-50-px bg-info rounded-circle d-flex justify-content-center align-items-center">
-                    <iconify-icon icon="mdi:cash-check" class="text-white text-2xl"></iconify-icon>
-                </div>
+                        <!-- Updated Icon -->
+                        <div
+                            class="w-50-px h-50-px bg-info rounded-circle d-flex justify-content-center align-items-center">
+                            <iconify-icon icon="mdi:cash-check" class="text-white text-2xl"></iconify-icon>
+                        </div>
 
-            </div>
-            <p class="fw-medium text-sm text-primary-light mt-12 mb-0">Total yearly paid</p>
-        </div>
-    </div>
-</div>
-
-    <!-- Annual Due -->
-    <div class="col">
-        <div class="card shadow-none border bg-gradient-start-3 h-100">
-            <div class="card-body p-20">
-                <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
-                    <div>
-                        <p class="fw-medium text-primary-light mb-1">Annual Due</p>
-                        <h6 class="mb-0">₹<?= number_format($total_due); ?></h6>
                     </div>
-                    <div class="w-50-px h-50-px bg-danger rounded-circle d-flex justify-content-center align-items-center">
-                        <iconify-icon icon="mdi:calendar-alert" class="text-white text-2xl"></iconify-icon>
-                    </div>
+                    <p class="fw-medium text-sm text-primary-light mt-12 mb-0">Total yearly paid</p>
                 </div>
-                <p class="fw-medium text-sm text-primary-light mt-12 mb-0">Remaining yearly dues</p>
             </div>
         </div>
-    </div>
 
-    <!-- Deduction Annual -->
-    <div class="col">
-        <div class="card shadow-none border bg-gradient-start-5 h-100">
-            <div class="card-body p-20">
-                <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
-                    <div>
-                        <p class="fw-medium text-primary-light mb-1">Deduction / Annual</p>
-                        <h6 class="mb-0">₹<?= number_format($total_deduction + $current_absent_deduction); ?></h6>
+        <!-- Annual Due -->
+        <div class="col">
+            <div class="card shadow-none border bg-gradient-start-3 h-100">
+                <div class="card-body p-20">
+                    <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
+                        <div>
+                            <p class="fw-medium text-primary-light mb-1">Annual Due</p>
+                            <h6 class="mb-0">₹<?= number_format($total_due); ?></h6>
+                        </div>
+                        <div
+                            class="w-50-px h-50-px bg-danger rounded-circle d-flex justify-content-center align-items-center">
+                            <iconify-icon icon="mdi:calendar-alert" class="text-white text-2xl"></iconify-icon>
+                        </div>
                     </div>
-                    <div class="w-50-px h-50-px bg-red rounded-circle d-flex justify-content-center align-items-center">
-                        <iconify-icon icon="mdi:cash-remove" class="text-white text-2xl"></iconify-icon>
-                    </div>
+                    <p class="fw-medium text-sm text-primary-light mt-12 mb-0">Remaining yearly dues</p>
                 </div>
-                <p class="fw-medium text-sm text-primary-light mt-12 mb-0">Absent / penalties this year</p>
             </div>
         </div>
-    </div>
 
-    <!-- Total Work Days -->
-    <div class="col">
-        <div class="card shadow-none border bg-gradient-start-4 h-100">
-            <div class="card-body p-20">
-                <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
-                    <div>
-                        <p class="fw-medium text-primary-light mb-1">Total Work Days</p>
-                        <h6 class="mb-0"><?= $total_work_days; ?> Days</h6>
+        <!-- Deduction Annual -->
+        <div class="col">
+            <div class="card shadow-none border bg-gradient-start-5 h-100">
+                <div class="card-body p-20">
+                    <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
+                        <div>
+                            <p class="fw-medium text-primary-light mb-1">Deduction / Annual</p>
+                            <h6 class="mb-0">₹<?= number_format($total_deduction + $current_absent_deduction); ?></h6>
+                        </div>
+                        <div
+                            class="w-50-px h-50-px bg-red rounded-circle d-flex justify-content-center align-items-center">
+                            <iconify-icon icon="mdi:cash-remove" class="text-white text-2xl"></iconify-icon>
+                        </div>
                     </div>
-                    <div class="w-50-px h-50-px bg-success-main rounded-circle d-flex justify-content-center align-items-center">
-                        <iconify-icon icon="mdi:calendar-month-outline" class="text-white text-2xl"></iconify-icon>
-                    </div>
+                    <p class="fw-medium text-sm text-primary-light mt-12 mb-0">Absent / penalties this year</p>
                 </div>
-                <p class="fw-medium text-sm text-primary-light mt-12 mb-0">This month work days</p>
             </div>
         </div>
-    </div>
 
-    <!-- Total Present -->
-    <div class="col">
-        <div class="card shadow-none border bg-gradient-start-1 h-100">
-            <div class="card-body p-20">
-                <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
-                    <div>
-                        <p class="fw-medium text-primary-light mb-1">Total Present</p>
-                        <h6 class="mb-0"><?= $total_present; ?> Days</h6>
+        <!-- Total Work Days -->
+        <div class="col">
+            <div class="card shadow-none border bg-gradient-start-4 h-100">
+                <div class="card-body p-20">
+                    <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
+                        <div>
+                            <p class="fw-medium text-primary-light mb-1">Total Work Days</p>
+                            <h6 class="mb-0"><?= $total_work_days; ?> Days</h6>
+                        </div>
+                        <div
+                            class="w-50-px h-50-px bg-success-main rounded-circle d-flex justify-content-center align-items-center">
+                            <iconify-icon icon="mdi:calendar-month-outline" class="text-white text-2xl"></iconify-icon>
+                        </div>
                     </div>
-                    <div class="w-50-px h-50-px bg-success-main rounded-circle d-flex justify-content-center align-items-center">
-                        <iconify-icon icon="mdi:calendar-check-outline" class="text-white text-2xl"></iconify-icon>
-                    </div>
+                    <p class="fw-medium text-sm text-primary-light mt-12 mb-0">This month work days</p>
                 </div>
-                <p class="fw-medium text-sm text-primary-light mt-12 mb-0">This month attendance</p>
             </div>
         </div>
-    </div>
 
-    <!-- Total Leaves -->
-    <div class="col">
-        <div class="card shadow-none border bg-gradient-start-2 h-100">
-            <div class="card-body p-20">
-                <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
-                    <div>
-                        <p class="fw-medium text-primary-light mb-1">Total Leaves</p>
-                        <h6 class="mb-0"><?= $total_leaves; ?> Days</h6>
+        <!-- Total Present -->
+        <div class="col">
+            <div class="card shadow-none border bg-gradient-start-1 h-100">
+                <div class="card-body p-20">
+                    <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
+                        <div>
+                            <p class="fw-medium text-primary-light mb-1">Total Present</p>
+                            <h6 class="mb-0"><?= $total_present; ?> Days</h6>
+                        </div>
+                        <div
+                            class="w-50-px h-50-px bg-success-main rounded-circle d-flex justify-content-center align-items-center">
+                            <iconify-icon icon="mdi:calendar-check-outline" class="text-white text-2xl"></iconify-icon>
+                        </div>
                     </div>
-                    <div class="w-50-px h-50-px bg-info rounded-circle d-flex justify-content-center align-items-center">
-                        <iconify-icon icon="mdi:calendar-arrow-right" class="text-white text-2xl"></iconify-icon>
-                    </div>
+                    <p class="fw-medium text-sm text-primary-light mt-12 mb-0">This month attendance</p>
                 </div>
-                <p class="fw-medium text-sm text-primary-light mt-12 mb-0">This month leaves</p>
             </div>
         </div>
-    </div>
 
-    <!-- Total Absent -->
-    <div class="col">
-        <div class="card shadow-none border bg-gradient-start-3 h-100">
-            <div class="card-body p-20">
-                <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
-                    <div>
-                        <p class="fw-medium text-primary-light mb-1">Total Absent</p>
-                        <h6 class="mb-0"><?= $total_absent; ?> Days</h6>
+        <!-- Total Leaves -->
+        <div class="col">
+            <div class="card shadow-none border bg-gradient-start-2 h-100">
+                <div class="card-body p-20">
+                    <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
+                        <div>
+                            <p class="fw-medium text-primary-light mb-1">Total Leaves</p>
+                            <h6 class="mb-0"><?= $total_leaves; ?> Days</h6>
+                        </div>
+                        <div
+                            class="w-50-px h-50-px bg-info rounded-circle d-flex justify-content-center align-items-center">
+                            <iconify-icon icon="mdi:calendar-arrow-right" class="text-white text-2xl"></iconify-icon>
+                        </div>
                     </div>
-                    <div class="w-50-px h-50-px bg-danger rounded-circle d-flex justify-content-center align-items-center">
-                        <iconify-icon icon="mdi:calendar-remove-outline" class="text-white text-2xl"></iconify-icon>
-                    </div>
+                    <p class="fw-medium text-sm text-primary-light mt-12 mb-0">This month leaves</p>
                 </div>
-                <p class="fw-medium text-sm text-primary-light mt-12 mb-0">This month absence</p>
             </div>
         </div>
-    </div>
 
-    <!-- Total Earned -->
-    <div class="col">
-        <div class="card shadow-none border bg-gradient-start-5 h-100">
-            <div class="card-body p-20">
-                <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
-                    <div>
-                        <p class="fw-medium text-primary-light mb-1">Total Earned</p>
-                        <h6 class="mb-0">₹<?= number_format($total_deduction + $current_absent_deduction); ?></h6>
+        <!-- Total Absent -->
+        <div class="col">
+            <div class="card shadow-none border bg-gradient-start-3 h-100">
+                <div class="card-body p-20">
+                    <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
+                        <div>
+                            <p class="fw-medium text-primary-light mb-1">Total Absent</p>
+                            <h6 class="mb-0"><?= $total_absent; ?> Days</h6>
+                        </div>
+                        <div
+                            class="w-50-px h-50-px bg-danger rounded-circle d-flex justify-content-center align-items-center">
+                            <iconify-icon icon="mdi:calendar-remove-outline" class="text-white text-2xl"></iconify-icon>
+                        </div>
                     </div>
-                    <div class="w-50-px h-50-px bg-info rounded-circle d-flex justify-content-center align-items-center">
-                        <iconify-icon icon="mdi:cash-plus" class="text-white text-2xl"></iconify-icon>
-                    </div>
+                    <p class="fw-medium text-sm text-primary-light mt-12 mb-0">This month absence</p>
                 </div>
-                <p class="fw-medium text-sm text-primary-light mt-12 mb-0">This month earned</p>
             </div>
         </div>
-    </div>
 
-</div>
+        <!-- Total Earned -->
+        <div class="col">
+            <div class="card shadow-none border bg-gradient-start-5 h-100">
+                <div class="card-body p-20">
+                    <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
+                        <div>
+                            <p class="fw-medium text-primary-light mb-1">Total Earned</p>
+                            <h6 class="mb-0">₹<?= number_format($total_deduction + $current_absent_deduction); ?></h6>
+                        </div>
+                        <div
+                            class="w-50-px h-50-px bg-info rounded-circle d-flex justify-content-center align-items-center">
+                            <iconify-icon icon="mdi:cash-plus" class="text-white text-2xl"></iconify-icon>
+                        </div>
+                    </div>
+                    <p class="fw-medium text-sm text-primary-light mt-12 mb-0">This month earned</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
 </div>
 
 <div class="dashboard-main-body">
@@ -549,8 +572,7 @@ $annual_salary = $monthly_salary * 12;
             <h5 class="mb-0">Payroll Records</h5>
 
             <!-- RIGHT SIDE -->
-            <button class="btn btn-success d-flex align-items-center gap-2"
-                data-bs-toggle="modal"
+            <button class="btn btn-success d-flex align-items-center gap-2" data-bs-toggle="modal"
                 data-bs-target="#payrollModal">
 
                 <iconify-icon icon="mdi:cash-register"></iconify-icon>
@@ -563,10 +585,9 @@ $annual_salary = $monthly_salary * 12;
 
         <div class="card-body table-responsive">
 
-            <table id="payrollTable"
-                class="display table-bordered border card-table table-vcenter text-nowrap">
+            <table id="payrollTable" class="display table-bordered border card-table table-vcenter text-nowrap">
 
-                  <thead class="bg-neutral-300">
+                <thead class="bg-neutral-300">
 
                     <tr>
                         <th>Month</th>
@@ -577,7 +598,7 @@ $annual_salary = $monthly_salary * 12;
                         <th>Final Salary</th>
                         <th>Paid</th>
                         <th>Advance</th>
-                        <th>Earned</th>
+                        <!-- <th>Earned</th> -->
                         <th>Due</th>
                         <th>Status</th>
                         <th>Date</th>
@@ -624,33 +645,34 @@ $annual_salary = $monthly_salary * 12;
                                 ₹<?= number_format($payroll->advance_amount); ?>
                             </td>
 
-                            <td>
+                            <!-- <td>
                                 ₹<?= number_format($payroll->earned_amount); ?>
-                            </td>
+                            </td> -->
+
                             <td>
                                 ₹<?= number_format($payroll->due_amount); ?>
                             </td>
 
                             <td>
-<?php if ($payroll->due_amount > 0): ?>
+                                <?php if ($payroll->due_amount > 0): ?>
 
-    <span class="badge bg-warning">
-        Partial Paid
-    </span>
+                                    <span class="badge bg-warning">
+                                        Partial Paid
+                                    </span>
 
-<?php elseif ($payroll->advance_amount > 0): ?>
+                                <?php elseif ($payroll->advance_amount > 0): ?>
 
-    <span class="badge bg-info">
-        Advance Paid
-    </span>
+                                    <span class="badge bg-info">
+                                        Advance Paid
+                                    </span>
 
-<?php else: ?>
+                                <?php else: ?>
 
-    <span class="badge bg-success">
-        Full Paid
-    </span>
+                                    <span class="badge bg-success">
+                                        Full Paid
+                                    </span>
 
-<?php endif; ?>
+                                <?php endif; ?>
 
                             </td>
 
@@ -660,13 +682,20 @@ $annual_salary = $monthly_salary * 12;
 
                             <td>
 
-                                <button class="btn btn-primary btn-sm"
-                                    data-bs-toggle="modal"
+                                <!-- EDIT BUTTON -->
+                                <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
                                     data-bs-target="#editPayrollModal_<?= $payroll->id; ?>">
 
                                     <iconify-icon icon="lucide:edit"></iconify-icon>
 
                                 </button>
+
+
+                                <!-- SEND BUTTON -->
+                                <a href="<?= base_url('employee_payslip?employee_uid=' . $employee->student_uid); ?>"
+                                    class="btn btn-success btn-sm">
+                                    <iconify-icon icon="mdi:send"></iconify-icon>
+                                </a>
 
                             </td>
 
@@ -675,165 +704,141 @@ $annual_salary = $monthly_salary * 12;
                         <!-- ===================================== -->
                         <!-- EDIT MODAL -->
                         <!-- ===================================== -->
-        <div class="modal fade"
-    id="editPayrollModal_<?= $payroll->id; ?>"
-    tabindex="-1">
+                        <div class="modal fade" id="editPayrollModal_<?= $payroll->id; ?>" tabindex="-1">
 
-    <div class="modal-dialog modal-lg">
+                            <div class="modal-dialog modal-lg">
 
-        <form method="POST"
-            action="<?= base_url('update_payroll_employee'); ?>">
+                                <form method="POST" action="<?= base_url('update_payroll_employee'); ?>">
 
-            <input type="hidden"
-                name="id"
-                value="<?= $payroll->id; ?>">
+                                    <input type="hidden" name="id" value="<?= $payroll->id; ?>">
 
-            <div class="modal-content">
+                                    <div class="modal-content">
 
-                <div class="modal-header bg-primary text-white">
+                                        <div class="modal-header bg-primary text-white">
 
-                    <h5 class="modal-title">
-                        Edit Payroll
-                    </h5>
+                                            <h5 class="modal-title">
+                                                Edit Payroll
+                                            </h5>
 
-                    <button type="button"
-                        class="btn-close btn-close-white"
-                        data-bs-dismiss="modal"></button>
+                                            <button type="button" class="btn-close btn-close-white"
+                                                data-bs-dismiss="modal"></button>
 
-                </div>
+                                        </div>
 
-                <div class="modal-body">
+                                        <div class="modal-body">
 
-                    <div class="row">
+                                            <div class="row">
 
-                        <!-- FINAL SALARY -->
-                        <div class="col-md-4 mb-3">
+                                                <!-- FINAL SALARY -->
+                                                <div class="col-md-4 mb-3">
 
-                            <label>Final Salary</label>
+                                                    <label>Final Salary</label>
 
-                            <input type="number"
-                                class="form-control"
-                                value="<?= $payroll->final_payable_salary; ?>"
-                                readonly>
+                                                    <input type="number" class="form-control"
+                                                        value="<?= $payroll->final_payable_salary; ?>" readonly>
 
-                        </div>
+                                                </div>
 
-                        <!-- PAID AMOUNT -->
-                        <div class="col-md-4 mb-3">
+                                                <!-- PAID AMOUNT -->
+                                                <div class="col-md-4 mb-3">
 
-                            <label>Paid Amount</label>
+                                                    <label>Paid Amount</label>
 
-                            <input type="number"
-                                id="edit_paid_amount_<?= $payroll->id; ?>"
-                                name="paid_amount"
-                                class="form-control"
-                                value="<?= $payroll->paid_amount; ?>"
-                                onkeyup="editPayrollCalculation(
+                                                    <input type="number" id="edit_paid_amount_<?= $payroll->id; ?>"
+                                                        name="paid_amount" class="form-control"
+                                                        value="<?= $payroll->paid_amount; ?>" onkeyup="editPayrollCalculation(
                                     <?= $payroll->id; ?>,
                                     <?= $payroll->final_payable_salary; ?>
                                 )">
 
+                                                </div>
+
+                                                <!-- DUE AMOUNT -->
+                                                <div class="col-md-4 mb-3">
+
+                                                    <label>Due Amount</label>
+
+                                                    <input type="number" id="edit_due_amount_<?= $payroll->id; ?>"
+                                                        name="due_amount" class="form-control"
+                                                        value="<?= $payroll->due_amount; ?>" readonly>
+
+                                                </div>
+
+                                                <!-- ADVANCE AMOUNT -->
+                                                <div class="col-md-4 mb-3">
+
+                                                    <label>Advance Amount</label>
+
+                                                    <input type="number" id="edit_advance_amount_<?= $payroll->id; ?>"
+                                                        name="advance_amount" class="form-control"
+                                                        value="<?= $payroll->advance_amount; ?>" readonly>
+
+                                                </div>
+
+                                                <!-- PAYMENT MODE -->
+                                                <div class="col-md-4 mb-3">
+
+                                                    <label>Payment Mode</label>
+
+                                                    <select name="payment_mode" class="form-control">
+
+                                                        <option value="Cash" <?= ($payroll->payment_mode == 'Cash') ? 'selected' : ''; ?>>
+                                                            Cash
+                                                        </option>
+
+                                                        <option value="Bank Transfer" <?= ($payroll->payment_mode == 'Bank Transfer') ? 'selected' : ''; ?>>
+                                                            Bank Transfer
+                                                        </option>
+
+                                                        <option value="UPI" <?= ($payroll->payment_mode == 'UPI') ? 'selected' : ''; ?>>
+                                                            UPI
+                                                        </option>
+
+                                                    </select>
+
+                                                </div>
+
+                                                <!-- PAYMENT DATE -->
+                                                <div class="col-md-4 mb-3">
+
+                                                    <label>Payment Date</label>
+
+                                                    <input type="date" name="payment_date" class="form-control"
+                                                        value="<?= $payroll->payment_date; ?>">
+
+                                                </div>
+
+                                                <!-- REMARKS -->
+                                                <div class="col-12 mb-3">
+
+                                                    <label>Remarks</label>
+
+                                                    <input type="text" name="remarks" class="form-control"
+                                                        value="<?= $payroll->remarks; ?>">
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="modal-footer">
+
+                                            <button type="submit" class="btn btn-success">
+
+                                                Update Payroll
+
+                                            </button>
+
+                                        </div>
+
+                                    </div>
+
+                                </form>
+
+                            </div>
+
                         </div>
-
-                        <!-- DUE AMOUNT -->
-                        <div class="col-md-4 mb-3">
-
-                            <label>Due Amount</label>
-
-                         <input type="number"
-    id="edit_due_amount_<?= $payroll->id; ?>"
-    name="due_amount"
-    class="form-control"
-    value="<?= $payroll->due_amount; ?>"
-    readonly>
-
-                        </div>
-
-                        <!-- ADVANCE AMOUNT -->
-                        <div class="col-md-4 mb-3">
-
-                            <label>Advance Amount</label>
-
-                  <input type="number"
-    id="edit_advance_amount_<?= $payroll->id; ?>"
-    name="advance_amount"
-    class="form-control"
-    value="<?= $payroll->advance_amount; ?>"
-    readonly>
-
-                        </div>
-
-                        <!-- PAYMENT MODE -->
-                        <div class="col-md-4 mb-3">
-
-                            <label>Payment Mode</label>
-
-                            <select name="payment_mode"
-                                class="form-control">
-
-                                <option value="Cash"
-                                    <?= ($payroll->payment_mode == 'Cash') ? 'selected' : ''; ?>>
-                                    Cash
-                                </option>
-
-                                <option value="Bank Transfer"
-                                    <?= ($payroll->payment_mode == 'Bank Transfer') ? 'selected' : ''; ?>>
-                                    Bank Transfer
-                                </option>
-
-                                <option value="UPI"
-                                    <?= ($payroll->payment_mode == 'UPI') ? 'selected' : ''; ?>>
-                                    UPI
-                                </option>
-
-                            </select>
-
-                        </div>
-
-                        <!-- PAYMENT DATE -->
-                        <div class="col-md-4 mb-3">
-
-                            <label>Payment Date</label>
-
-                            <input type="date"
-                                name="payment_date"
-                                class="form-control"
-                                value="<?= $payroll->payment_date; ?>">
-
-                        </div>
-
-                        <!-- REMARKS -->
-                        <div class="col-12 mb-3">
-
-                            <label>Remarks</label>
-
-                            <input type="text" name="remarks"
-                                class="form-control" value="<?= $payroll->remarks; ?>">
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="modal-footer">
-
-                    <button type="submit"
-                        class="btn btn-success">
-
-                        Update Payroll
-
-                    </button>
-
-                </div>
-
-            </div>
-
-        </form>
-
-    </div>
-
-</div>
 
                     <?php endforeach; ?>
 
@@ -850,9 +855,7 @@ $annual_salary = $monthly_salary * 12;
 <!-- ===================================== -->
 <!-- PROCESS PAYROLL MODAL -->
 <!-- ===================================== -->
-<div class="modal fade"
-    id="payrollModal"
-    tabindex="-1">
+<div class="modal fade" id="payrollModal" tabindex="-1">
 
     <div class="modal-dialog modal-xl">
 
@@ -864,32 +867,21 @@ $annual_salary = $monthly_salary * 12;
                     Process Payroll
                 </h5>
 
-                <button type="button"
-                    class="btn-close btn-close-white"
-                    data-bs-dismiss="modal"></button>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
 
             </div>
 
-            <form method="POST"
-                action="<?= base_url('process_payroll_employee'); ?>">
+            <form method="POST" action="<?= base_url('process_payroll_employee'); ?>">
 
                 <div class="modal-body">
 
-                    <input type="hidden"
-                        name="employee_uid"
-                        value="<?= $employee->student_uid; ?>">
+                    <input type="hidden" name="employee_uid" value="<?= $employee->student_uid; ?>">
 
-                    <input type="hidden"
-                        name="employee_name"
-                        value="<?= $employee->student_name; ?>">
+                    <input type="hidden" name="employee_name" value="<?= $employee->student_name; ?>">
 
-                    <input type="hidden"
-                        name="department"
-                        value="<?= $employee->enrolled_class_section; ?>">
+                    <input type="hidden" name="department" value="<?= $employee->enrolled_class_section; ?>">
 
-                    <input type="hidden"
-                        name="designation"
-                        value="<?= $employee->enrollment_year; ?>">
+                    <input type="hidden" name="designation" value="<?= $employee->enrollment_year; ?>">
 
                     <div class="row">
 
@@ -898,9 +890,7 @@ $annual_salary = $monthly_salary * 12;
 
                             <label>Salary Month</label>
 
-                            <select name="salary_month"
-                                id="salary_month"
-                                class="form-control">
+                            <select name="salary_month" id="salary_month" class="form-control">
 
                                 <?php
                                 $months = [
@@ -919,7 +909,7 @@ $annual_salary = $monthly_salary * 12;
                                 ];
 
                                 foreach ($months as $month):
-                                ?>
+                                    ?>
 
                                     <option value="<?= $month; ?>">
                                         <?= $month; ?>
@@ -936,10 +926,7 @@ $annual_salary = $monthly_salary * 12;
 
                             <label>Salary Year</label>
 
-                            <input type="text"
-                                name="salary_year"
-                                id="salary_year"
-                                class="form-control"
+                            <input type="text" name="salary_year" id="salary_year" class="form-control"
                                 value="<?= date('Y'); ?>">
 
                         </div>
@@ -949,25 +936,17 @@ $annual_salary = $monthly_salary * 12;
 
                             <label>Gross Salary</label>
 
-                            <input type="number"
-                                name="gross_salary"
-                                id="gross_salary"
-                                class="form-control"
-                                readonly>
+                            <input type="number" name="gross_salary" id="gross_salary" class="form-control" readonly>
 
                         </div>
-<!-- EARNED -->
-<div class="col-md-3 mb-3">
+                        <!-- EARNED -->
+                        <div class="col-md-3 mb-3">
 
-    <label>Earned Amount</label>
+                            <label>Earned Amount</label>
 
-    <input type="number"
-        name="earned_amount"
-        id="earned_amount"
-        class="form-control"
-        readonly>
+                            <input type="number" name="earned_amount" id="earned_amount" class="form-control" readonly>
 
-</div>
+                        </div>
 
 
                         <!-- FINAL -->
@@ -975,11 +954,8 @@ $annual_salary = $monthly_salary * 12;
 
                             <label>Final Payable</label>
 
-                            <input type="number"
-                                name="final_payable_salary"
-                                id="final_payable_salary"
-                                class="form-control"
-                                readonly>
+                            <input type="number" name="final_payable_salary" id="final_payable_salary"
+                                class="form-control" readonly>
 
                         </div>
 
@@ -988,11 +964,7 @@ $annual_salary = $monthly_salary * 12;
 
                             <label>Present Days</label>
 
-                            <input type="number"
-                                name="present_days"
-                                id="present_days"
-                                class="form-control"
-                                readonly>
+                            <input type="number" name="present_days" id="present_days" class="form-control" readonly>
 
                         </div>
 
@@ -1001,11 +973,7 @@ $annual_salary = $monthly_salary * 12;
 
                             <label>Absent Days</label>
 
-                            <input type="number"
-                                name="absent_days"
-                                id="absent_days"
-                                class="form-control"
-                                readonly>
+                            <input type="number" name="absent_days" id="absent_days" class="form-control" readonly>
 
                         </div>
 
@@ -1014,11 +982,7 @@ $annual_salary = $monthly_salary * 12;
 
                             <label>Leave Days</label>
 
-                            <input type="number"
-                                name="leave_days"
-                                id="leave_days"
-                                class="form-control"
-                                readonly>
+                            <input type="number" name="leave_days" id="leave_days" class="form-control" readonly>
 
                         </div>
 
@@ -1027,10 +991,7 @@ $annual_salary = $monthly_salary * 12;
 
                             <label>Deduction</label>
 
-                            <input type="number"
-                                name="deduction_amount"
-                                id="deduction_amount"
-                                class="form-control"
+                            <input type="number" name="deduction_amount" id="deduction_amount" class="form-control"
                                 readonly>
 
                         </div>
@@ -1040,11 +1001,7 @@ $annual_salary = $monthly_salary * 12;
 
                             <label>Previous Due</label>
 
-                            <input type="number"
-                                name="previous_due"
-                                id="previous_due"
-                                class="form-control"
-                                readonly>
+                            <input type="number" name="previous_due" id="previous_due" class="form-control" readonly>
 
                         </div>
 
@@ -1053,10 +1010,7 @@ $annual_salary = $monthly_salary * 12;
 
                             <label>Previous Advance</label>
 
-                            <input type="number"
-                                name="previous_advance"
-                                id="previous_advance"
-                                class="form-control"
+                            <input type="number" name="previous_advance" id="previous_advance" class="form-control"
                                 readonly>
 
                         </div>
@@ -1066,10 +1020,7 @@ $annual_salary = $monthly_salary * 12;
 
                             <label>Paid Amount</label>
 
-                            <input type="number"
-                                name="paid_amount"
-                                id="paid_amount"
-                                class="form-control">
+                            <input type="number" name="paid_amount" id="paid_amount" class="form-control">
 
                         </div>
 
@@ -1078,34 +1029,26 @@ $annual_salary = $monthly_salary * 12;
 
                             <label>Current Due</label>
 
-                            <input type="number"
-                                name="due_amount"
-                                id="due_amount"
-                                class="form-control"
-                                readonly>
+                            <input type="number" name="due_amount" id="due_amount" class="form-control" readonly>
 
                         </div>
 
                         <!-- ADVANCE -->
-<div class="col-md-6 mb-3">
+                        <div class="col-md-6 mb-3">
 
-    <label>Advance Amount</label>
+                            <label>Advance Amount</label>
 
-    <input type="number"
-        name="advance_amount"
-        id="advance_amount"
-        class="form-control"
-        readonly>
+                            <input type="number" name="advance_amount" id="advance_amount" class="form-control"
+                                readonly>
 
-</div>
+                        </div>
 
                         <!-- MODE -->
                         <div class="col-md-6 mb-3">
 
                             <label>Payment Mode</label>
 
-                            <select name="payment_mode"
-                                class="form-control">
+                            <select name="payment_mode" class="form-control">
 
                                 <option value="Cash">Cash</option>
                                 <option value="Bank Transfer">Bank Transfer</option>
@@ -1120,10 +1063,7 @@ $annual_salary = $monthly_salary * 12;
 
                             <label>Payment Date</label>
 
-                            <input type="date"
-                                name="payment_date"
-                                class="form-control"
-                                value="<?= date('Y-m-d'); ?>">
+                            <input type="date" name="payment_date" class="form-control" value="<?= date('Y-m-d'); ?>">
 
                         </div>
 
@@ -1132,8 +1072,7 @@ $annual_salary = $monthly_salary * 12;
 
                             <label>Remarks</label>
 
-                            <input type="text" name="remarks"
-                                class="form-control" value="<?= $payroll->remarks; ?>">
+                            <input type="text" name="remarks" class="form-control" value="<?= $payroll->remarks; ?>">
 
                         </div>
 
@@ -1143,8 +1082,7 @@ $annual_salary = $monthly_salary * 12;
 
                 <div class="modal-footer">
 
-                    <button type="submit"
-                        class="btn btn-success">
+                    <button type="submit" class="btn btn-success">
 
                         Save Payroll
 
@@ -1162,9 +1100,9 @@ $annual_salary = $monthly_salary * 12;
 
 
 
- <!-- Work records -->
-  <!-- employee attendance records -->
-   <div class="dashboard-main-body">
+<!-- Work records -->
+<!-- employee attendance records -->
+<div class="dashboard-main-body">
     <!-- <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-24">
         <h6 class="fw-semibold mb-0">Work Records</h6>
         <ul class="d-flex align-items-center gap-2">
@@ -1498,10 +1436,10 @@ $annual_salary = $monthly_salary * 12;
 
         <div class="col-sm-12">
             <div class="card">
-        <div class="card-header d-flex justify-content-between align-items-center">
-            <!-- LEFT SIDE -->
-            <h5 class="mb-0">Attendance Records</h5>
-        </div>
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <!-- LEFT SIDE -->
+                    <h5 class="mb-0">Attendance Records</h5>
+                </div>
                 <div class="card-body">
 
                     <div class="table-responsive custom-scrollbar">
@@ -1572,11 +1510,11 @@ $annual_salary = $monthly_salary * 12;
 
                                         <!-- Check Out -->
                                         <!-- Check Out -->
-                                         <td>
+                                        <td>
                                             <?= !empty($row->check_out_time)
                                                 ? date('h:i:s A', strtotime($row->check_out_time))
                                                 : '<span class="text-warning">Pending</span>'; ?>
-                                        </td> 
+                                        </td>
 
                                         <!-- Status -->
                                         <!-- Attendance Status Column -->
@@ -1695,8 +1633,8 @@ $annual_salary = $monthly_salary * 12;
                                                                     Check In
                                                                 </label>
                                                                 <input type="time" step="1" class="form-control"
-                                                                    name="check_in_time"
-                                                                    value="<?= $row->check_in_time; ?>" readonly>
+                                                                    name="check_in_time" value="<?= $row->check_in_time; ?>"
+                                                                    readonly>
                                                             </div>
 
                                                             <div class="col-md-6 mb-3">
@@ -1713,7 +1651,8 @@ $annual_salary = $monthly_salary * 12;
                                                                     Status
                                                                 </label>
 
-                                                                <select class="form-control" name="attendance_status" readonly  >
+                                                                <select class="form-control" name="attendance_status"
+                                                                    readonly>
 
                                                                     <option value="Present"
                                                                         <?= ($row->attendance_status == 'Present') ? 'selected' : ''; ?>>
@@ -1738,8 +1677,8 @@ $annual_salary = $monthly_salary * 12;
                                                                     Remarks
                                                                 </label>
 
-                                                                <input type="text" class="form-control" name="remarks" placeholder="remark.."
-                                                                    value="<?= $row->remarks; ?>">
+                                                                <input type="text" class="form-control" name="remarks"
+                                                                    placeholder="remark.." value="<?= $row->remarks; ?>">
                                                             </div>
 
                                                         </div>
@@ -1951,7 +1890,7 @@ $annual_salary = $monthly_salary * 12;
 <!-- DATATABLE -->
 <!-- ===================================== -->
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
 
         $('#payrollTable').DataTable({
             responsive: true,
@@ -1965,17 +1904,17 @@ $annual_salary = $monthly_salary * 12;
 <!-- LIVE MONTH FETCH -->
 <!-- ===================================== -->
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
 
         loadPayrollData();
 
-        $('#salary_month, #salary_year').on('change keyup', function() {
+        $('#salary_month, #salary_year').on('change keyup', function () {
 
             loadPayrollData();
 
         });
 
-        $('#paid_amount').on('keyup change', function() {
+        $('#paid_amount').on('keyup change', function () {
 
             calculateDue();
 
@@ -2004,103 +1943,102 @@ $annual_salary = $monthly_salary * 12;
                 },
 
                 dataType: "json",
-success: function(response) {
+                success: function (response) {
 
-    if (response.status == 'exists') {
+                    if (response.status == 'exists') {
 
-        alert(response.message);
+                        alert(response.message);
 
-        return;
-    }
+                        return;
+                    }
 
-    $('#gross_salary').val(response.gross_salary);
+                    $('#gross_salary').val(response.gross_salary);
 
-    $('#present_days').val(response.present_days);
+                    $('#present_days').val(response.present_days);
 
-    $('#absent_days').val(response.absent_days);
+                    $('#absent_days').val(response.absent_days);
 
-    $('#leave_days').val(response.leave_days);
+                    $('#leave_days').val(response.leave_days);
 
-    $('#deduction_amount').val(response.deduction_amount);
+                    $('#deduction_amount').val(response.deduction_amount);
 
-    $('#previous_due').val(response.previous_due);
+                    $('#previous_due').val(response.previous_due);
 
-    $('#previous_advance').val(response.previous_advance);
+                    $('#previous_advance').val(response.previous_advance);
 
-    $('#final_payable_salary').val(response.final_payable_salary);
+                    $('#final_payable_salary').val(response.final_payable_salary);
 
-    $('#earned_amount').val(response.earned_amount);
+                    $('#earned_amount').val(response.earned_amount);
 
-    $('#advance_amount').val(response.advance_amount);
+                    $('#advance_amount').val(response.advance_amount);
 
-    $('#paid_amount').val(response.final_payable_salary);
+                    $('#paid_amount').val(response.final_payable_salary);
 
-    calculateDue();
-}
+                    calculateDue();
+                }
 
             });
 
         }
 
-function calculateDue() {
+        function calculateDue() {
 
-    let final_salary =
-        parseFloat($('#final_payable_salary').val()) || 0;
+            let final_salary =
+                parseFloat($('#final_payable_salary').val()) || 0;
 
-    let paid =
-        parseFloat($('#paid_amount').val()) || 0;
+            let paid =
+                parseFloat($('#paid_amount').val()) || 0;
 
-    let due = 0;
-    let advance = 0;
+            let due = 0;
+            let advance = 0;
 
-    // DUE
-    if (paid < final_salary) {
+            // DUE
+            if (paid < final_salary) {
 
-        due = final_salary - paid;
+                due = final_salary - paid;
 
-    }
+            }
 
-    // ADVANCE
-    if (paid > final_salary) {
+            // ADVANCE
+            if (paid > final_salary) {
 
-        advance = paid - final_salary;
+                advance = paid - final_salary;
 
-    }
+            }
 
-    $('#due_amount').val(due.toFixed(0));
+            $('#due_amount').val(due.toFixed(0));
 
-    $('#advance_amount').val(advance.toFixed(0));
-}
+            $('#advance_amount').val(advance.toFixed(0));
+        }
 
     });
 </script>
 <script>
 
-function editPayrollCalculation(id, finalSalary)
-{
-    let paid =
-        parseFloat(
-            $('#edit_paid_amount_' + id).val()
-        ) || 0;
+    function editPayrollCalculation(id, finalSalary) {
+        let paid =
+            parseFloat(
+                $('#edit_paid_amount_' + id).val()
+            ) || 0;
 
-    let due = 0;
-    let advance = 0;
+        let due = 0;
+        let advance = 0;
 
-    if (paid < finalSalary) {
+        if (paid < finalSalary) {
 
-        due = finalSalary - paid;
+            due = finalSalary - paid;
 
+        }
+
+        if (paid > finalSalary) {
+
+            advance = paid - finalSalary;
+
+        }
+
+        $('#edit_due_amount_' + id).val(due.toFixed(0));
+
+        $('#edit_advance_amount_' + id).val(advance.toFixed(0));
     }
-
-    if (paid > finalSalary) {
-
-        advance = paid - finalSalary;
-
-    }
-
-    $('#edit_due_amount_' + id).val(due.toFixed(0));
-
-    $('#edit_advance_amount_' + id).val(advance.toFixed(0));
-}
 
 </script>

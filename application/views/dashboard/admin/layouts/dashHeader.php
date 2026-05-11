@@ -203,7 +203,7 @@
             </li> -->
 
             <li>
-              <a href="<?= base_url('employee_payroll'); ?>"><i
+              <a href="<?= base_url('employee_payslip'); ?>"><i
                   class="ri-circle-fill circle-icon text-info-main w-auto"></i>Employee Payroll</a>
             </li>
 

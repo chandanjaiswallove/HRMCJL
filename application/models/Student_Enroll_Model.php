@@ -143,28 +143,191 @@ class Student_Enroll_Model extends CI_Model
 
 
 
-
-
-
-
-
-
+	// ==========================================
+	// GET ALL STUDENTS
+	// ==========================================
 	public function get_enroll_studentData()
 	{
 		$query = $this->db
 			->order_by('id', 'DESC')
 			->get('student_directory')
 			->result();
+
 		return $query;
 	}
 
-
-
-
+	// ==========================================
+	// TOTAL STUDENTS
+	// ==========================================
 	public function count_students()
 	{
-		return $this->db->count_all('student_directory');
+		return $this->db
+			->count_all('student_directory');
 	}
+
+	// ==========================================
+	// ACTIVE STUDENTS
+	// ==========================================
+	public function get_active_students_count()
+	{
+		return $this->db
+			->where('student_profile_status', 'Active')
+			->count_all_results('student_directory');
+	}
+
+	// ==========================================
+	// INACTIVE STUDENTS
+	// ==========================================
+	public function get_inactive_students_count()
+	{
+		return $this->db
+			->where('student_profile_status', 'Inactive')
+			->count_all_results('student_directory');
+	}
+
+	// ==========================================
+	// TOTAL MONTHLY FEES / SALARY
+	// ==========================================
+	public function total_monthly_salary()
+	{
+		return $this->db
+			->select_sum('monthly_salary')
+			->get('student_directory')
+			->row()
+			->monthly_salary;
+	}
+
+// MODEL FUNCTION
+
+public function current_month_paid()
+{
+    return $this->db
+        ->select_sum('paid_amount')
+        ->where('salary_month', date('F'))
+        ->where('salary_year', date('Y'))
+        ->get('employee_payroll')
+        ->row()
+        ->paid_amount ?? 0;
+}
+
+// MODEL FUNCTION
+
+public function current_month_due()
+{
+    return $this->db
+        ->select_sum('due_amount')
+        ->where('salary_month', date('F'))
+        ->where('salary_year', date('Y'))
+        ->get('employee_payroll')
+        ->row()
+        ->due_amount ?? 0;
+}
+
+// MODEL FUNCTION
+
+public function total_annual_salary()
+{
+    $monthly_salary = $this->db
+        ->select_sum('monthly_salary')
+        ->get('student_directory')
+        ->row()
+        ->monthly_salary ?? 0;
+
+    return $monthly_salary * 12;
+}
+
+
+// MODEL FUNCTION
+
+public function total_annual_paid()
+{
+    return $this->db
+        ->select_sum('paid_amount')
+        ->where('salary_year', date('Y'))
+        ->get('employee_payroll')
+        ->row()
+        ->paid_amount ?? 0;
+}
+
+// MODEL FUNCTION
+
+public function total_annual_due()
+{
+    return $this->db
+        ->select_sum('due_amount')
+        ->where('salary_year', date('Y'))
+        ->get('employee_payroll')
+        ->row()
+        ->due_amount ?? 0;
+}
+
+
+// MODEL FUNCTION
+
+public function total_advance_paid()
+{
+    return $this->db
+        ->select_sum('advance_amount')
+        ->where('salary_year', date('Y'))
+        ->get('employee_payroll')
+        ->row()
+        ->advance_amount ?? 0;
+}
+
+public function monthly_deduction()
+{
+    return $this->db
+        ->select_sum('deduction_amount')
+        ->where('salary_month', date('F'))
+        ->where('salary_year', date('Y'))
+        ->get('employee_payroll')
+        ->row()
+        ->deduction_amount ?? 0;
+}
+
+// MODEL FUNCTION
+
+public function annual_deduction()
+{
+    return $this->db
+        ->select_sum('deduction_amount')
+        ->where('salary_year', date('Y'))
+        ->get('employee_payroll')
+        ->row()
+        ->deduction_amount ?? 0;
+}
+
+// MODEL FUNCTION
+
+public function total_present_days()
+{
+    return $this->db
+        ->where('attendance_status', 'Present')
+        ->count_all_results('employee_attendance');
+}
+
+// MODEL FUNCTION
+
+public function total_absent_days()
+{
+    return $this->db
+        ->where('attendance_status', 'Absent')
+        ->count_all_results('employee_attendance');
+}
+
+// MODEL FUNCTION
+
+public function total_leave_days()
+{
+    return $this->db
+        ->where('attendance_status', 'Leave')
+        ->count_all_results('employee_attendance');
+}
+
+
+
+
+///--------------------------------- all admin dashbord related model functions are here for report ---------------------------------///
 
 
 

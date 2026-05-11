@@ -168,9 +168,10 @@ $route['delete_employee_task_checklist/(:num)'] = 'dashBoard/Admin/AdminDashboar
 $route['employee_checklist_records'] = 'dashBoard/Admin/AdminDashboard/loaDemployee_checklist_records';
 
 // ================= EMPLOYEE CHECKLIST =================
-$route['employee_payroll'] = 'dashBoard/Admin/AdminDashboard/loaDemployee_payroll';
+$route['employee_payslip'] = 'dashBoard/Admin/AdminDashboard/loaDemployee_payslip';
 
-
+$route['employee_payslip/(:num)'] = 
+'dashBoard/Admin/AdminDashboard/send_payroll_slip/$1';
 // =====================================================
 // PAYROLL ROUTES
 // =====================================================

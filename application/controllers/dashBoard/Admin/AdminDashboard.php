@@ -50,7 +50,7 @@ class AdminDashboard extends CI_Controller
 
 
     // Generic page loader
-    private function load_page($page)
+    private function load_page($page, $data = [])
     {
 
 
@@ -60,8 +60,25 @@ class AdminDashboard extends CI_Controller
         $data['notification_count'] = $this->Dash->count_new_messages();
 
         $data['registered'] = $this->Dash->get_registeredUserData();  // Registered user data for profile card page
-        $data['students'] = $this->EnrollStudent->get_enroll_studentData();  // get Enroll students data from Enroll_Student_Model
-        $data['total_students'] = $this->EnrollStudent->count_students();   // Enroll Student Count from Enroll_Student_Model
+
+        // Admin Dashboard for Report
+
+        $data['students'] = $this->EnrollStudent->get_enroll_studentData();
+        $data['total_students'] = $this->EnrollStudent->count_students();
+        $data['active_students'] = $this->EnrollStudent->get_active_students_count();
+        $data['inactive_students'] = $this->EnrollStudent->get_inactive_students_count();
+        $data['total_monthly_salary'] = $this->EnrollStudent->total_monthly_salary();
+        $data['current_month_paid'] = $this->EnrollStudent->current_month_paid();
+        $data['current_month_due'] = $this->EnrollStudent->current_month_due();
+        $data['total_annual_salary'] = $this->EnrollStudent->total_annual_salary();
+        $data['total_annual_paid'] = $this->EnrollStudent->total_annual_paid();
+        $data['total_annual_due'] = $this->EnrollStudent->total_annual_due();
+        $data['total_advance_paid'] = $this->EnrollStudent->total_advance_paid();
+        $data['monthly_deduction'] = $this->EnrollStudent->monthly_deduction();
+        $data['annual_deduction'] = $this->EnrollStudent->annual_deduction();
+        $data['total_present_days'] = $this->EnrollStudent->total_present_days();
+        $data['total_absent_days'] = $this->EnrollStudent->total_absent_days();
+        $data['total_leave_days'] = $this->EnrollStudent->total_leave_days();
 
         $data['attendance'] = $this->Employee->get_all_attendance();   // coming from Employee_Attendance_Model & this get_all_attendance() 
 
@@ -78,6 +95,34 @@ class AdminDashboard extends CI_Controller
         $this->load->view('dashboard/admin/layouts/dashFooter', $data);
 
     }
+
+
+
+
+
+    //-------------------------------------------- Start Employee Payroll Page all work here
+    public function loaDemployee_payslip()
+    {
+        $employee_uid = $this->input->get('employee_uid');
+
+        $query = $this->db->query("
+        SELECT * 
+        FROM employee_payroll
+        WHERE employee_uid = '$employee_uid'
+    ");
+
+        $data['payroll'] = $query->row();
+
+        $this->load_page('employee_payslip', $data);
+    }
+
+
+
+
+
+
+
+
 
 
 
@@ -358,26 +403,6 @@ class AdminDashboard extends CI_Controller
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //-------------------------------------------- Start Employee Payroll Page all work here
-    public function loaDemployee_payroll()
-    {
-        $this->load_page('employee_payroll');
-    }
 
 
 
