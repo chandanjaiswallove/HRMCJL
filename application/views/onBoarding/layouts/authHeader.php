@@ -6,14 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Dynamic Title -->
-    <title><?= !empty($card->web_title) ? $card->web_title : 'Jaiswal'; ?></title>
+    <title><?= !empty($card->web_title) ? $card->web_title : 'Aadamya'; ?></title>
 
     <!-- Dynamic Favicon -->
     <link rel="icon" type="image/x-icon"
-        href="<?= !empty($card->web_icon) ? base_url($card->web_icon) : base_url('modules/assets/images/cicon.png'); ?>">
+        href="<?= !empty($card->web_icon) ? base_url($card->web_icon) : base_url('modules/assets/images/dark_icon.png'); ?>">
 
     <link rel="shortcut icon" type="image/x-icon"
-        href="<?= !empty($card->web_icon) ? base_url($card->web_icon) : base_url('modules/assets/images/cicon.png'); ?>">
+        href="<?= !empty($card->web_icon) ? base_url($card->web_icon) : base_url('modules/assets/images/light_icon.png'); ?>">
     <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,7 +42,7 @@
     <!-- <video class="body-overlay" id="bgVideo" muted autoplay loop>
         <source src="<?= base_url('modules/assets/images/video3.mp4'); ?>" type="video/mp4">
     </video> -->
-<img class="body-overlay" src="<?= base_url('modules/assets/images/photo1.png'); ?>" alt="Background Image">
+    <img class="body-overlay" src="<?= base_url('modules/assets/images/photo1.png'); ?>" alt="Background Image">
 
     <div class="page-loader">
         <div class="bounceball"></div>
@@ -62,15 +62,24 @@
                             <a href="<?php echo base_url(''); ?>">
 
                                 <?php if (!empty($card->company_logo)) { ?>
+
+                                    <!-- Main Logo -->
                                     <img src="<?= base_url($card->company_logo); ?>" alt="Company Logo"
                                         style="height:36px; width:128px;">
 
                                 <?php } elseif (!empty($card->company_dark_logo)) { ?>
-                                    <img src="<?= base_url($card->company_dark_logo); ?>" alt="Company Logo"
+
+                                    <!-- Dark Logo -->
+                                    <img src="<?= base_url($card->company_dark_logo); ?>" alt="Dark Logo"
                                         style="height:36px; width:128px;">
 
                                 <?php } else { ?>
-                                    <img alt="Company Logo" style="height:36px; width:128px;">
+
+                                    <!-- Default Fallback -->
+                                    <img src="<?= base_url('modules/assets/images/dark_logo.png'); ?>" alt="Default Logo"
+                                        style="height:36px; width:128px;"
+                                        onerror="this.onerror=null; this.src='<?= base_url('modules/assets/images/light_logo.png'); ?>';">
+
                                 <?php } ?>
 
                             </a>

@@ -6,14 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Dynamic Title -->
-    <title><?= !empty($card->web_title) ? $card->web_title : 'Jaiswal'; ?></title>
+    <title><?= !empty($card->web_title) ? $card->web_title : 'Aadamya'; ?></title>
 
     <!-- Dynamic Favicon -->
     <link rel="icon" type="image/x-icon"
-        href="<?= !empty($card->web_icon) ? base_url($card->web_icon) : base_url('modules/assets/images/cicon.png'); ?>">
+        href="<?= !empty($card->web_icon) ? base_url($card->web_icon) : base_url('modules/assets/images/dark_icon.png'); ?>">
 
     <link rel="shortcut icon" type="image/x-icon"
-        href="<?= !empty($card->web_icon) ? base_url($card->web_icon) : base_url('modules/assets/images/cicon.png'); ?>">
+        href="<?= !empty($card->web_icon) ? base_url($card->web_icon) : base_url('modules/assets/images/ligh_icon.png'); ?>">
 
     <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

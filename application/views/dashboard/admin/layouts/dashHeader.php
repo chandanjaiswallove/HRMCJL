@@ -6,8 +6,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?= $card->web_title; ?></title>
-  <link rel="icon" type="image/png" href="<?= base_url($card->web_icon); ?>" sizes="16x16">
-  <link rel="stylesheet" href="modules/assets2/css/remixicon.css">
+<link rel="icon" type="image/png" href="<?= !empty($card->web_icon) && file_exists(FCPATH . $card->web_icon)? base_url($card->web_icon): base_url('modules/assets/images/light_icon.png'); ?>" sizes="16x16">  <link rel="stylesheet" href="modules/assets2/css/remixicon.css">
   <!-- BootStrap css -->
   <link rel="stylesheet" href="modules/assets2/css/lib/bootstrap.min.css">
   <!-- Apex Chart css -->
@@ -148,16 +147,26 @@
       <iconify-icon icon="radix-icons:cross-2"></iconify-icon>
     </button>
     <div>
-      <a href="<?= base_url('admin_playground'); ?>"
-        class="sidebar-logo d-flex align-items-center justify-content-center gap-2">
+<a href="<?= base_url('admin_playground'); ?>"
+   class="sidebar-logo d-flex align-items-center justify-content-center gap-2">
 
-        <!-- Light Mode Logo -->
-        <img src="<?= base_url($card->company_dark_logo); ?>" alt="site logo" class="light-logo  ">
+    <!-- Light Mode Logo -->
+    <img src="<?= !empty($card->company_dark_logo) 
+                    ? base_url($card->company_dark_logo) 
+                    : base_url('modules/assets/images/light_logo.png'); ?>" 
+         alt="site logo" 
+         class="light-logo"
+         onerror="this.onerror=null; this.src='<?= base_url('modules/assets/images/light_logo.png'); ?>';">
 
-        <!-- Dark Mode Logo -->
-        <img src="<?= base_url($card->company_logo); ?>" alt="site logo" class="dark-logo">
+    <!-- Dark Mode Logo -->
+    <img src="<?= !empty($card->company_logo) 
+                    ? base_url($card->company_logo) 
+                    : base_url('modules/assets/images/dark_logo.png'); ?>" 
+         alt="site logo" 
+         class="dark-logo"
+         onerror="this.onerror=null; this.src='<?= base_url('modules/assets/images/dark_logo.png'); ?>';">
 
-      </a>
+</a>
       
     </div>
     <div class="sidebar-menu-area">
