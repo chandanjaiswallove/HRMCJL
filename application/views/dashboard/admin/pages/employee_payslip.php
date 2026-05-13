@@ -102,17 +102,25 @@
                     <!-- LEFT SIDE LOGO -->
                     <div class="d-flex align-items-center">
 
-                        <?php if (!empty($card->company_dark_logo)) { ?>
+     <?php if (!empty($card->company_dark_logo)) { ?>
 
-                            <img src="<?= base_url($card->company_dark_logo); ?>" class="company-logo img-fluid"
-                                style="max-height: 3rem;">
+    <img src="<?= base_url($card->company_dark_logo); ?>" 
+         class="company-logo img-fluid"
+         style="max-height: 3rem;">
 
-                        <?php } else { ?>
+<?php } elseif (!empty($card->company_logo)) { ?>
 
-                            <img src="<?= base_url($card->company_logo); ?>" class="company-logo img-fluid"
-                                style="max-height: 3rem;  ">
+    <img src="<?= base_url($card->company_logo); ?>" 
+         class="company-logo img-fluid"
+         style="max-height: 3rem;">
 
-                        <?php } ?>
+<?php } else { ?>
+
+    <img src="<?= base_url('modules/assets/images/light_icon.png'); ?>" 
+         class="company-logo img-fluid"
+         style="max-height: 3rem;">
+
+<?php } ?>
 
                     </div>
 

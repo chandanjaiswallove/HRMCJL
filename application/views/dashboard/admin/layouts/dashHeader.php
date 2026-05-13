@@ -610,11 +610,17 @@
             </div><!-- Notification dropdown end -->
 
             <div class="dropdown">
-              <button class="d-flex justify-content-center align-items-center rounded-circle" type="button"
-                data-bs-toggle="dropdown">
-                <img src="<?= $card->profile_photo; ?>" alt="image"
-                  class="w-40-px h-40-px object-fit-cover rounded-circle">
-              </button>
+     <button class="d-flex justify-content-center align-items-center rounded-circle" 
+        type="button"
+        data-bs-toggle="dropdown">
+
+    <img src="<?= !empty($card->profile_photo) 
+                    ? base_url($card->profile_photo) 
+                    : base_url('modules/assets/images/default.jpeg'); ?>" 
+         alt="pr"
+         class="w-40-px h-40-px object-fit-cover rounded-circle">
+
+</button>
               <div class="dropdown-menu to-top dropdown-menu-sm">
                 <div
                   class="py-12 px-16 radius-8 bg-primary-50 mb-16 d-flex align-items-center justify-content-between gap-2">
