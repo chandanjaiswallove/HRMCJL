@@ -29,11 +29,11 @@ $this->load->view('fronted/layouts/ui_Header');
 			</h1>
 
 			<h2 style="font-size:40px; font-weight:800; margin-bottom:20px;">
-				Aadmya Fees Management ERP
+				 Employee Management System
 			</h2>
 
 			<p style="max-width:500px; margin:auto; margin-bottom:30px;">
-				Manage student fees, reports, and records easily with our smart ERP system.
+    Manage employee attendance, payroll, work records, salary, reports, tasks, and employee data easily with our smart system.
 			</p>
 
 			<a href="<?= base_url('onBoarding'); ?>" class="theme-btn">
