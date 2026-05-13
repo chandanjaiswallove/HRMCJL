@@ -229,7 +229,7 @@
                             <div class="mb-3">
                                 <label class="form-label">Full Name</label>
                                 <input class="form-control" type="text" placeholder="Full Name" id="full_name"
-                                    value="<?= $card->person_name ?? '' ?>" name="full_name" required />
+                                    value="<?= $card->person_name ?? '' ?>" name="full_name"  />
                             </div>
                         </div>
 
