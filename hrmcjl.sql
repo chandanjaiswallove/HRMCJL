@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 11, 2026 at 12:24 PM
+-- Generation Time: May 12, 2026 at 08:59 AM
 -- Server version: 8.0.45-0ubuntu0.22.04.1
 -- PHP Version: 8.4.20
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `card_directory` (
   `id` int NOT NULL,
   `aadhar_number` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `card_updated_date` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP,
+`card_updated_date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `person_name` varchar(360) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `profile_photo` varchar(360) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `email` varchar(360) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
@@ -43,7 +43,7 @@ CREATE TABLE `card_directory` (
   `linkedin` varchar(360) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `whatsapp_contact` varchar(360) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `company_logo` varchar(360) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `company_dark_logo` varchar(360) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `company_dark_logo` varchar(360) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `whatsapp_message` varchar(360) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `web_icon` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `web_title` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
@@ -64,7 +64,7 @@ INSERT INTO `card_directory` (`id`, `aadhar_number`, `card_updated_date`, `perso
 
 CREATE TABLE `contact_directory` (
   `id` int NOT NULL,
-  `contact_date` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP,
+`contact_date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `visitor_fullname` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `visitor_email` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `visitor_phone` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
@@ -170,7 +170,7 @@ CREATE TABLE `employee_payroll` (
 --
 
 INSERT INTO `employee_payroll` (`id`, `employee_uid`, `employee_name`, `department`, `designation`, `salary_month`, `salary_year`, `gross_salary`, `earned_amount`, `present_days`, `absent_days`, `leave_days`, `advance_amount`, `deduction_amount`, `paid_amount`, `due_amount`, `payment_mode`, `payment_date`, `remarks`, `created_at`, `updated_at`, `status`, `previous_due`, `previous_advance`, `final_payable_salary`, `payroll_month_key`) VALUES
-(9, 'AAN20260507121542', 'aanaya jaiswal', 'IT Department', 'Web Developer', 'May', '2026', 3000.00, 290.00, 2, 1, 1, 361.00, 97.00, 651.00, 0.00, 'Cash', '2026-05-10', 'May Month Payemnt', '2026-05-10 05:01:51', '2026-05-10 13:44:07', 'Pending', 0.00, 0.00, 290.00, NULL),
+(9, 'AAN20260507121542', 'aanaya jaiswal', 'IT Department', 'Web Developer', 'May', '2026', 3000.00, 290.00, 2, 1, 1, 361.00, 97.00, 651.00, 0.00, 'Cash', '2026-05-10', 'May Month Payemnt', '2026-05-10 05:01:51', '2026-05-11 13:01:47', 'Pending', 0.00, 0.00, 290.00, NULL),
 (10, 'VED20260507122201', 'Vedam Dunnel', 'Water Service Staff', 'Office Helper', 'May', '2026', 13996.00, 903.00, 2, 2, 0, 0.00, 903.00, 903.00, 0.00, 'Cash', '2026-05-10', 'Payment Done', '2026-05-10 05:13:56', '2026-05-10 11:13:25', 'Pending', 0.00, 0.00, 903.00, NULL),
 (11, 'RAH20260507121500', 'Parmodh jaiswal', 'Sales', 'Sales Manager', 'May', '2026', 4522.00, 292.00, 1, 1, 1, 0.00, 146.00, 292.00, 0.00, 'Cash', '2026-05-10', 'First Payemnt', '2026-05-10 05:15:29', NULL, 'Pending', 0.00, 0.00, 292.00, NULL),
 (12, 'VED20260507122201', 'Vedam Dunnel', 'Water Service Staff', 'Office Helper', 'June', '2026', 13996.00, 467.00, 1, 1, 0, 0.00, 467.00, 370.00, 0.00, 'Cash', '2026-05-10', 'Payment Done', '2026-05-10 05:43:02', NULL, 'Pending', 0.00, 97.00, 370.00, NULL);
@@ -318,7 +318,7 @@ CREATE TABLE `student_directory` (
 
 INSERT INTO `student_directory` (`id`, `student_name`, `student_email`, `student_contact`, `student_uid`, `student_avatar`, `student_aadhar`, `student_aapaar`, `student_blood_group`, `student_gender`, `student_dob`, `student_father_name`, `permanent_address`, `correspondance_address`, `enrolled_class_section`, `father_contact_no`, `joining_date`, `enrollment_year`, `student_profile_status`, `db_enrollment_update`, `monthly_salary`) VALUES
 (26, 'Parmodh jaiswal', 'rahuljaiswal@gmail.com', '+919262275400', 'RAH20260507121500', 'cf984ecfd84fbe8b9b9cf6417efcdc0c.jpg', '633582337654', '4522', 'O+', 'male', '2000-01-01', 'Mahesh Jaiswal', 'MS , mothihari, bihar - 845765542', ' Metro City , Patna , Bihar - 84575541     ', 'Sales', '9798564795', '2026-05-07', 'Sales Manager', 'Active', '2026-05-10 05:12:52', 4522.00),
-(27, 'aanaya jaiswal', 'aanayajaiswal@gmail.com', '+917292818092', 'AAN20260507121542', '79e4f7cc165d85d76b4b912d1dec1561.jpg', '366589223752', '5001', 'AB+', 'female', '2004-02-10', 'Saurav Jaiswal', 'Pari Chowk, Greater Noida , uP - 7641525', '             LTT, Kurlem, Maharastha - 1104582         ', 'IT Department', '9821878761', '2026-05-06', 'Web Developer', 'Active', '2026-05-10 07:17:22', 5001.00),
+(27, 'aanaya jaiswal', 'aanayajaiswal@gmail.com', '9472428947', 'AAN20260507121542', '79e4f7cc165d85d76b4b912d1dec1561.jpg', '366589223752', '5001', 'AB+', 'female', '2004-02-10', 'Saurav Jaiswal', 'Pari Chowk, Greater Noida , uP - 7641525', '              LTT, Kurlem, Maharastha - 1104582          ', 'IT Department', '9821878761', '2026-05-06', 'Web Developer', 'Active', '2026-05-11 07:08:30', 5001.00),
 (28, 'Saanvi Jaiswal', 'saanvijaiswal@gmail.com', '+917292818362', 'SAA20260507121648', 'bd07ac8a9c5ce05d95796858f038c997.jpeg', '679935622495', '25599', 'AB+', 'female', '2005-01-01', 'Satya Prakash', 'BullBall Park , KhadakNagar, LP - 468653', '   Palam Lake , Rudelm , sP - 32146332 ', 'Sales', '+917292818362', '2026-05-05', 'Sales Executive', 'Inactive', '2026-05-10 05:13:02', 25599.00),
 (29, 'Vedam Dunnel', 'vedamdunnel@gmail.com', '+919262275448', 'VED20260507122201', '5823f912289ffeb4156a97fd279d8737.png', '699583226644', '13996', 'Ab+', 'male', '2001-01-01', 'Mukesh Jain', 'Lafarde, Staniel Road , UK - 135465412', ' Amer, Z Road , OFC - 135465412     ', 'Water Service Staff', '+919262275448', '2026-05-07', 'Office Helper', 'Active', '2026-05-10 05:13:21', 13996.00),
 (30, 'Maniem xem', 'maniemxem@gmail.com', '+917292818045', 'MAN20260507122445', '19a3833b5a47cb7e72b124fb361476fe.png', '366589223752', '12500', 'AB-', 'male', '2007-01-01', 'Jack Mile', 'Couple Garden, meetBridge, London - 413652332', '      senion Place, Valueim , UK - 3954612    ', 'Cleaning', '+919262275605', '2026-05-03', 'Cleaner', 'Inactive', '2026-05-09 20:01:53', 12500.00),
